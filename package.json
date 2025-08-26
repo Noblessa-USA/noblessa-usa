@@ -1,7 +1,7 @@
 {
     "name": "Callowhill-Template",
     "version": "2.0.0",
-    "description": "The official CodeStitch Intermediate kit, featuring 11ty, Decap CMS and LESS - all set up for you! Perfect for websites of all sizes.",
+    "description": "The official Callowhill Web Designs kit, featuring 11ty, Decap CMS and LESS - all set up for you! Perfect for websites of all sizes.",
     "main": "index.js",
     "scripts": {
         "watch:cms": "npx decap-server",
@@ -9,10 +9,6 @@
         "build:eleventy": "cross-env ELEVENTY_ENV=PROD eleventy",
         "start": "run-p watch:*",
         "build": "run-s build:*"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/CodeStitchOfficial/Intermediate-Website-Kit-LESS.git"
     },
     "keywords": [],
     "author": "",
