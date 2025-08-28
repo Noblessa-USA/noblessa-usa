@@ -39,8 +39,8 @@ eleventyNavigation:
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     
     <!-- Preload critical images -->
-    <link rel="preload" as="image" href="/assets/videos/youngersfirstframe2560.webp">
-    <link rel="preload" as="image" href="/assets/images/collections/sentido/sentidoblacknoir.webp">
+    <link rel="preload" as="image" href="{% getUrl '/assets/videos/youngersfirstframe2560.webp' | resize({ width: 1920, height: 1080 }) | webp %}">
+    <link rel="preload" as="image" href="{% getUrl '/assets/images/collections/sentido/sentidoblacknoir.webp' | resize({ width: 1920, height: 1080 }) | avif %}">
 
     <!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
     <!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
@@ -60,7 +60,7 @@ eleventyNavigation:
         </div>
 
         <!-- Background Image -->
-        <video src="/assets/videos/youngers1080x1920.webm" class="cs-video" autoplay muted playsinline loop preload="metadata" poster="/assets/videos/youngersfirstframe2560.webp" aria-hidden=true></video>
+        <video src="/assets/videos/youngers1080x1920.webm" class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/youngersfirstframe2560.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden=true></video>
     </section>
 
     <!-- ============================================ -->
@@ -81,7 +81,7 @@ eleventyNavigation:
                     </p>
                     <a href="/contact" class="cs-button-nodeco">
                         <span class="cs-hover-underline"> Live The Beautiful Life </span>
-                        <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+                        <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
                     </a>
                 </div>
             </div>
@@ -95,15 +95,105 @@ eleventyNavigation:
     <section id="collections-gallery">
         <div class="cg-container">
             <div class="cg-slider">
-                <div class="cg-slide active" style="background-image: url('assets/images/collections/sentido/sentidoblacknoir.webp')"></div>
-                <div class="cg-slide" data-bg="assets/images/collections/serenity/serenityivory.webp"></div>
-                <div class="cg-slide" data-bg="assets/images/livingrooms/whitelivingroom.webp"></div>
-                <div class="cg-slide" data-bg="assets/images/bathrooms/bath1.webp"></div>
-                <div class="cg-slide" data-bg="assets/images/collections/surf/surf1.webp"></div>
-                <div class="cg-slide" data-bg="assets/images/collections/serenity/serenityalpinewhite3.webp"></div>
-                <div class="cg-slide" data-bg="assets/images/collections/sentido/sentidosky.webp"></div>
-                <div class="cg-slide" data-bg="assets/images/bathrooms/bath2.webp"></div>
-                <div class="cg-slide" data-bg="assets/images/collections/sentido/sentidoolive.webp"></div>
+                <div class="cg-slide active">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoblacknoir.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoblacknoir.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoblacknoir.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoblacknoir.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoblacknoir.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoblacknoir.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/collections/sentido/sentidoblacknoir.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="Sentido Black Noir Collection" width="1920" height="1080" loading="eager" decoding="async">
+                    </picture>
+                </div>
+                <div class="cg-slide">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityivory.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityivory.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityivory.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityivory.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityivory.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityivory.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/collections/serenity/serenityivory.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="Serenity Ivory Collection" width="1920" height="1080" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="cg-slide">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="White Living Room" width="1920" height="1080" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="cg-slide">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="Bathroom Design 1" width="1920" height="1080" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="cg-slide">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/surf/surf1.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/surf/surf1.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/surf/surf1.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/surf/surf1.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/surf/surf1.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/surf/surf1.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/collections/surf/surf1.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="Surf Collection" width="1920" height="1080" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="cg-slide">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="Serenity Alpine White Collection" width="1920" height="1080" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="cg-slide">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidosky.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidosky.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidosky.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidosky.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidosky.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidosky.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/collections/sentido/sentidosky.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="Sentido Sky Collection" width="1920" height="1080" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="cg-slide">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="Bathroom Design 2" width="1920" height="1080" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="cg-slide">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoolive.webp' | resize({ width: 640, height: 900 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoolive.webp' | resize({ width: 640, height: 900 }) | webp %}" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoolive.webp' | resize({ width: 1024, height: 768 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoolive.webp' | resize({ width: 1024, height: 768 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoolive.webp' | resize({ width: 1920, height: 1080 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 1025px)" srcset="{% getUrl '/assets/images/collections/sentido/sentidoolive.webp' | resize({ width: 1920, height: 1080 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/collections/sentido/sentidoolive.webp' | resize({ width: 1920, height: 1080 }) | webp %}" alt="Sentido Olive Collection" width="1920" height="1080" loading="lazy" decoding="async">
+                    </picture>
+                </div>
             </div>
             <div class="cg-navigation">
                 <button class="cg-prev" aria-label="Previous slide">
@@ -220,7 +310,7 @@ eleventyNavigation:
                 </p>
                 <a href="/about" class="cs-button-nodeco sl-fade-in-left">
                     <span class="cs-hover-underline"> Explore Noblessa </span>
-                    <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+                    <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
                 </a>
             </div>
         </div>
