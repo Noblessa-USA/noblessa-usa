@@ -14,11 +14,7 @@ eleventyNavigation:
     <!-- Critical styles are loaded first -->
     <link rel="stylesheet" href="/assets/css/critical.css"/>
 
-    <!-- Preload critical scripts -->
-    <link rel="modulepreload" href="assets/js/hover.js">
-    
     <!-- Defer non-critical scripts and use async where possible -->
-    <script defer type="module" src="assets/js/hover.js"></script>
     <script defer src="assets/js/transformgallery.js"></script>
     <script defer src="assets/js/collections-gallery.js"></script>
     <script defer src="assets/js/responsive-video.js"></script>
@@ -34,8 +30,8 @@ eleventyNavigation:
         <link rel="stylesheet" href="/assets/css/local.css"/>
     {% endif %}
 
-    <!-- Preload video strategically - load medium size by default, JavaScript can optimize this -->
-    <link rel="preload" type="video/webm" as="video" href="/assets/videos/youngers1080x1920.webm"/>
+    <!-- Preload video strategically - load smallest size by default, JavaScript can optimize this -->
+    <link rel="preload" type="video/webm" as="video" href="/assets/videos/optimizations/youngers/youngers720.webm"/>
     
     <!-- Preconnect to external domains if any -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -64,20 +60,16 @@ eleventyNavigation:
         <!-- Background Video with Responsive Sources -->
         <video class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/youngersfirstframe2560.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden=true>
             <!-- Mobile and small tablet (up to 768px) -->
-            <source media="(max-width: 768px)" src="/assets/videos/youngers720x1280.webm" type="video/webm">
-            <source media="(max-width: 768px)" src="/assets/videos/youngers720x1280.mp4" type="video/mp4">
+            <source media="(max-width: 768px)" src="/assets/videos/optimizations/youngers/youngers720.webm" type="video/webm">
             
             <!-- Tablet and small desktop (up to 1200px) -->
-            <source media="(max-width: 1200px)" src="/assets/videos/youngers1080x1920.webm" type="video/webm">
-            <source media="(max-width: 1200px)" src="/assets/videos/youngers1080x1920.mp4" type="video/mp4">
-            
+            <source media="(max-width: 1200px)" src="/assets/videos/optimizations/youngers/youngers1080.webm" type="video/webm">
+
             <!-- Large desktop and higher resolutions -->
-            <source media="(min-width: 1201px)" src="/assets/videos/youngers1440x2560.webm" type="video/webm">
-            <source media="(min-width: 1201px)" src="/assets/videos/youngers1440x2560.mp4" type="video/mp4">
-            
+            <source media="(min-width: 1201px)" src="/assets/videos/optimizations/youngers/youngers1440.webm" type="video/webm">
+
             <!-- Fallback for browsers that don't support the source element -->
             <source src="/assets/videos/youngers1080x1920.webm" type="video/webm">
-            <source src="/assets/videos/youngers1080x1920.mp4" type="video/mp4">
             
             <!-- Ultimate fallback message -->
             Your browser does not support the video tag.
@@ -240,6 +232,8 @@ eleventyNavigation:
             <div class="cs-flex">
                 <div class="cs-image-group">
                     <div class="cs-picture cs-picture1">
+                        <img class="cs-bg-img" loading="lazy" decoding="async" src="/assets/images/lazar/lazarhome2.webp" alt="Lazar project background" width="700" height="600">
+                        <img class="cs-fg-img" loading="lazy" decoding="async" src="/assets/images/lazar/lazarhome1.webp" alt="Lazar project foreground" width="700" height="600">
                         <a href="/clients/lazars" class="cs-link">
                         <img class="cs-icon" loading="lazy" decoding="async" src="/assets/svgs/up-right-arrow.svg" alt="icon" width="24" height="24">
                         The Lazar Project, Los Angeles
@@ -264,7 +258,10 @@ eleventyNavigation:
                     </p>
                 </div>
                 <div class="cs-image-group">
-                    <div class="cs-picture cs-picture2"></div>
+                    <div class="cs-picture cs-picture2">
+                        <img class="cs-bg-img" loading="lazy" decoding="async" src="/assets/images/silva/silvahome1.webp" alt="Silva project background" width="700" height="600">
+                        <img class="cs-fg-img" loading="lazy" decoding="async" src="/assets/images/silva/silvahome2.webp" alt="Silva project foreground" width="700" height="600">
+                    </div>
                     <a href="/clients/silva" class="cs-link">
                         <img class="cs-icon" loading="lazy" decoding="async" src="/assets/svgs/up-right-arrow.svg" alt="icon" width="24" height="24">
                         The Silva Project, NYC
@@ -291,7 +288,9 @@ eleventyNavigation:
             </div>
             <div class="cs-flex cs-flex-reverse">
                 <div class="cs-image-group">
-                    <div class="cs-picture cs-picture4">
+                    <div class="cs-picture cs-picture3">
+                        <img class="cs-bg-img" loading="lazy" decoding="async" src="/assets/images/youngers/youngers2.webp" alt="Youngers project background" width="700" height="600">
+                        <img class="cs-fg-img" loading="lazy" decoding="async" src="/assets/images/youngers/youngers1.webp" alt="Youngers project foreground" width="700" height="600">
                         <a href="/clients/youngers" class="cs-link">
                             <img class="cs-icon" loading="lazy" decoding="async" src="/assets/svgs/up-right-arrow.svg" alt="icon" width="24" height="24">
                             The Youngers Project, Los Angeles
@@ -317,7 +316,10 @@ eleventyNavigation:
         <div class="cs-container">
             <div class="cs-image-group">
                 <!--Main Image-->
-                <div class="cs-picture cs-picture3"></div>
+                <div class="cs-picture">
+                    <img class="cs-bg-img" loading="lazy" decoding="async" src="/assets/images/walnutkitchen.webp" alt="Walnut kitchen background" width="700" height="600">
+                    <img class="cs-fg-img" loading="lazy" decoding="async" src="/assets/images/whitekitchen.webp" alt="White kitchen foreground" width="700" height="600">
+                </div>
             </div>
             <div class="cs-content">
                 <span class="cs-topper sl-fade-in-down">Our Legacy</span>
