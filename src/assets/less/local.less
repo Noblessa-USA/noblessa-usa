@@ -562,14 +562,17 @@ img {
 
         .cs-picture1 {
             height: 110vw;
+            position: relative;
         }
 
         .cs-picture2 {
             height: 132vw;
+            position: relative;
         }
 
         .cs-picture3 {
             height: 110vw;
+            position: relative;
         }
 
         /* Image styling for background and foreground images */
@@ -580,7 +583,6 @@ img {
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 1;
         }
         
         .cs-bg-img {
@@ -589,12 +591,12 @@ img {
         
         .cs-fg-img {
             z-index: 2;
-            opacity: 0;
+            opacity: 1;
             transition: opacity 0.8s ease;
         }
         
         .cs-picture:hover .cs-fg-img {
-            opacity: 1;
+            opacity: 0;
         }
 
         .cs-link {
@@ -1024,20 +1026,26 @@ img {
             width: 100%;
             height: 100%;
             display: block;
+            position: relative;
+        }
+
+        .cs-bg-img, .cs-fg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             position: absolute;
             top: 0;
             left: 0;
-            object-fit: cover;
+        }
 
-            &.cs-bg-img {
-                z-index: 1;
-            }
+        .cs-bg-img {
+            z-index: 1;
+        }
 
-            &.cs-fg-img {
-                z-index: 2;
-                opacity: 1;
-                transition: opacity 0.8s ease;
-            }
+        .cs-fg-img {
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.8s ease;
         }
 
         .cs-button-nodeco {
