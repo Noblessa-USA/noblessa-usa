@@ -21,6 +21,7 @@ eleventyNavigation:
     <script defer type="module" src="assets/js/hover.js"></script>
     <script defer src="assets/js/transformgallery.js"></script>
     <script defer src="assets/js/collections-gallery.js"></script>
+    <script defer src="assets/js/responsive-video.js"></script>
 
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
     {% if kit.isProduction %}
@@ -33,6 +34,7 @@ eleventyNavigation:
         <link rel="stylesheet" href="/assets/css/local.css"/>
     {% endif %}
 
+    <!-- Preload video strategically - load medium size by default, JavaScript can optimize this -->
     <link rel="preload" type="video/webm" as="video" href="/assets/videos/youngers1080x1920.webm"/>
     
     <!-- Preconnect to external domains if any -->
@@ -59,8 +61,27 @@ eleventyNavigation:
             <h1 class="cs-title">live the beautiful life</h1>
         </div>
 
-        <!-- Background Image -->
-        <video src="/assets/videos/youngers1080x1920.webm" class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/youngersfirstframe2560.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden=true></video>
+        <!-- Background Video with Responsive Sources -->
+        <video class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/youngersfirstframe2560.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden=true>
+            <!-- Mobile and small tablet (up to 768px) -->
+            <source media="(max-width: 768px)" src="/assets/videos/youngers720x1280.webm" type="video/webm">
+            <source media="(max-width: 768px)" src="/assets/videos/youngers720x1280.mp4" type="video/mp4">
+            
+            <!-- Tablet and small desktop (up to 1200px) -->
+            <source media="(max-width: 1200px)" src="/assets/videos/youngers1080x1920.webm" type="video/webm">
+            <source media="(max-width: 1200px)" src="/assets/videos/youngers1080x1920.mp4" type="video/mp4">
+            
+            <!-- Large desktop and higher resolutions -->
+            <source media="(min-width: 1201px)" src="/assets/videos/youngers1440x2560.webm" type="video/webm">
+            <source media="(min-width: 1201px)" src="/assets/videos/youngers1440x2560.mp4" type="video/mp4">
+            
+            <!-- Fallback for browsers that don't support the source element -->
+            <source src="/assets/videos/youngers1080x1920.webm" type="video/webm">
+            <source src="/assets/videos/youngers1080x1920.mp4" type="video/mp4">
+            
+            <!-- Ultimate fallback message -->
+            Your browser does not support the video tag.
+        </video>
     </section>
 
     <!-- ============================================ -->
