@@ -56,24 +56,26 @@
                                 {% endfor %}
 
                                 {# Render the <button> with the active class, dropdown icon and child links #}
-                                <span 
+                                <button 
+                                    type="button"
                                     class="cs-li-link {{ activeClass }}"
                                     aria-expanded="false"
                                     aria-controls="dropdown-{{ entry.key }}"
-                                    aria-label="dropdown-{{ entry.key }}"
+                                    aria-haspopup="true"
+                                    aria-label="Open {{ entry.key }} submenu"
                                 >
                                     {{ entry.key }}
-                                    <svg class="cs-drop-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="cs-drop-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
-                                </span>
+                                </button>
 
                                 {# Dropdowns have another ul/li set up within the parent li, which gets rendered in the same way as a normal link #}
-                                <ul class="cs-drop-ul" id="dropdown-{{ entry.key }}">
+                                <ul class="cs-drop-ul" id="dropdown-{{ entry.key }}" role="menu" aria-hidden="true">
                                     {% for child in entry.children %}
                                     {# Replace href="{{ child.url }}" #}
-                                        <li class="cs-drop-li">
-                                            <a href="{{ child.url }}" class="cs-li-link cs-drop-link">{{ child.key }}</a>
+                                        <li class="cs-drop-li" role="none">
+                                            <a href="{{ child.url }}" class="cs-li-link cs-drop-link" role="menuitem">{{ child.key }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>

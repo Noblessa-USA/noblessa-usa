@@ -39,10 +39,54 @@
 
     // mobile nav toggle code
     const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
-        for (const item of dropDowns) {
-            const onClick = () => {
-            item.classList.toggle('cs-active')
+    for (const item of dropDowns) {
+        const button = item.querySelector('.cs-li-link[aria-expanded]');
+        const dropdownMenu = item.querySelector('.cs-drop-ul');
+        
+        const toggleDropdown = (forceClose = false) => {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            const shouldClose = forceClose || isExpanded;
+            
+            // Toggle the dropdown state
+            item.classList.toggle('cs-active', !shouldClose);
+            
+            // Update aria attributes
+            button.setAttribute('aria-expanded', !shouldClose);
+            dropdownMenu.setAttribute('aria-hidden', shouldClose);
         }
-        item.addEventListener('click', onClick)
+        
+        // Add click listener to the button
+        if (button) {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleDropdown();
+            });
+            
+            // Add keyboard support
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleDropdown();
+                } else if (e.key === 'Escape') {
+                    toggleDropdown(true); // Force close
+                }
+            });
         }
+    }
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#cs-navigation .cs-dropdown')) {
+            dropDowns.forEach(item => {
+                const button = item.querySelector('.cs-li-link[aria-expanded]');
+                const dropdownMenu = item.querySelector('.cs-drop-ul');
+                if (button && dropdownMenu) {
+                    item.classList.remove('cs-active');
+                    button.setAttribute('aria-expanded', 'false');
+                    dropdownMenu.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
+    });
                                 
