@@ -11,7 +11,7 @@ eleventyNavigation:
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/contact.css">
-    <link rel="preload" type="video/webm" as="video" href="../../assets/videos/showrooms1080x1920.webm"/>
+    <link rel="preload" as="image" href="{% getUrl '/assets/videos/showroomsfirstframe.webp' | resize({ width: 1920, height: 1080 }) | webp %}">
 {% endblock %}
 
 {% block body %}
@@ -32,7 +32,9 @@ eleventyNavigation:
             </div>
         </div>
         <!--Background Video-->
-        <video data-src="/assets/videos/showrooms1080x1920.webm" class="cs-video" muted playsinline loop poster="/assets/images/construction.jpg"></video>
+        <video class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/showroomsfirstframe.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden=true>
+            <source src="/assets/videos/showrooms1080x1920.webm" type="video/webm">
+        </video>
     </div>
 
     <!-- ============================================ -->

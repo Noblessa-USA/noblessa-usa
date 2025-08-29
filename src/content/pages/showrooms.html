@@ -12,7 +12,9 @@ eleventyNavigation:
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/showrooms.css">
-    <link rel="preload" as="video" type="video/webm" href="../../assets/videos/showrooms1080x1920.webm"/>
+
+    <link rel="preload" as="image" href="{% getUrl '/assets/videos/showrooms30s.webp' | resize({ width: 1920, height: 1080 }) | webp %}">
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -39,7 +41,9 @@ eleventyNavigation:
             </div>
         </div>
         <!--Background Video-->
-        <video src="/assets/videos/showrooms1080x1920.webm#t=30" class="cs-video" autoplay muted playsinline loop preload="auto"></video>
+        <video class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/showrooms30s.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden=true>
+            <source src="/assets/videos/showrooms1080x1920.webm#t=30" type="video/webm">
+        </video>
     </div>
 
     <!-- ============================================ -->
