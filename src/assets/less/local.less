@@ -990,20 +990,26 @@ img {
             width: 100%;
             height: 100%;
             display: block;
+            position: relative;
+        }
+
+        .cs-bg-img, .cs-fg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             position: absolute;
             top: 0;
             left: 0;
-            object-fit: cover;
+        }
 
-            &.cs-bg-img {
-                z-index: 1;
-            }
+        .cs-bg-img {
+            z-index: 1;
+        }
 
-            &.cs-fg-img {
-                z-index: 2;
-                opacity: 1;
-                transition: opacity 0.8s ease;
-            }
+        .cs-fg-img {
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.8s ease;
         }
     }
 }
