@@ -134,7 +134,7 @@ eleventyNavigation:
                 <span class="cs-modal-close" id="modal-close">&times;</span>
             </div>
             <div class="cs-modal-body">
-                <form id="ambassador-contact-form" class="cs-modal-form">
+                <form id="ambassador-contact-form" class="cs-modal-form" name="Ambassadors Form" method="POST" data-netlify="true" netlify-honeypot="select" data-netlify-recaptcha="true">
                     <div class="cs-form-row">
                         <div class="cs-form-group">
                             <label for="full-name" class="cs-form-label">Full Name *</label>
@@ -153,6 +153,7 @@ eleventyNavigation:
                         <div class="cs-form-group">
                             <label for="zipcode" class="cs-form-label">Zipcode *</label>
                             <input type="text" id="zipcode" name="zipcode" class="cs-form-input" required>
+                            <input class="cs-select" name="select" type="text" placeholder="Select">
                         </div>
                     </div>
                     <div class="cs-form-group">
@@ -161,6 +162,7 @@ eleventyNavigation:
                     </div>
                     <input type="hidden" id="ambassador-email" name="ambassadorEmail" value="">
                     <input type="hidden" id="ambassador-name-input" name="ambassadorName" value="">
+                    <div data-netlify-recaptcha="true"></div>
                     <button type="submit" class="cs-button-nodeco">
                         <span class="cs-hover-underline"> Send Message </span>
                         <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
