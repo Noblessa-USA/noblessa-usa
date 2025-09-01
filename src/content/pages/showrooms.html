@@ -103,33 +103,35 @@ eleventyNavigation:
                 </div>
             </div>
             <div class="modal-body">
-                <form id="contact-form" class="contact-form">
+                <form id="contact-form" class="contact-form" name="Showrooms Form" method="POST" data-netlify="true" netlify-honeypot="select" data-netlify-recaptcha="true">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="fullname">Full Name *</label>
-                            <input type="text" id="fullname" name="fullname" required>
+                            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="zipcode">Zip Code *</label>
-                            <input type="text" id="zipcode" name="zipcode" required>
+                            <label for="zipcode">Zip/Postal Code* (US Only)</label>
+                            <input type="text" id="zipcode" name="zipcode" placeholder="Zip/Postal Code" required>
+                            <input class="cs-select" name="select" type="text" placeholder="Select">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="4" placeholder="Tell us about your project or questions..."></textarea>
                     </div>
-                    <input type="hidden" id="showroom" name="showroom">
+                    <input class="cs-hidden" type="hidden" id="showroom" name="showroom">
                     <div class="form-actions">
+                        <div data-netlify-recaptcha="true"></div>
                         <button id="submit-contact-form" type="submit" class="cs-button-nodeco">
                             <span class="cs-hover-underline"> Send Message </span>
                             <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
