@@ -749,13 +749,13 @@
             resize: vertical;
             min-height: (80/16rem);
         }
+
+        .cs-select {
+        display: none;
+    }
     }
 
     .cs-hidden  {
-        display: none;
-    }
-
-    .cs-select {
         display: none;
     }
 
@@ -771,6 +771,8 @@
 
     .form-actions {
         display: flex;
+        flex-direction: column;
+        gap: (16/16rem);
         justify-content: center;
         margin-top: (4/16rem);
     }
@@ -837,9 +839,10 @@
     .form-row {
         flex-direction: row;
         gap: (20/16rem);
-    }
+    }d
 
     .form-actions {
         margin-top: (8/16rem);
+        gap: (16/16rem);
     }
 }
