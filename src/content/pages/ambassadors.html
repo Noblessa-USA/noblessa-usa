@@ -446,44 +446,6 @@ eleventyNavigation:
             }
         });
 
-        // Form submission
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would typically send the form data to your server
-            // For now, we'll just show an alert and log the data
-            console.log('Form submitted:', data);
-            alert('Thank you! Your message has been sent to ' + data.ambassadorName);
-            closeModal();
-            
-            // Example of how you might send this to a server:
-            /*
-            fetch('/contact-ambassador', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => {
-                if (result.success) {
-                    alert('Thank you! Your message has been sent to ' + data.ambassadorName);
-                    closeModal();
-                } else {
-                    alert('Sorry, there was an error sending your message. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Sorry, there was an error sending your message. Please try again.');
-            });
-            */
-        });
-
         // Render ambassador carousel
         function renderAmbassadorCarousel() {
             const carouselTrack = document.getElementById('carousel-track');
