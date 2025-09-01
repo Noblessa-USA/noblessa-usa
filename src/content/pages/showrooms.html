@@ -358,33 +358,6 @@ eleventyNavigation:
             }
         });
 
-        // Handle form submission
-        submitButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Basic form validation
-            const requiredFields = ['fullname', 'email', 'phone', 'zipcode'];
-            let isValid = true;
-            
-            requiredFields.forEach(fieldId => {
-                const field = document.getElementById(fieldId);
-                if (!field.value.trim()) {
-                    field.style.borderColor = '#ef4444';
-                    isValid = false;
-                } else {
-                    field.style.borderColor = '#d1d5db';
-                }
-            });
-
-            if (isValid) {
-                // Here you would typically send the form data to your server
-                alert('Thank you for your message! We will contact you soon.');
-                closeContactModal();
-            } else {
-                alert('Please fill in all required fields.');
-            }
-        });
-
         // Reset field border color on input
         document.querySelectorAll('input, textarea').forEach(field => {
             field.addEventListener('input', function() {
