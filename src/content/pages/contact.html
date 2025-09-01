@@ -52,7 +52,7 @@ eleventyNavigation:
                         Contact any of our US store locations to get answers to your questions about the process of working with noblessa, or get more information about our product catalog and exclusive noblessa features.
                     </p>
                 </div>
-                <form id="cs-form-265" name="Contact_Form" method="POST" data-netlify="true">
+                <form id="cs-form-265" name="Contact_Form" method="POST" data-netlify="true" netlify-honeypot="select" data-netlify-recaptcha="true">
                     <label class="sl-fade-in-up">
                         Full Name
                         <input required type="text" id="name-265" name="name" placeholder="Name">
@@ -68,11 +68,13 @@ eleventyNavigation:
                     <label class="sl-fade-in-up">
                         Zip/Postal Code (US Only)
                         <input type="text" id="zip-265" name="zip" placeholder="Zip/Postal Code">
+                        <input class="cs-honey" name="select" type="text" placeholder="Select">
                     </label>
                     <label class="cs-label-message sl-fade-in-up">
                         Message
                         <textarea required name="message" id="message-265" placeholder="Write message..."></textarea>
                     </label>
+                    <div data-netlify-recaptcha="true"></div>
                     <button class="cs-button-nodeco cs-submit sl-fade-in-up" type="submit">
                         <span class="cs-hover-underline">Submit Message</span>
                         <img src="../../assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
