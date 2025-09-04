@@ -123,13 +123,13 @@ img {
         }
 
         .cs-section-header {
+            width: 100%;
             display: flex;
             padding-bottom: 60px;
             flex-direction: column;
             align-items: center;
             max-width: (694/16rem);
             overflow: hidden;
-            gap: 30px;
         }
 
         .cs-left-column {
@@ -143,14 +143,6 @@ img {
             text-align: center;
             justify-items: center;
             align-items: center;
-        }
-
-        .cs-divider {
-            width: 100vw;
-            height: 1px;
-            background: #D2D8DF;
-            opacity: 1;
-            display: block;
         }
 
         .cs-topper {
@@ -170,6 +162,7 @@ img {
             padding: 0px 10px;
             width: 100%;
             text-align: center;
+
         }
 
         .cs-button-nodeco {
@@ -453,6 +446,7 @@ img {
             width: 100%;
             max-width: (640/16rem);
             margin: 0 auto;
+            padding: 0 (10/16rem);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -504,6 +498,7 @@ img {
             text-align: center;
             padding: 0 10px;
             order: 0;
+            padding: 0 (20/16rem);
         }
 
         .cs-stat-group {
@@ -646,6 +641,11 @@ img {
             width: 100%;
             max-width: (1215/16rem);
             margin: auto;
+            gap: 30px;
+        }
+
+        .cs-content {
+            gap: 120px;
         }
 
         /* Ensure hover effects work at tablet size */
@@ -703,7 +703,7 @@ img {
 
         .cs-text {
             text-align: center;
-            padding: 0px 0px;
+            padding: 0 (10/16rem);
             order: none;
         }
 
@@ -907,7 +907,7 @@ img {
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #our-legacy {
-        padding: 60px 0 60px 0;
+        padding: 60px 0 0 0;
         /* clips anything overflowing */
         overflow: hidden;
         position: relative;
@@ -1017,7 +1017,7 @@ img {
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     #our-legacy {
-        padding: 60px 0 60px 0;
+        padding: 60px 0 0 0;
     }
 }
 
@@ -1040,6 +1040,7 @@ img {
             width: 50%;
             align-items: flex-start;
             overflow: visible;
+            padding-right: (32/16rem);
         }
 
         .cs-topper, .cs-title {

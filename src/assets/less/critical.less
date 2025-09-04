@@ -8,18 +8,17 @@
 /*-- -------------------------- -->
 <---           Hero             -->
 <--- -------------------------- -*/
-
-/* Mobile - 360px */
+/* Mini Mobile - 300px */
 @media only screen and (min-width: 0rem) {
     @keyframes rigoAnimation {
         0% {
-            height: 0px;
+            height: 0%;
         }
         80% {
-            height: 64px;
+            height: 100%;
         }
         100% {
-            height: 0px;
+            height: 0%;
         }
     }
 
@@ -31,7 +30,7 @@
         .cs-container {
             width: 100%;
             max-width: (1280/16rem);
-            height: 64px;
+            height: clamp(3rem, 15vw, 4rem);
             margin: auto;
             position: absolute;
             bottom: 10%;
@@ -40,17 +39,23 @@
             mix-blend-mode: difference;
             filter: drop-shadow(0px 0px 10px white);
             display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
         }
 
         .cs-title {
-            font-size: 64px;
+            font-size: clamp(3rem, 15vw, 4rem);
             font-weight: 700;
             line-height: 1.2em;
             text-align: center;
-            position: absolute;
             max-width: (829/16rem);
             margin: 0 16px 0 16px;
             color: #ffffff;
+        }
+
+        .cs-linebreak {
+            display: inline-block;
         }
 
         .cs-text {
@@ -84,9 +89,9 @@
         }
 
         .cs-rigo {
-            height: 100px;
-            overflow: hidden; 
-            position: relative; 
+            height: 100%;
+            overflow: hidden;
+            position: relative;
             width: 4px;
             background-color: #fff;
             animation-name: rigoAnimation;
@@ -95,7 +100,20 @@
             animation-iteration-count: infinite;
         }
     }
- }
+
+}
+
+/* Mobile - 384px */
+@media only screen and (min-width: 24rem) {
+    #hero-143 {
+
+        .cs-container {
+            bottom: 10%;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+    }
+}
 
  /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
