@@ -1,5 +1,6 @@
 // Scroll Animation - Fade In Up
 // This script handles scroll-triggered animations for elements with scroll animation classes
+// If the animations are not working, double check that the parent element is set to overflow: visible;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Configuration options
