@@ -16,11 +16,15 @@ exports.handler = async (event, context) => {
 
   try {
     let token;
-    
+    console.log('2.1');
+
     // Extract token from cookie
     if (authHeader.includes('auth-token=')) {
+      console.log('2.2');
       token = authHeader.split('auth-token=')[1].split(';')[0];
+      console.log('2.3');
     } else {
+      console.log('2.4');
       return {
         statusCode: 401,
         body: JSON.stringify({ error: 'No valid authentication token found' }),
