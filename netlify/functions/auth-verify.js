@@ -12,17 +12,16 @@ exports.handler = async (event, context) => {
 
   try {
     let token;
-    console.log('2.4');
+    
     // Extract token from cookie
     if (authHeader.includes('auth-token=')) {
-      console.log('2.45');
       token = authHeader.split('auth-token=')[1].split(';')[0];
     } else {
-      console.log('2.47');
-      return;
+      return {
+        statusCode: 401,
+        body: JSON.stringify({ error: 'No valid authentication token found' }),
+      };
     }
-
-    console.log('2.5');
 
     // Verify the token
     const decoded = jwt.verify(token, process.env.AUTH0_CLIENT_SECRET);
