@@ -26,25 +26,25 @@ class AuthManager {
 
     async checkAuthStatus() {
         try {
-            const response = await fetch('/.netlify/functions/auth-verify', {
+
+            try {
+                const response = await fetch('/.netlify/functions/auth-verify', {
                 method: 'GET',
                 credentials: 'include',
             });
-
-            console.log('1');
+            } catch (error) {
+                console.log('Auth check fetch failed:', error);
+            }
+            
             const data = await response.json();
             
-            console.log('2');
             if (data.authenticated) {
                 this.handleAuthenticatedUser(data.user);
-                console.log('3');
             } else {
                 this.handleUnauthenticatedUser();
-                console.log('4');
             }
         } catch (error) {
             console.error('Auth check failed:', error);
-            console.log('5');
             this.handleUnauthenticatedUser();
         }
     }
