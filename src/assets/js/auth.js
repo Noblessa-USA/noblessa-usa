@@ -26,16 +26,11 @@ class AuthManager {
 
     async checkAuthStatus() {
         try {
-
-            try {
-                const response = await fetch('/.netlify/functions/auth-verify', {
+            const response = await fetch('/.netlify/functions/auth-verify', {
                 method: 'GET',
                 credentials: 'include',
             });
-            } catch (error) {
-                console.log('Auth check fetch failed:', error);
-            }
-            
+
             const data = await response.json();
             
             if (data.authenticated) {
