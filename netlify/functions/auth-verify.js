@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 exports.handler = async (event, context) => {
 
-  console.log('1');
+  console.log('1 Hello');
   const authHeader = event.headers.authorization || event.headers.cookie;
   
   if (!authHeader) {
@@ -33,7 +33,7 @@ exports.handler = async (event, context) => {
     const decoded = jwt.verify(token, process.env.AUTH0_CLIENT_SECRET);
 
     console.log('4');
-    
+
     return {
       statusCode: 200,
       headers: {
