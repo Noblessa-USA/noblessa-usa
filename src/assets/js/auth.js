@@ -31,15 +31,20 @@ class AuthManager {
                 credentials: 'include',
             });
 
+            console.log('1');
             const data = await response.json();
             
+            console.log('2');
             if (data.authenticated) {
                 this.handleAuthenticatedUser(data.user);
+                console.log('3');
             } else {
                 this.handleUnauthenticatedUser();
+                console.log('4');
             }
         } catch (error) {
             console.error('Auth check failed:', error);
+            console.log('5');
             this.handleUnauthenticatedUser();
         }
     }
