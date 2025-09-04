@@ -110,8 +110,9 @@ img {
 @media only screen and (min-width: 0rem) {
     #transform-gallery {
         padding: 60px 0 0 0;
-        /* clips anything overflowing */
-        overflow: hidden;
+        /* clips anything overflowing, but allow for scroll animations */
+        overflow-x: hidden;
+        overflow-y: visible;
         position: relative;
         z-index: 1;
 
@@ -129,11 +130,11 @@ img {
             flex-direction: column;
             align-items: center;
             max-width: (694/16rem);
-            overflow: hidden;
         }
 
         .cs-left-column {
             width: 400px;
+            max-width: (400/16rem);
         }
 
         .cs-right-column {
@@ -177,6 +178,10 @@ img {
 @media only screen and (min-width: 48rem) {
     #transform-gallery {
         padding: 120px 0 0 0;
+        /* Ensure animations work properly on tablet */
+        overflow-x: hidden;
+        overflow-y: visible;
+        
         /* Transform Gallery Styling */
         .cs-section-header {
             padding-bottom: 120px;
@@ -447,7 +452,6 @@ img {
             max-width: (640/16rem);
             margin: 0 auto;
             padding: 0 (10/16rem);
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             /* left aligns content, set to center to align content horizontally */
@@ -485,7 +489,7 @@ img {
         }
 
         .cs-divider {
-            width: 100vw;
+            width: 100%;
             height: 1px;
             background: #D2D8DF;
             margin: 30px 0px;
@@ -779,6 +783,7 @@ img {
 
         .cs-content {
             width: 45%;
+            gap: 60px;
             order: 1;
 
             .cs-text-content {
@@ -925,7 +930,6 @@ img {
             text-align: center;
             width: 100%;
             max-width: (694/16rem);
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
