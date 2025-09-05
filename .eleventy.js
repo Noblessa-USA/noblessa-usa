@@ -9,10 +9,13 @@ const pluginEleventyNavigation = require("@11ty/eleventy-navigation");
 const pluginImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const pluginMinifier = require("@codestitchofficial/eleventy-plugin-minify");
 const pluginSitemap = require("@quasibit/eleventy-plugin-sitemap");
+const pluginLLMs = require('eleventy-plugin-llms-txt');
+
 
 // ⚙️ Configuration Files
 const configSitemap = require("./src/config/plugins/sitemap");
 const configImages = require("./src/config/plugins/images");
+const configLLMs = require("./src/config/plugins/llms");
 
 // 🔧 Processing Functions
 const less = require("./src/config/processors/less");
@@ -67,6 +70,13 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(pluginSitemap, configSitemap);
 
     /*
+     * 🤖 LLMs Generation
+     * Creates llms.txt automatically using domain from _data/client.json
+     * Documentation: https://github.com/CleverCloud/eleventy-plugin-llms-txt
+     */
+    eleventyConfig.addPlugin(pluginLLMs, configLLMs);
+
+    /*
      * 📦 Production Minification
      * Minifies HTML, CSS, JSON, XML, XSL, and webmanifest files
      * Only runs during production builds (npm run build)
@@ -75,6 +85,8 @@ module.exports = function (eleventyConfig) {
     if (isProduction) {
         eleventyConfig.addPlugin(pluginMinifier);
     }
+
+
 
     // ═════════════════════════════════════════════════════════════════════════
     // PASSTHROUGH COPIES
