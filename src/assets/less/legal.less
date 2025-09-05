@@ -1,0 +1,151 @@
+/*-- -------------------------- -->
+<---           Legal           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #cs-legal-tabs {
+        padding: var(--sectionPadding);
+        
+        .cs-container {
+            width: 100%;
+            max-width: 80rem;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .cs-tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            width: 100%;
+        }
+
+        .cs-tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            font-family: var(--headerFont);
+            color: var(--bodyTextColor);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+
+            &:hover {
+                color: var(--primary);
+                border-bottom-color: var(--primary);
+            }
+
+            &.active {
+                color: var(--primary);
+                border-bottom-color: var(--primary);
+            }
+        }
+
+        .cs-tab-content {
+            display: none;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            &.active {
+                display: block;
+                opacity: 1;
+            }
+        }
+
+        .cs-content {
+            max-width: 60rem;
+            margin: 0 auto;
+        }
+
+        .cs-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: left;
+            margin: 0 0 2rem 0;
+            color: var(--headerColor);
+            font-family: var(--headerFont);
+        }
+
+        .cs-text {
+            font-size: 1rem;
+            line-height: 1.6em;
+            text-align: left;
+            color: var(--bodyTextColor);
+
+            p {
+                margin-bottom: 1.5rem;
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--headerColor);
+                margin: 2rem 0 1rem 0;
+                font-family: var(--headerFont);
+            }
+
+            ul {
+                margin: 1rem 0;
+                padding-left: 2rem;
+
+                li {
+                    margin-bottom: 0.5rem;
+                }
+            }
+
+            strong {
+                font-weight: 600;
+                color: var(--headerColor);
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #cs-legal-tabs {
+        .cs-tab-navigation {
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        .cs-tab-button {
+            font-size: 1.25rem;
+            padding: 1.25rem 2rem;
+        }
+
+        .cs-title {
+            font-size: 3rem;
+        }
+
+        .cs-text {
+            font-size: 1.125rem;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #cs-legal-tabs {
+        .cs-tab-button {
+            font-size: 1.375rem;
+            padding: 1.5rem 2.5rem;
+        }
+    }
+}
