@@ -1,10 +1,516 @@
-// Ambassadors page functionality
-
-// This file is loaded by the ambassadors.html page
-// The main functionality is embedded in the HTML file for now
-// but can be moved here for better organization
+// Ambassadors page functionality with Leaflet integration
+import L from 'leaflet';
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Additional carousel functionality can be added here
-    console.log('Ambassadors page loaded');
+    // Initialize the map
+    var map = L.map('ambassador-map', {
+        attributionControl: false,
+        center: [39.8283, -98.5795], // Center of USA
+        zoom: 4,
+        zoomControl: true,
+        scrollWheelZoom: true
+    });
+
+    // Add tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap contributors, © CartoDB',
+        subdomains: 'abcd',
+        maxZoom: 18
+    }).addTo(map);
+
+    // Custom marker icon
+    var customIcon = L.divIcon({
+        className: 'custom-marker',
+        html: `<div class="marker-pin">
+                 <div class="marker-inner"></div>
+               </div>`,
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    });
+
+    // Ambassador data with email addresses
+    var ambassadors = [
+        {
+            name: 'Cherisse Sweeney',
+            orgname: 'Basalt Interiors',
+            address: '766 Higuera Street, San Luis Obispo, CA 93401',
+            city: 'San Luis Obispo',
+            state: 'CA',
+            lat: 35.2828,
+            lng: -120.6596,
+            phone: '(805) 439-1104',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=766+Higuera+Street,+San+Luis+Obispo,+CA+93401',
+            email: 'cherisse@noblessa.com',
+            website: 'https://basaltinteriors.com/',
+            image: '/assets/images/ambassadors/cherissesweeny.png'
+        },
+        {
+            name: 'Dimitry Belov',
+            orgname: 'The Guys with Drills',
+            address: '2816 SW 2nd Ln #1N, Cape Coral, FL 33991',
+            city: 'Cape Coral',
+            state: 'FL',
+            lat: 26.5629,
+            lng: -81.9495,
+            phone: '(305) 985-8415',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=2816+SW+2nd+Ln+%231N,+Cape+Coral,+FL+33991',
+            email: 'theguyswithdrills@gmail.com',
+            website: 'https://theguyswithdrills.com',
+            image: '/assets/images/ambassadors/guyswithdrills.png'
+        },
+        {
+            name: 'Michael Memar',
+            orgname: 'Memar Interiors',
+            address: '13704 Flagstone Ln. Dallas, TX 75240',
+            city: 'Dallas',
+            state: 'TX',
+            lat: 32.9537,
+            lng: -96.7586,
+            phone: '(469) 961-6000',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=13704+Flagstone+Ln.+Dallas,+TX+75240',
+            email: 'memarinteriors@gmail.com',
+            website: 'https://memarinteriors.com',
+            image: '/assets/images/ambassadors/michaelmemar.png'
+        },
+        {
+            name: 'Stefanie Vassilicos',
+            orgname: 'Patina Interior Design',
+            address: '33 N Market St. Wailuku, HI 96793',
+            city: 'Wailuku',
+            state: 'HI',
+            lat: 20.8914,
+            lng: -156.5044,
+            phone: '(808) 633-4035',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=33+N+Market+St.+Wailuku,+HI+96793',
+            email: 'martin@patinainteriordesign.com',
+            website: 'https://patinainteriordesign.com',
+            image: '/assets/images/ambassadors/patina.png'
+        },
+        {
+            name: 'Eddie Martinez',
+            orgname: 'EMDB Design',
+            address: '43836 U.S. 160 Bayfield, CO 81122',
+            city: 'Bayfield',
+            state: 'CO',
+            lat: 37.2336,
+            lng: -107.5942,
+            phone: '(970) 779-8119',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=43836+U.S.+160+Bayfield,+CO+81122',
+            email: 'eddie@emdb-durango.com',
+            website: 'https://emdb-durango.com/',
+            image: '/assets/images/ambassadors/emdb.webp'
+        },
+        {
+            name: 'Tony Lou',
+            orgname: 'Advanced Construction Allies',
+            address: '2337 N Roscomare Rd Ste 8 Bel Air, CA 90077',
+            city: 'Bel Air',
+            state: 'CA',
+            lat: 34.1184,
+            lng: -118.4614,
+            phone: '(310) 623-6808',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=2337+N+Roscomare+Rd+Ste+8+Bel+Air,+CA+90077',
+            email: 'info@weareaca.com',
+            website: 'https://weareaca.com/',
+            image: '/assets/images/ambassadors/aca.webp'
+        },
+        {
+            name: 'Lyndsay Roark',
+            orgname: 'VC Home and Design',
+            address: '300 E. Santa Clara St. Suite 103 Ventura, CA 93001',
+            city: 'Ventura',
+            state: 'CA',
+            lat: 34.2746,
+            lng: -119.2945,
+            phone: '(805) 232-8526',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=300+E.+Santa+Clara+St.+Suite+103+Ventura,+CA+93001',
+            email: 'iroark@vchomeanddesign.com',
+            website: 'https://vchomedesignco.com',
+            image: '/assets/images/ambassadors/vc.png'
+        },
+        {
+            name: 'Isabel Mendez',
+            orgname: 'Mendez Interior Design',
+            address: '2500 Tanglewilde St # 475, Houston, TX 77063',
+            city: 'Houston',
+            state: 'TX',
+            lat: 29.7604,
+            lng: -95.3698,
+            phone: '(832) 224-5727',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=2500+Tanglewilde+St+%23+475,+Houston,+TX+77063',
+            email: 'contact@mendezinteriordesign.com',
+            website: 'https://www.mendezinteriordesign.com',
+            image: '/assets/images/ambassadors/mendez.webp'
+        },
+        {
+            name: 'Charles Taylor',
+            orgname: 'Charles Taylor Interior Design',
+            address: '261 N. Highway 101 Suite 1152 Solana Beach, CA 92075',
+            city: 'Solana Beach',
+            state: 'CA',
+            lat: 32.9911,
+            lng: -117.2712,
+            phone: '(858) 779-4556',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=261+N.+Highway+101+Suite+1152+Solana+Beach,+CA+92075',
+            email: 'info@cthid.com',
+            website: 'https://www.cthid.com',
+            image: '/assets/images/ambassadors/charlestaylor.webp'
+        },
+        {
+            name: 'Mindy Mai',
+            orgname: 'Dear Studio Design',
+            address: 'Newport Beach, CA 92625',
+            city: 'Newport Beach',
+            state: 'CA',
+            lat: 33.6189,
+            lng: -117.9298,
+            phone: '(949) 432-3114',
+            hours: 'Contact for hours',
+            mapUrl: 'https://maps.google.com/?q=Newport+Beach,+CA+92625',
+            email: 'info@dearstudiodesign.com',
+            website: 'https://dearstudiodesign.com',
+            image: '/assets/images/ambassadors/mindymai.png'
+        }
+    ];
+
+    // Add markers to the map
+    ambassadors.forEach(function(ambassador) {
+        var marker = L.marker([ambassador.lat, ambassador.lng], {
+            icon: customIcon
+        }).addTo(map);
+
+        // Create popup content
+        var popupContent = `
+            <div class="ambassador-popup">
+                <h3 class="popup-title">${ambassador.name}</h3>
+                <div class="popup-content">
+                    <p class="popup-address"><strong>Address:</strong><br>${ambassador.address}</p>
+                    <p class="popup-phone"><strong>Phone:</strong><br>${ambassador.phone}</p>
+                    <p class="popup-hours"><strong>🕒 Hours:</strong><br>${ambassador.hours}</p>
+                    <div class="popup-buttons">
+                        <a href="${ambassador.mapUrl}" target="_blank" class="popup-btn">Get Directions</a>
+                        <a href="tel:${ambassador.phone}" class="popup-btn popup-btn-secondary">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        marker.bindPopup(popupContent, {
+            maxWidth: 300,
+            className: 'custom-popup'
+        });
+    });
+
+    // Fit map to show all markers
+    var group = new L.featureGroup(ambassadors.map(s => L.marker([s.lat, s.lng])));
+    map.fitBounds(group.getBounds().pad(0.1));
+
+    // Modal functionality
+    const modal = document.getElementById('ambassador-modal');
+    const modalClose = document.getElementById('modal-close');
+    const contactForm = document.getElementById('ambassador-contact-form');
+    let scrollPosition = 0;
+
+    // Open modal function
+    window.openModal = function(ambassador) {
+        // Store current scroll position
+        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Prevent background scroll and maintain position
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+        document.body.classList.add('modal-open');
+        
+        document.getElementById('modal-ambassador-name').textContent = ambassador.name;
+        document.getElementById('modal-ambassador-address').textContent = ambassador.address;
+        document.getElementById('modal-ambassador-phone').textContent = ambassador.phone;
+        document.getElementById('modal-ambassador-email').textContent = ambassador.email;
+        document.getElementById('modal-ambassador-image').src = ambassador.image;
+        document.getElementById('modal-ambassador-image').alt = ambassador.name;
+        document.getElementById('ambassador-email').value = ambassador.email;
+        document.getElementById('ambassador-name-input').value = ambassador.name;
+        
+        modal.style.display = 'block';
+    }
+
+    // Close modal function
+    function closeModal() {
+        modal.style.display = 'none';
+        
+        // Restore body styles and scroll position
+        document.body.classList.remove('modal-open');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        
+        // Restore scroll position
+        window.scrollTo(0, scrollPosition);
+        
+        contactForm.reset();
+    }
+
+    // Event listeners for modal
+    modalClose.addEventListener('click', closeModal);
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
+        }
+    });
+
+    // Render ambassador carousel
+    function renderAmbassadorCarousel() {
+        const carouselTrack = document.getElementById('carousel-track');
+        carouselTrack.innerHTML = ''; // Clear existing content
+        
+        // Create cards for infinite scroll (duplicate first few items at the end)
+        const extendedAmbassadors = [...ambassadors, ...ambassadors.slice(0, 3)];
+        
+        extendedAmbassadors.forEach((ambassador, index) => {
+            const card = document.createElement('div');
+            card.className = 'cs-carousel-card';
+            card.innerHTML = `
+                <div class="cs-card-header">
+                    <h3 class="cs-card-title">${ambassador.name}</h3>
+                    ${ambassador.orgname ? `<div class="cs-card-organization">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 21h18M5 21V7l8-4v18M19 21V10l-6-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 9v.01M9 12v.01M9 15v.01M13 9v.01M13 12v.01M13 15v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>${ambassador.orgname}</span>
+                    </div>` : ''}
+                    <div class="cs-card-location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>${ambassador.city}, ${ambassador.state}</span>
+                    </div>
+                </div>
+                <div class="cs-card-content">
+                    <div class="cs-card-contact">
+                        <a href="tel:${ambassador.phone}" class="cs-card-contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>${ambassador.phone}</span>
+                        </a>
+                        <a href="mailto:${ambassador.email}" class="cs-card-contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>${ambassador.email}</span>
+                        </a>
+                    </div>
+                    <div class="cs-card-buttons">
+                        <a href="${ambassador.website}" target="_blank" rel="noopener noreferrer" class="cs-button-outline cs-card-btn">
+                            <span>Website</span>
+                        </a>
+                        <button class="cs-button-solid cs-card-btn" onclick="openModal(ambassadors[${index % ambassadors.length}])">
+                            <span>Contact</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            carouselTrack.appendChild(card);
+        });
+        
+        // Start the infinite carousel animation after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            startCarousel();
+        }, 100);
+    }
+
+    // Infinite carousel functionality
+    function startCarousel() {
+        // Check if user prefers reduced motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            return; // Don't start auto-scrolling if user prefers reduced motion
+        }
+        
+        const track = document.getElementById('carousel-track');
+        const cards = track.children;
+        
+        // Calculate card width based on screen size
+        function getCardWidth() {
+            if (window.innerWidth >= 1440) return 374; // Large Desktop: 350px + 24px gap
+            if (window.innerWidth >= 1024) return 344; // Desktop: 320px + 24px gap
+            if (window.innerWidth >= 768) return 324;  // Tablet: 300px + 24px gap
+            return 304; // Mobile: 280px + 24px gap
+        }
+        
+        let cardWidth = getCardWidth();
+        let currentPosition = 0;
+        let animationId;
+        let isPaused = false;
+        
+        function moveCarousel() {
+            if (!isPaused) {
+                currentPosition -= 0.5; // Move 0.5px at a time for smooth scrolling
+                
+                // Reset position when we've scrolled past the original set
+                const resetPoint = -(cardWidth * ambassadors.length);
+                if (currentPosition <= resetPoint) {
+                    currentPosition = 0;
+                }
+                
+                track.style.transform = `translateX(${currentPosition}px)`;
+            }
+            animationId = requestAnimationFrame(moveCarousel);
+        }
+        
+        // Start the animation
+        animationId = requestAnimationFrame(moveCarousel);
+        
+        // Pause on hover
+        track.addEventListener('mouseenter', () => {
+            isPaused = true;
+        });
+        
+        track.addEventListener('mouseleave', () => {
+            isPaused = false;
+        });
+        
+        // Pause on focus (for keyboard navigation)
+        track.addEventListener('focusin', () => {
+            isPaused = true;
+        });
+        
+        track.addEventListener('focusout', () => {
+            isPaused = false;
+        });
+        
+        // Update card width on window resize
+        window.addEventListener('resize', () => {
+            cardWidth = getCardWidth();
+        });
+        
+        // Cleanup function
+        return () => {
+            cancelAnimationFrame(animationId);
+        };
+    }
+
+    // Render ambassador grid
+    function renderAmbassadorGrid() {
+        const ambassadorGrid = document.getElementById('ambassador-grid');
+        ambassadorGrid.innerHTML = ''; // Clear existing content
+        
+        ambassadors.forEach((ambassador, index) => {
+            const card = document.createElement('div');
+            card.className = 'cs-carousel-card'; // Reuse the same card styles
+            card.innerHTML = `
+                <div class="cs-card-header">
+                    <h3 class="cs-card-title">${ambassador.name}</h3>
+                    ${ambassador.orgname ? `<div class="cs-card-organization">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 21h18M5 21V7l8-4v18M19 21V10l-6-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 9v.01M9 12v.01M9 15v.01M13 9v.01M13 12v.01M13 15v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>${ambassador.orgname}</span>
+                    </div>` : ''}
+                    <div class="cs-card-location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>${ambassador.city}, ${ambassador.state}</span>
+                    </div>
+                </div>
+                <div class="cs-card-content">
+                    <div class="cs-card-contact">
+                        <a href="tel:${ambassador.phone}" class="cs-card-contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>${ambassador.phone}</span>
+                        </a>
+                        <a href="mailto:${ambassador.email}" class="cs-card-contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>${ambassador.email}</span>
+                        </a>
+                    </div>
+                    <div class="cs-card-buttons">
+                        <a href="${ambassador.website}" target="_blank" rel="noopener noreferrer" class="cs-button-outline cs-card-btn">
+                            <span>Website</span>
+                        </a>
+                        <button class="cs-button-solid cs-card-btn" onclick="openModal(ambassadors[${index}])">
+                            <span>Contact</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            ambassadorGrid.appendChild(card);
+        });
+    }
+
+    // Toggle between carousel and grid view
+    let isGridView = false;
+    
+    window.toggleView = function() {
+        const carouselWrapper = document.querySelector('.cs-carousel-wrapper');
+        const gridWrapper = document.getElementById('grid-wrapper');
+        const toggleBtn = document.getElementById('toggle-view-btn');
+        const toggleText = document.getElementById('toggle-text');
+        
+        if (isGridView) {
+            // Switch to carousel view
+            carouselWrapper.style.display = 'block';
+            gridWrapper.style.display = 'none';
+            toggleText.textContent = ' See All Ambassadors ';
+            isGridView = false;
+            
+            // Restart carousel animation if needed
+            setTimeout(() => {
+                startCarousel();
+            }, 100);
+        } else {
+            // Switch to grid view
+            carouselWrapper.style.display = 'none';
+            gridWrapper.style.display = 'block';
+            toggleText.textContent = ' Hide Ambassadors ';
+            isGridView = true;
+            
+            // Render grid if not already rendered
+            if (document.getElementById('ambassador-grid').children.length === 0) {
+                renderAmbassadorGrid();
+            }
+        }
+    }
+
+    // Add event listener to toggle button
+    document.getElementById('toggle-view-btn').addEventListener('click', toggleView);
+
+    // Initial render
+    function initializeCarousel() {
+        renderAmbassadorCarousel();
+    }
+    
+    // Initialize the carousel
+    initializeCarousel();
+
+    // Make ambassadors data globally available for onclick handlers
+    window.ambassadors = ambassadors;
 });
