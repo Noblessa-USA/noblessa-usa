@@ -1,1 +1,26 @@
-
+# Redirects from what the browser requests to what we serve through netlify. I did down to domain authority of 7 on ubersuggest
+/home                   /
+/about-us               /about
+/blog                   /
+/cgi-sys                /
+/kitchen-collections    /
+/noblessa-bath          /
+/san-jose               /showrooms
+/phoenix                /showrooms
+/pasadena               /showrooms
+/santa-barbara          /showrooms
+/culver-city            /showrooms
+/lazar-project          /clients/lazars
+/noblessa-living        /
+/everything-you-ever-wanted-to-know-about-german-kitchens           /
+/what-makes-modular-kitchens-unique                                 /
+/how-to-choose-the-perfect-kitchen-backsplash-for-white-cabinets    /
+/12-kitchen-faucet-trends/                                          /
+/blog/elements-of-industrial-interior-design                        /
+/living-room-storage-cabinets                                       /
+/blog/design-elements-of-a-european-kitchen-cabinets                /
+/cgi-sys/suspendedpage.cgi                                          /
+/kitchen-collections/divine                                         /
+/color-theory-for-modern-kitchen-design                             /
+/coordinating-your-wall-color-to-your-custom-kitchen-cabinets       /
+/pasadena-showroom-countertops-and-cabinets                         /showrooms
