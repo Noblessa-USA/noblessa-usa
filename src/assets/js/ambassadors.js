@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             phone: '(805) 439-1104',
             hours: 'Contact for hours',
             mapUrl: 'https://maps.google.com/?q=766+Higuera+Street,+San+Luis+Obispo,+CA+93401',
-            email: 'cherisse@noblessa.com',
+            email: 'cherisse@basaltinteriors.com',
             website: 'https://basaltinteriors.com/',
             image: '/assets/images/ambassadors/cherissesweeny.png'
         },
