@@ -13,9 +13,10 @@ module.exports = {
         mapLink: "https://maps.app.goo.gl/TEdS5KoLC9ZcULuQ6",
     },
     socials: {
-        facebook: "https://www.facebook.com/",
-        instagram: "https://www.instagram.com/",
-        linkedin: "https://www.linkedin.com/company/",
+        facebook: "https://www.facebook.com/noblessakitchens/",
+        instagram: "https://www.instagram.com/noblessa.usa/",
+        linkedin: "https://www.linkedin.com/company/noblessa-usa/",
+        pinterest: "https://www.pinterest.com/noblessausa/",
     },
     //! Make sure you include the file protocol (e.g. https://) and that NO TRAILING SLASH is included
     domain: "https://noblessa-usa.com",
