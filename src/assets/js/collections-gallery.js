@@ -131,16 +131,28 @@ class CollectionsGallery {
         let startX = 0;
         let startY = 0;
         let isDragging = false;
+        let isHorizontalSwipe = false;
 
         gallery.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
             isDragging = true;
+            isHorizontalSwipe = false;
         }, { passive: true });
 
         gallery.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
-            e.preventDefault();
+            
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            const diffX = startX - currentX;
+            const diffY = startY - currentY;
+
+            // Only prevent default if this is clearly a horizontal swipe
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+                isHorizontalSwipe = true;
+                e.preventDefault();
+            }
         }, { passive: false });
 
         gallery.addEventListener('touchend', (e) => {
@@ -152,8 +164,8 @@ class CollectionsGallery {
             const diffX = startX - endX;
             const diffY = startY - endY;
 
-            // Check if horizontal swipe is more significant than vertical
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            // Only trigger slide change if it was a horizontal swipe and meets threshold
+            if (isHorizontalSwipe && Math.abs(diffX) > 50) {
                 if (diffX > 0) {
                     this.nextSlide();
                 } else {
