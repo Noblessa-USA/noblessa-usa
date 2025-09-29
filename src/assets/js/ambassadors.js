@@ -513,4 +513,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Make ambassadors data globally available for onclick handlers
     window.ambassadors = ambassadors;
+
+    // Handle URL hash navigation
+    function handleUrlHash() {
+        const hash = window.location.hash.toLowerCase();
+        if (hash) {
+            // Remove the # symbol and find matching ambassador
+            const ambassadorId = hash.substring(1);
+            
+            // Create a mapping of URL-friendly names to ambassador objects
+            const ambassadorMap = {
+                'cherissesweeney': ambassadors.find(a => a.name === 'Cherisse Sweeney'),
+                'dimitrybelov': ambassadors.find(a => a.name === 'Dimitry Belov'),
+                'michaelmemar': ambassadors.find(a => a.name === 'Michael Memar'),
+                'stefanievassilicos': ambassadors.find(a => a.name === 'Stefanie Vassilicos'),
+                'eddiemartinez': ambassadors.find(a => a.name === 'Eddie Martinez'),
+                'tonylou': ambassadors.find(a => a.name === 'Tony Lou'),
+                'lyndsayroark': ambassadors.find(a => a.name === 'Lyndsay Roark'),
+                'isabelmendez': ambassadors.find(a => a.name === 'Isabel Mendez'),
+                'charlestaylor': ambassadors.find(a => a.name === 'Charles Taylor'),
+                'mindymai': ambassadors.find(a => a.name === 'Mindy Mai')
+            };
+            
+            const ambassador = ambassadorMap[ambassadorId];
+            if (ambassador) {
+                // Small delay to ensure page is fully loaded
+                setTimeout(() => {
+                    openModal(ambassador);
+                }, 100);
+            }
+        }
+    }
+
+    // Check for hash on page load
+    handleUrlHash();
+
+    // Listen for hash changes (if user navigates with browser back/forward)
+    window.addEventListener('hashchange', handleUrlHash);
 });
