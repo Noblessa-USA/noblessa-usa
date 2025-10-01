@@ -2,7 +2,7 @@
 backend:
   name: git-gateway
   repo: Noblessa-USA/noblessa-usa
-  branch: main
+  branch: production
   identity_url: https://auth.decapbridge.com/sites/a734e1c1-7c11-4ada-8e23-dc6df86e6bfb
   gateway_url: https://gateway.decapbridge.com
 
