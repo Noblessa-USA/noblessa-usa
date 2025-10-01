@@ -9,6 +9,41 @@ eleventyExcludeFromCollections: true
 
 {% block head %}
 <link rel="stylesheet" href="/assets/css/login.css">
+<script>
+// Immediate invitation handling - runs before DOM is fully loaded
+(function() {
+    console.log('Immediate invitation check');
+    console.log('Current URL:', window.location.href);
+    console.log('Search params:', window.location.search);
+    
+    // Check for invitation parameters immediately
+    const urlParams = new URLSearchParams(window.location.search);
+    const invitation = urlParams.get('invitation');
+    
+    if (invitation && window.location.pathname === '/login/') {
+        console.log('Invitation found, redirecting immediately');
+        
+        // Build auth-login URL with all parameters
+        const authParams = new URLSearchParams();
+        authParams.append('invitation', invitation);
+        
+        const organization = urlParams.get('organization');
+        if (organization) authParams.append('organization', organization);
+        
+        const organizationName = urlParams.get('organization_name');
+        if (organizationName) authParams.append('organization_name', organizationName);
+        
+        const loginHint = urlParams.get('login_hint');
+        if (loginHint) authParams.append('login_hint', loginHint);
+        
+        const authUrl = '/.netlify/functions/auth-login?' + authParams.toString();
+        console.log('Redirecting to:', authUrl);
+        
+        // Immediate redirect
+        window.location.href = authUrl;
+    }
+})();
+</script>
 {% endblock %}
 
 {% block body %}
