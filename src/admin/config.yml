@@ -1,9 +1,9 @@
 # Use DecapBridge auth (required)
 backend:
   name: git-gateway
-  repo: Callowhill-Web-Designs/noblessa
+  repo: Noblessa-USA/noblessa-usa
   branch: main
-  identity_url: https://auth.decapbridge.com/sites/8b07dcda-d902-4e31-af24-ea17e7ce2de2
+  identity_url: https://auth.decapbridge.com/sites/a734e1c1-7c11-4ada-8e23-dc6df86e6bfb
   gateway_url: https://gateway.decapbridge.com
 
   # Quickly see who did what (optional)
@@ -19,7 +19,7 @@ backend:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 # Add site links in DecapCMS (optional)
-site_url: https://noblessa.netlify.app
+site_url: https://noblessa-usa.com
 
 # Keep this to allow you to edit the cms locally
 local_backend: true
@@ -50,3 +50,18 @@ collections:
           - { label: "Featured Image", name: "image", widget: "image" }
           - { label: "Image Caption", name: "imageAlt", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+
+    - name: "Partner Resources"
+      label: "Partner Resources"
+      folder: "src/content/partner-resources"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Last Updated", name: "lastUpdated", widget: "datetime" }
+          - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+          - { label: "Featured Image", name: "image", widget: "image" }
+          - { label: "Image Caption", name: "imageAlt", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+

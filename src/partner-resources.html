@@ -25,107 +25,29 @@ eleventyNavigation:
 
 <!-- Protected Content (shown to authenticated users) -->
 <div class="protected-content">
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
+
+    <!-- ============================================ -->
+    <!--                   Banner                     -->
+    <!-- ============================================ -->
+
+    <div id="banner-2285">
         <div class="cs-container">
-            <div class="cs-content">
-                <h1 class="cs-title">Partner Resources</h1>
-                <p class="cs-text">
-                    Welcome to your exclusive partner portal. Here you'll find all the resources you need to succeed with Noblessa.
-                </p>
+            <h1 class="cs-int-title sl-fade-in-right">Noblessa USA Partner Resources</h1>
+            <p class="cs-text sl-fade-in-right">
+                Welcome to your exclusive partner portal. Here you'll find all the resources you need to succeed with Noblessa.
+            </p>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">home</a>
+                <a href="/partner-resources/" class="cs-link cs-active">partner resources</a>
             </div>
         </div>
-    </section>
+        <video class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/showrooms40s.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden=true>
+            <source src="/assets/videos/showrooms1080x1920.webm#t=40" type="video/webm">
+        </video>
+    </div>
 
     <!-- Resources Section -->
     <section id="resources" class="resources">
-        <div class="cs-container">
-            <div class="cs-content">
-                <h2 class="cs-title">Available Resources</h2>
-                
-                <div class="cs-card-group">
-                    <div class="cs-item">
-                        <picture class="cs-picture">
-                            <img class="cs-icon" src="/assets/svgs/download.svg" alt="downloads" width="48" height="48" loading="lazy" decoding="async">
-                        </picture>
-                        <h3 class="cs-h3">Marketing Materials</h3>
-                        <p class="cs-item-text">
-                            Download logos, brochures, and marketing assets in various formats.
-                        </p>
-                        <a href="#" class="cs-link">Download Package</a>
-                    </div>
-
-                    <div class="cs-item">
-                        <picture class="cs-picture">
-                            <img class="cs-icon" src="/assets/svgs/training.svg" alt="training" width="48" height="48" loading="lazy" decoding="async">
-                        </picture>
-                        <h3 class="cs-h3">Training Materials</h3>
-                        <p class="cs-item-text">
-                            Access video tutorials, product guides, and training documentation.
-                        </p>
-                        <a href="#" class="cs-link">View Training</a>
-                    </div>
-
-                    <div class="cs-item">
-                        <picture class="cs-picture">
-                            <img class="cs-icon" src="/assets/svgs/pricing.svg" alt="pricing" width="48" height="48" loading="lazy" decoding="async">
-                        </picture>
-                        <h3 class="cs-h3">Pricing Sheets</h3>
-                        <p class="cs-item-text">
-                            Get the latest pricing information and discount structures.
-                        </p>
-                        <a href="#" class="cs-link">View Pricing</a>
-                    </div>
-
-                    <div class="cs-item">
-                        <picture class="cs-picture">
-                            <img class="cs-icon" src="/assets/svgs/support.svg" alt="support" width="48" height="48" loading="lazy" decoding="async">
-                        </picture>
-                        <h3 class="cs-h3">Technical Support</h3>
-                        <p class="cs-item-text">
-                            Get help with installation guides and technical documentation.
-                        </p>
-                        <a href="#" class="cs-link">Get Support</a>
-                    </div>
-
-                    <div class="cs-item">
-                        <picture class="cs-picture">
-                            <img class="cs-icon" src="/assets/svgs/catalog.svg" alt="catalog" width="48" height="48" loading="lazy" decoding="async">
-                        </picture>
-                        <h3 class="cs-h3">Product Catalog</h3>
-                        <p class="cs-item-text">
-                            Browse our complete product catalog with specifications.
-                        </p>
-                        <a href="#" class="cs-link">View Catalog</a>
-                    </div>
-
-                    <div class="cs-item">
-                        <picture class="cs-picture">
-                            <img class="cs-icon" src="/assets/svgs/portal.svg" alt="portal" width="48" height="48" loading="lazy" decoding="async">
-                        </picture>
-                        <h3 class="cs-h3">Partner Portal</h3>
-                        <p class="cs-item-text">
-                            Access your partner dashboard for orders and account management.
-                        </p>
-                        <a href="/partner-directory/" class="cs-link">Go to Directory</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Links Section -->
-    <section id="quick-links" class="quick-links">
-        <div class="cs-container">
-            <div class="cs-content">
-                <h2 class="cs-title">Quick Links</h2>
-                <div class="cs-link-group">
-                    <a href="/partner-directory/" class="cs-button-solid">Partner Directory</a>
-                    <a href="/contact/" class="cs-button-solid secondary">Contact Support</a>
-                    <a href="#" class="cs-button-solid secondary">Submit Feedback</a>
-                </div>
-            </div>
-        </div>
     </section>
 </div>
 {% endblock %}
