@@ -1,8 +1,6 @@
 const { Handler } = require('@netlify/functions');
 
 exports.handler = async (event, context) => {
-  console.log('auth-login called with query:', event.rawQuery);
-  
   if (event.httpMethod !== 'GET') {
     return {
       statusCode: 405,
@@ -16,8 +14,6 @@ exports.handler = async (event, context) => {
   const organizationId = urlParams.get('organization');
   const organizationName = urlParams.get('organization_name');
   const loginHint = urlParams.get('login_hint');
-
-  console.log('Parsed parameters:', { invitation, organizationId, organizationName, loginHint });
 
   // Build the Auth0 authorization URL
   let authUrl = `https://${process.env.AUTH0_DOMAIN}/authorize` +
@@ -48,8 +44,6 @@ exports.handler = async (event, context) => {
     // Regular login flow
     authUrl += `&organization=${process.env.AUTH0_ORGANIZATION_ID}`;
   }
-
-  console.log('Final Auth0 URL:', authUrl);
 
   return {
     statusCode: 302,

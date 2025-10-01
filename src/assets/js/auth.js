@@ -1,21 +1,15 @@
 // Authentication management
 class AuthManager {
     constructor() {
-        console.log('AuthManager constructor called');
         this.init();
     }
 
     init() {
-        console.log('AuthManager init() called');
-        
         // Check for invitation parameters and auto-redirect if present
         // Do this BEFORE checking auth status to avoid conflicts
         if (this.handleInvitationFlow()) {
-            console.log('Invitation flow handled, stopping init');
             return; // Stop here if we're handling an invitation
         }
-        
-        console.log('No invitation found, continuing with normal init');
         
         // Check if user is already logged in
         this.checkAuthStatus();
@@ -23,10 +17,7 @@ class AuthManager {
         // Set up login button if it exists
         const loginBtn = document.getElementById('login-btn');
         if (loginBtn) {
-            console.log('Login button found, attaching event listener');
             loginBtn.addEventListener('click', () => this.login());
-        } else {
-            console.log('No login button found');
         }
 
         // Set up logout button if it exists
@@ -41,17 +32,11 @@ class AuthManager {
 
     handleInvitationFlow() {
         // Check if we're on the login page with invitation parameters
-        console.log('Checking invitation flow, current path:', window.location.pathname);
-        console.log('Current search params:', window.location.search);
-        
         if (window.location.pathname === '/login/') {
             const urlParams = new URLSearchParams(window.location.search);
             const invitation = urlParams.get('invitation');
             
-            console.log('Invitation token found:', invitation);
-            
             if (invitation) {
-                console.log('Auto-triggering login with invitation parameters');
                 // Auto-trigger login with invitation parameters
                 this.login();
                 return true; // Indicate that we handled an invitation
@@ -147,7 +132,6 @@ class AuthManager {
     }
 
     async login() {
-        console.log('Login function called');
         const loadingEl = document.getElementById('loading');
         const errorEl = document.getElementById('error');
         
@@ -161,8 +145,6 @@ class AuthManager {
             const organization = urlParams.get('organization');
             const organizationName = urlParams.get('organization_name');
             const loginHint = urlParams.get('login_hint');
-            
-            console.log('Login parameters:', { invitation, organization, organizationName, loginHint });
             
             // Build the auth-login URL with invitation parameters if present
             let authUrl = '/.netlify/functions/auth-login';
@@ -184,8 +166,6 @@ class AuthManager {
             if (authParams.toString()) {
                 authUrl += '?' + authParams.toString();
             }
-            
-            console.log('Redirecting to:', authUrl);
             
             // Redirect to Auth0 login
             window.location.href = authUrl;
@@ -246,22 +226,5 @@ class AuthManager {
 
 // Initialize auth manager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, initializing AuthManager');
-    try {
-        new AuthManager();
-    } catch (error) {
-        console.error('Error initializing AuthManager:', error);
-    }
+    new AuthManager();
 });
-
-// Also try immediate initialization in case DOM is already loaded
-if (document.readyState === 'loading') {
-    console.log('Document still loading, waiting for DOMContentLoaded');
-} else {
-    console.log('Document already loaded, initializing AuthManager immediately');
-    try {
-        new AuthManager();
-    } catch (error) {
-        console.error('Error initializing AuthManager immediately:', error);
-    }
-}
