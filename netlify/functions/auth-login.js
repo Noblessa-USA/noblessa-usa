@@ -1,6 +1,8 @@
 const { Handler } = require('@netlify/functions');
 
 exports.handler = async (event, context) => {
+  console.log('auth-login called with query:', event.rawQuery);
+  
   if (event.httpMethod !== 'GET') {
     return {
       statusCode: 405,
@@ -15,22 +17,24 @@ exports.handler = async (event, context) => {
   const organizationName = urlParams.get('organization_name');
   const loginHint = urlParams.get('login_hint');
 
+  console.log('Parsed parameters:', { invitation, organizationId, organizationName, loginHint });
+
   // Build the Auth0 authorization URL
   let authUrl = `https://${process.env.AUTH0_DOMAIN}/authorize` +
     `?response_type=code` +
     `&client_id=${process.env.AUTH0_CLIENT_ID}` +
     `&redirect_uri=${encodeURIComponent(process.env.URL || 'http://localhost:8080')}/.netlify/functions/auth-callback` +
     `&scope=openid%20profile%20email` +
-    `&organization=${process.env.AUTH0_ORGANIZATION_ID}` +
     `&state=${Math.random().toString(36).substring(7)}`;
 
   // Handle invitation flow
   if (invitation) {
     authUrl += `&invitation=${encodeURIComponent(invitation)}`;
     
-    // Add organization info if provided
-    if (organizationId) {
-      authUrl += `&organization=${encodeURIComponent(organizationId)}`;
+    // Use organization from invitation if provided, otherwise use default
+    const orgId = organizationId || process.env.AUTH0_ORGANIZATION_ID;
+    if (orgId) {
+      authUrl += `&organization=${encodeURIComponent(orgId)}`;
     }
     
     // Add login hint (email) if provided
@@ -40,7 +44,12 @@ exports.handler = async (event, context) => {
     
     // Force signup screen for invitations
     authUrl += `&screen_hint=signup`;
+  } else {
+    // Regular login flow
+    authUrl += `&organization=${process.env.AUTH0_ORGANIZATION_ID}`;
   }
+
+  console.log('Final Auth0 URL:', authUrl);
 
   return {
     statusCode: 302,
