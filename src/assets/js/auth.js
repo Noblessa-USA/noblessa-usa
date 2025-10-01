@@ -5,6 +5,9 @@ class AuthManager {
     }
 
     init() {
+        // Check for invitation parameters and auto-redirect if present
+        this.handleInvitationFlow();
+        
         // Check if user is already logged in
         this.checkAuthStatus();
         
@@ -22,6 +25,20 @@ class AuthManager {
 
         // Check for URL parameters indicating auth errors
         this.handleUrlErrors();
+    }
+
+    handleInvitationFlow() {
+        // Check if we're on the login page with invitation parameters
+        if (window.location.pathname === '/login/') {
+            const urlParams = new URLSearchParams(window.location.search);
+            const invitation = urlParams.get('invitation');
+            
+            if (invitation) {
+                // Auto-trigger login with invitation parameters
+                this.login();
+                return;
+            }
+        }
     }
 
     async checkAuthStatus() {
@@ -118,8 +135,36 @@ class AuthManager {
         if (errorEl) errorEl.style.display = 'none';
 
         try {
+            // Check for invitation parameters in the current URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const invitation = urlParams.get('invitation');
+            const organization = urlParams.get('organization');
+            const organizationName = urlParams.get('organization_name');
+            const loginHint = urlParams.get('login_hint');
+            
+            // Build the auth-login URL with invitation parameters if present
+            let authUrl = '/.netlify/functions/auth-login';
+            const authParams = new URLSearchParams();
+            
+            if (invitation) {
+                authParams.append('invitation', invitation);
+            }
+            if (organization) {
+                authParams.append('organization', organization);
+            }
+            if (organizationName) {
+                authParams.append('organization_name', organizationName);
+            }
+            if (loginHint) {
+                authParams.append('login_hint', loginHint);
+            }
+            
+            if (authParams.toString()) {
+                authUrl += '?' + authParams.toString();
+            }
+            
             // Redirect to Auth0 login
-            window.location.href = '/.netlify/functions/auth-login';
+            window.location.href = authUrl;
         } catch (error) {
             console.error('Login failed:', error);
             if (loadingEl) loadingEl.style.display = 'none';
