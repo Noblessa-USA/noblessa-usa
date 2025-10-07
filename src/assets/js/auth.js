@@ -54,12 +54,14 @@ class AuthManager {
 
             const data = await response.json();
             
-            if (data.authenticated) {
+            if (response.ok && data.authenticated) {
                 this.handleAuthenticatedUser(data.user);
             } else {
                 this.handleUnauthenticatedUser();
             }
         } catch (error) {
+            // Only log unexpected errors (network issues, parsing errors, etc.)
+            // Don't log 401 authentication failures as they're expected for unauthenticated users
             console.error('Auth check failed:', error);
             this.handleUnauthenticatedUser();
         }
