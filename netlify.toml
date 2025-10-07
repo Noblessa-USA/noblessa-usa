@@ -11,6 +11,17 @@
   to = "/.netlify/functions/auth-:splat"
   status = 200
 
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  minify = true
+  bundle = false
+
+[build.processing.js]
+  minify = true
+  bundle = false
+
 [[headers]]
   for = "/assets/css/*"
   [headers.values]
