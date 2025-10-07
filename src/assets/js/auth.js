@@ -52,27 +52,14 @@ class AuthManager {
                 credentials: 'include',
             });
 
-            // Handle 401 responses silently (expected for unauthenticated users)
-            if (response.status === 401) {
-                this.handleUnauthenticatedUser();
-                return;
-            }
-
-            // For successful responses, parse JSON and handle accordingly
-            if (response.ok) {
-                const data = await response.json();
-                if (data.authenticated) {
-                    this.handleAuthenticatedUser(data.user);
-                } else {
-                    this.handleUnauthenticatedUser();
-                }
+            const data = await response.json();
+            
+            if (data.authenticated) {
+                this.handleAuthenticatedUser(data.user);
             } else {
-                // Log other HTTP errors (500, 503, etc.)
-                console.error(`Auth check failed with status: ${response.status}`);
                 this.handleUnauthenticatedUser();
             }
         } catch (error) {
-            // Only log network errors, parsing errors, etc.
             console.error('Auth check failed:', error);
             this.handleUnauthenticatedUser();
         }
