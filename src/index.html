@@ -20,7 +20,7 @@ eleventyNavigation:
     <script defer src="assets/js/responsive-video.js"></script>
 
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
-    {% if kit.isProduction %}
+    {% if client.isProduction %}
         <script>
             console.log("Production detected: deferring non-critical CSS");
         </script>
