@@ -4,6 +4,7 @@ exports.handler = async (event, context) => {
   const authHeader = event.headers.authorization || event.headers.cookie;
   
   if (!authHeader) {
+    console.log("No authorization header or cookie found");
     return {
       statusCode: 401,
       body: JSON.stringify({ error: 'No authentication token provided' }),
@@ -17,6 +18,7 @@ exports.handler = async (event, context) => {
     if (authHeader.includes('auth-token=')) {
       token = authHeader.split('auth-token=')[1].split(';')[0];
     } else {
+      console.log("No valid authentication token found");
       return {
         statusCode: 401,
         body: JSON.stringify({ error: 'No valid authentication token found' }),
@@ -42,6 +44,7 @@ exports.handler = async (event, context) => {
       }),
     };
   } catch (error) {
+    console.log("Invalid or expired authentication token.");
     return {
       statusCode: 401,
       body: JSON.stringify({ 
