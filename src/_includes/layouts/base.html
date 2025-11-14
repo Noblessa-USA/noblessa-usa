@@ -35,8 +35,11 @@
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Open Sans/open-sans-v43-latin_symbols-regular.woff2" crossorigin>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Open Sans/open-sans-v43-latin_symbols-600.woff2" crossorigin>
 
-        <!-- Sitewide Stylesheets and Scripts -->
-        <link rel="stylesheet" href="/assets/css/root.css">
+        <!-- Preload and immediately apply root CSS to avoid chaining -->
+        <link rel="preload" href="/assets/css/root.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/css/root.css"></noscript>
+        
+        <!-- Sitewide Scripts -->
         <script defer src="/assets/js/nav.js"></script>
         <script defer src="/assets/js/scroll-animations.js"></script>
         <script defer src="/assets/js/auth.js"></script>

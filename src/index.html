@@ -11,8 +11,9 @@ eleventyNavigation:
 {% extends "layouts/base.html" %}
 
 {% block head %}
-    <!-- Critical styles are loaded first -->
-    <link rel="stylesheet" href="/assets/css/critical.css"/>
+    <!-- Preload and immediately apply critical hero CSS -->
+    <link rel="preload" href="/assets/css/critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/critical.css"></noscript>
 
     <!-- Defer non-critical scripts and use async where possible -->
     <script defer src="assets/js/transformgallery.js"></script>
