@@ -140,3 +140,193 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---    Ambassador Application   -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    .ambassador-application {
+        padding: var(--sectionPadding);
+        background-color: var(--sectionDark);
+        
+        .cs-container {
+            width: 100%;
+            max-width: (800/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+        
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+            
+            .cs-topper {
+                font-size: var(--topperFontSize);
+                line-height: 1.2em;
+                text-transform: uppercase;
+                text-align: inherit;
+                letter-spacing: 0.1em;
+                font-weight: 700;
+                color: var(--primary);
+                margin-bottom: (4/16rem);
+                display: block;
+            }
+            
+            .cs-title {
+                font-size: var(--headerFontSize);
+                font-weight: 900;
+                line-height: 1.2em;
+                text-align: inherit;
+                max-width: (700/16rem);
+                margin: 0 0 (16/16rem) 0;
+                color: var(--headerColor);
+                position: relative;
+            }
+            
+            .cs-text {
+                font-size: var(--bodyFontSize);
+                line-height: 1.5em;
+                text-align: inherit;
+                width: 100%;
+                max-width: (630/16rem);
+                margin: 0;
+                color: var(--bodyTextColor);
+            }
+        }
+        
+        #ambassador-application-form {
+            width: 100%;
+            max-width: (630/16rem);
+            
+            .cs-form-group {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: (20/16rem);
+                margin-bottom: (20/16rem);
+            }
+            
+            label {
+                font-size: (16/16rem);
+                line-height: 1.5em;
+                font-weight: 700;
+                margin-bottom: (20/16rem);
+                color: var(--headerColor);
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .cs-label-message {
+                margin-bottom: (32/16rem);
+            }
+
+            input,
+            select,
+            textarea {
+                font-size: (16/16rem);
+                width: 100%;
+                height: (64/16rem);
+                margin-top: (4/16rem);
+                padding-left: (20/16rem);
+                border: 1px solid #b4b2c7;
+                border-radius: (4/16rem);
+                box-sizing: border-box;
+                transition: border 0.3s ease;
+                background-color: #fff;
+
+                &:hover {
+                    border: 1px solid var(--primary);
+                }
+                
+                &:focus {
+                    border: 1px solid var(--primary);
+                    outline: none;
+                }
+            }
+            
+            select {
+                cursor: pointer;
+                padding-right: (40/16rem);
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: right (12/16rem) center;
+                background-size: (20/16rem);
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                
+                option {
+                    color: var(--headerColor);
+                    background-color: #fff;
+                }
+            }
+
+            textarea {
+                font-family: inherit;
+                padding-top: (20/16rem);
+                min-height: (120/16rem);
+                resize: vertical;
+            }
+
+            .cs-select {
+                display: none;
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                font-weight: 700;
+                line-height: (50/16rem);
+                text-decoration: none;
+                margin: 0;
+                color: #fff;
+                padding: 0 (48/16rem);
+                background-color: var(--primary);
+                border-radius: (4/16rem);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                border: none;
+                cursor: pointer;
+                transition: color 0.3s, background-color 0.3s;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .ambassador-application {
+        #ambassador-application-form {
+            .cs-form-group {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+}

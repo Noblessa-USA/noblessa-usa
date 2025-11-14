@@ -95,4 +95,70 @@ eleventyNavigation:
         </div>
     </section>
 
+    <!-- ============================================ -->
+    <!--            Ambassador Application            -->
+    <!-- ============================================ -->
+
+    <section id="ambassador-application" class="ambassador-application">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Join Us</span>
+                <h2 class="cs-title">Become a Noblessa Ambassador</h2>
+                <p class="cs-text">
+                    Ready to join our elite network? Send us a message below and our team will review your submission. 
+                    We're always looking for passionate professionals who share our commitment to excellence and luxury design.
+                </p>
+            </div>
+            
+            <form id="ambassador-application-form" name="Ambassador Application" method="POST" data-netlify="true" netlify-honeypot="select" data-netlify-recaptcha="true">
+                <div class="cs-form-group">
+                    <label>
+                        Full Name*
+                        <input required type="text" id="name-ambassador" name="name" placeholder="Enter your full name">
+                    </label>
+                    <label>
+                        Email Address*
+                        <input required type="email" id="email-ambassador" name="email" placeholder="Enter your email address">
+                    </label>
+                </div>
+                
+                <div class="cs-form-group">
+                    <label>
+                        Company Name*
+                        <input required type="text" id="company-ambassador" name="company" placeholder="Enter your company name">
+                    </label>
+                    <label>
+                        Phone Number*
+                        <input required type="tel" id="phone-ambassador" name="phone" placeholder="Enter your phone number">
+                    </label>
+                </div>
+                
+                <label>
+                    Business Type*
+                    <select required id="business-type" name="business-type">
+                        <option value="">Select your business type</option>
+                        <option value="Interior Designer">Interior Designer</option>
+                        <option value="Architect">Architect</option>
+                        <option value="Kitchen & Bath Dealer">Kitchen & Bath Dealer</option>
+                        <option value="Home Builder">Home Builder</option>
+                        <option value="Remodeling Contractor">Remodeling Contractor</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input class="cs-select" name="select" type="text" placeholder="Select">
+                </label>
+                
+                <label class="cs-label-message">
+                    Tell Us About Your Business*
+                    <textarea required name="message" id="message-ambassador" placeholder="Please tell us about your business, your clients, and why you'd like to become a Noblessa Ambassador..."></textarea>
+                </label>
+                
+                <div data-netlify-recaptcha="true"></div>
+                
+                <button class="cs-button-solid cs-submit" type="submit">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
 {% endblock %}
