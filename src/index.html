@@ -34,8 +34,8 @@ eleventyNavigation:
         <link rel="stylesheet" href="/assets/css/local.css"/>
     {% endif %}
 
-    <!-- Preload video strategically - load smallest size by default, JavaScript can optimize this -->
-    <link rel="preload" type="video/webm" as="fetch" href="/assets/videos/optimizations/youngers/youngers720.webm"/>
+    <!-- Preload video - JavaScript will update to optimal size if needed -->
+    <link rel="preload" as="video" type="video/webm" href="/assets/videos/optimizations/youngers/youngers720.webm"/>
     
     <!-- Preconnect to external domains if any -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -61,19 +61,10 @@ eleventyNavigation:
             <h1 class="cs-title">live the <span class="cs-linebreak">beautiful life</span></h1>
         </div>
 
-        <!-- Background Video with Responsive Sources -->
+        <!-- Background Video - JavaScript will load the optimal size -->
         <video class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/youngersfirstframe2560.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden=true>
-            <!-- Mobile and small tablet (up to 768px) -->
-            <source media="(max-width: 768px)" src="/assets/videos/optimizations/youngers/youngers720.webm" type="video/webm">
-            
-            <!-- Tablet and small desktop (up to 1200px) -->
-            <source media="(max-width: 1200px)" src="/assets/videos/optimizations/youngers/youngers1080.webm" type="video/webm">
-
-            <!-- Large desktop and higher resolutions -->
-            <source media="(min-width: 1201px)" src="/assets/videos/optimizations/youngers/youngers1440.webm" type="video/webm">
-
-            <!-- Fallback for browsers that don't support the source element -->
-            <source src="/assets/videos/youngers1080x1920.webm" type="video/webm">
+            <!-- Single source - responsive-video.js determines optimal resolution -->
+            <source src="/assets/videos/optimizations/youngers/youngers720.webm" type="video/webm">
         </video>
     </section>
 
