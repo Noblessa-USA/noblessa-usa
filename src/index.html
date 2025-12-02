@@ -99,6 +99,26 @@ eleventyNavigation:
 
     <section id="collections-gallery">
         <div class="cg-container">
+            <div class="cg-text-overlay">
+                <span class="cs-topper">Our Collections</span>
+                <h2 class="cs-title">timeless design for modern living</h2>
+                <span class="cs-divider"></span>
+                <p class="cs-text">
+                    Discover the artistry of noblessa's curated collections. Each piece represents the pinnacle of German craftsmanship, combining innovative design with uncompromising quality to transform your living spaces into works of art.
+                </p>
+                <div class="cg-navigation">
+                    <button class="cg-prev" aria-label="Previous slide">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="cg-next" aria-label="Next slide">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
             <div class="cg-slider">
                 <div class="cg-slide active">
                     <picture>
@@ -199,18 +219,6 @@ eleventyNavigation:
                         <img src="{% getUrl '/assets/images/collections/unsorted/unsorted1.webp' | resize({ width: 2560, height: 1440 }) | webp %}" alt="Sentido Olive Collection" width="1920" height="1080" loading="lazy" decoding="async">
                     </picture>
                 </div>
-            </div>
-            <div class="cg-navigation">
-                <button class="cg-prev" aria-label="Previous slide">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <button class="cg-next" aria-label="Next slide">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
             </div>
         </div>
     </section>

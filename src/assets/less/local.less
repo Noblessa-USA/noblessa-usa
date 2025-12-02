@@ -252,22 +252,23 @@ img {
 @media only screen and (min-width: 0rem) {
     #collections-gallery {
         width: 100%;
-        height: 90vh;
         overflow: visible; /* Allow normal page scrolling */
         position: relative;
-        background-color: #1a1a1a;
+        background-color: var(--sectionDark);
         margin: 0;
-        padding: 0;
+        padding: 30px 0 0 0;
+        display: flex;
+        flex-direction: column;
 
         .cg-container {
             width: 100%;
-            height: 100%;
-            position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .cg-slider {
             width: 100%;
-            height: 100%;
+            height: 80vh;
             position: relative;
         }
 
@@ -275,6 +276,7 @@ img {
             width: 100%;
             height: 100%;
             position: absolute;
+            background-color: #1a1a1a;
             top: 0;
             left: 0;
             opacity: 0;
@@ -308,21 +310,48 @@ img {
             }
         }
 
+        .cg-text-overlay {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            background-color: var(--sectionDark);
+            padding: 2rem;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            order: -1; /* Places it above the slider */
+        }
+
+        .cs-topper {
+            color: #000;
+        }
+
+        .cs-title {
+            color: #000000;
+            margin: 0;
+        }
+
+        .cs-text {
+            color: #000000;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
         .cg-navigation {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
             gap: 1rem;
-            z-index: 10;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: 20px;
         }
 
         .cg-prev, .cg-next {
-            background-color: rgba(0, 0, 0, 0.4);
-            color: rgb(255, 255, 255);
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            margin: 0 0.25rem;
+            background-color: #C59852;
+            color: #ffffff;
+            border: none;
+            margin: 0;
             padding: 0.75rem;
             border-radius: 50%;
             cursor: pointer;
@@ -331,14 +360,15 @@ img {
             justify-content: center;
             width: 48px;
             height: 48px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.1);
+                background-color: #a37a3e;
+                border-color: #a37a3e;
             }
 
             &:focus {
-                outline: 2px solid rgba(255, 255, 255, 0.5);
+                outline: 2px solid #1a1a1a;
                 outline-offset: 2px;
             }
 
@@ -354,13 +384,10 @@ img {
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     #collections-gallery {
-        .cg-navigation {
-            bottom: 3rem;
-        }
-
-        .cg-prev, .cg-next {
-            width: 48px;
-            height: 48px;
+        .cg-text-overlay {
+            max-width: 600px;
+            padding: 1rem;
+            margin: 0 auto;
         }
     }
 }
@@ -369,18 +396,32 @@ img {
 @media only screen and (min-width: 64rem) {
     #collections-gallery {
         height: 80vh;
+        display: block;
 
-        .cg-navigation {
-            bottom: 4rem;
+        .cg-container {
+            height: 100%;
+            display: block;
         }
 
-        .cg-prev, .cg-next {
-            width: 48px;
-            height: 48px;
+        .cg-slider {
+            height: 100%;
+        }
 
-            &:hover {
-                background-color: rgba(0, 0, 0, 0.1);
-            }
+        .cg-text-overlay {
+            position: absolute;
+            right: 5%;
+            bottom: 5%;
+            max-width: 450px;
+            padding: 3rem;
+            border-radius: 4px;
+            background-color: #ffffffe0;
+            display: flex;
+            align-items: flex-start;
+            order: 0;
+        }
+
+        .cs-text {
+            text-align: left;
         }
     }
 }
