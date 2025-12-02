@@ -1,0 +1,70 @@
+<!-- ============================================ -->
+<!--                Newsletter CTA                -->
+<!-- ============================================ -->
+
+<section id="cta-51">
+    <div class="cs-container">
+        <div class="cs-content">
+            <h2 class="cs-title">Stay Inspired With Us</h2>
+            <p class="cs-text">
+                Subscribe to our newsletter and receive exclusive updates on the latest luxury furniture collections, design inspiration, industry insights, and special offers delivered directly to your inbox.
+            </p>
+            <button id="newsletter-cta-btn" class="cs-button-nodeco-white">
+                <span class="cs-hover-underline-white"> Subscribe To Our Newsletter </span>
+                <img src="../../assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+            </button>
+        </div>
+    </div>
+    <!-- Background Image-->
+    <picture class="cs-picture">
+        <img src="../../assets/images/collections/spirit/spirit1.webp" alt="cabinets" width="1920" height="426" loading="lazy" decoding="async">
+    </picture>
+    <script defer src="/assets/js/newsletter-popup.js"></script>
+</section>
+
+<!-- ============================================ -->
+<!--            Newsletter Popup Form             -->
+<!-- ============================================ -->
+
+<div id="newsletter-popup" class="newsletter-popup">
+    <div class="newsletter-popup-overlay"></div>
+    <div class="newsletter-popup-content">
+        <div class="newsletter-popup-header">
+            <h2>Join Our Newsletter</h2>
+            <button class="newsletter-popup-close" aria-label="Close newsletter popup">&times;</button>
+        </div>
+        <div class="newsletter-popup-body">
+            <p class="newsletter-popup-description">
+                Subscribe to receive exclusive updates on the latest luxury furniture collections, design inspiration, and special offers.
+            </p>
+            <form id="newsletter-form" class="newsletter-form" name="Subscribe To Newsletter" method="POST" data-netlify="true" netlify-honeypot="select" data-netlify-recaptcha="true">
+                <div class="newsletter-form-row">
+                    <div class="newsletter-form-group">
+                        <label for="newsletter-first-name">First Name <span class="required">*</span></label>
+                        <input type="text" id="newsletter-first-name" name="firstName" required placeholder="First Name">
+                    </div>
+                    <div class="newsletter-form-group">
+                        <label for="newsletter-last-name">Last Name <span class="required">*</span></label>
+                        <input type="text" id="newsletter-last-name" name="lastName" required placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="newsletter-form-group">
+                    <label for="newsletter-email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="newsletter-email" name="email" required placeholder="email@example.com">
+                </div>
+                <div class="newsletter-form-group">
+                    <label for="newsletter-phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="newsletter-phone" name="phone" required placeholder="(123) 456-7890">
+                    <input class="cs-select" name="select" type="text" placeholder="Select">
+                </div>
+                <div class="newsletter-form-footer">
+                    <div data-netlify-recaptcha="true"></div>
+                    <button type="submit" class="newsletter-submit-btn">
+                        <span class="cs-hover-underline">Subscribe</span>
+                        <img src="../../assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
