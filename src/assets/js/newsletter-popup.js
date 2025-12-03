@@ -19,16 +19,40 @@
         const newsletterPopup = document.getElementById('newsletter-popup');
         const newsletterPopupOverlay = document.querySelector('.newsletter-popup-overlay');
         const newsletterPopupClose = document.querySelector('.newsletter-popup-close');
-        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterPopupBody = document.querySelector('.newsletter-popup-body');
+        const formTemplate = document.getElementById('newsletter-form-template');
+        
+        let formInjected = false;
 
         // Check if elements exist
-        if (!newsletterCtaBtn || !newsletterPopup) {
+        if (!newsletterCtaBtn || !newsletterPopup || !newsletterPopupBody || !formTemplate) {
             console.warn('Newsletter popup elements not found');
             return;
         }
 
+        // Inject form content (only runs once)
+        function injectForm() {
+            if (formInjected) return;
+            
+            // Insert the form template content into the popup body
+            const formHTML = formTemplate.innerHTML;
+            newsletterPopupBody.insertAdjacentHTML('beforeend', formHTML);
+            formInjected = true;
+            
+            // Trigger Netlify's form detection and reCAPTCHA initialization
+            // Netlify looks for forms with data-netlify attribute and injects reCAPTCHA
+            if (window.netlifyIdentity) {
+                // If Netlify Identity is present, trigger form reprocessing
+                const event = new Event('DOMContentLoaded', { bubbles: true, cancelable: true });
+                document.dispatchEvent(event);
+            }
+        }
+
         // Open popup
         function openPopup() {
+            // Inject form on first open to defer reCAPTCHA loading
+            injectForm();
+            
             newsletterPopup.style.display = 'flex';
             // Slight delay to allow display change to take effect before adding active class
             setTimeout(() => {
