@@ -1,0 +1,305 @@
+---
+title: "Explore Noblessa | Transform Your Space with German Excellence"
+description: "Discover elegant modular kitchen cabinets crafted with German precision. Schedule your complimentary design consultation today and start living the beautiful life."
+permalink: "/explore/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/explore.css">
+    <link rel="preload" as="video" type="video/webm" href="/assets/videos/optimizations/youngers/youngers720.webm"/>
+    <script defer src="/assets/js/explore.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--                   Hero                       -->
+    <!-- ============================================ -->
+
+    <section id="explore-hero">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper sl-fade-in-right">German Excellence. Personalized For You.</span>
+                <h1 class="cs-title sl-fade-in-right">transform your kitchen<br>into a masterpiece</h1>
+                <span class="cs-divider sl-fade-in-right"></span>
+                <a href="#consultation-form" class="cs-button-nodeco-white sl-fade-in-right">
+                    <span class="cs-hover-underline-white">Let's Explore Together</span>
+                    <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+                </a>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="cs-scroll-indicator">
+            <svg width="30" height="50" viewBox="0 0 30 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="28" height="48" rx="14" stroke="white" stroke-width="2"/>
+                <circle class="cs-scroll-dot" cx="15" cy="15" r="4" fill="white"/>
+            </svg>
+        </div>
+        <!-- Background Video -->
+        <video class="cs-video" autoplay muted playsinline loop preload="metadata" poster="{% getUrl '/assets/videos/youngersfirstframe2560.webp' | resize({ width: 1920, height: 1080 }) | webp %}" aria-hidden="true">
+            <source src="/assets/videos/optimizations/youngers/youngers720.webm" type="video/webm">
+        </video>
+    </section>
+
+    <!-- ============================================ -->
+    <!--              Why Choose Noblessa             -->
+    <!-- ============================================ -->
+
+    <section id="why-noblessa">
+        <div class="cs-container">
+            <div class="cs-section-header">
+                <div class="cs-left-column">
+                    <span class="cs-topper sl-fade-in-down">Why Noblessa</span>
+                    <h2 class="cs-title sl-fade-in-up">the noblessa difference</h2>
+                </div>
+                <span class="cs-divider"></span>
+                <div class="cs-right-column sl-fade-in-left">
+                    <p class="cs-text">
+                        More than luxury cabinetry—noblessa offers an elevated lifestyle. Every detail is meticulously crafted to reflect your unique vision and transform your home into a sanctuary of elegance. Since 1996, our prestigious German-crafted cabinetry has redefined culinary and architectural elegance, found in sophisticated homes across the globe.
+                    </p>
+                    <a href="#consultation-form" class="cs-button-nodeco">
+                        <span class="cs-hover-underline">Start The Conversation</span>
+                        <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--              Gallery Showcase                -->
+    <!-- ============================================ -->
+
+    <section id="explore-gallery">
+        <!-- Background Image -->
+        <picture class="cs-background">
+            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/lazar/lazarhome2.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/lazar/lazarhome2.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/lazar/lazarhome2.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/lazar/lazarhome2.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+            <img src="{% getUrl '/assets/images/lazar/lazarhome2.webp' | resize({ width: 1920 }) | webp %}" alt="Luxury Kitchen Background" width="1920" height="1080" loading="lazy" decoding="async">
+        </picture>
+        
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper sl-fade-in-down">Inspired Spaces</span>
+                <h2 class="cs-title sl-fade-in-down">transformative design</h2>
+                <span class="cs-divider sl-fade-in-up"></span>
+                <p class="cs-text sl-fade-in-up">
+                    Experience the artistry of German craftsmanship through our portfolio of stunning kitchen and bath transformations. Each project represents our commitment to precision, quality, and timeless design.
+                </p>
+            </div>
+            
+            <div class="cs-gallery-wrapper">
+                <div class="cs-image-group">
+                    <div class="cs-card sl-fade-in-left">
+                        <picture class="cs-picture">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/youngers/youngers1.webp' | resize({ width: 400 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/youngers/youngers1.webp' | resize({ width: 400 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/youngers/youngers1.webp' | resize({ width: 600 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/youngers/youngers1.webp' | resize({ width: 600 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/youngers/youngers1.webp' | resize({ width: 600 }) | webp %}" alt="Modern Kitchen Design" width="600" height="450" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="cs-card-info">
+                            <h3 class="cs-card-title">Modern Minimalism</h3>
+                            <p class="cs-card-text">Sleek contemporary kitchen with premium finishes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cs-card sl-fade-in-right">
+                        <picture class="cs-picture">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 400 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 400 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 600 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 600 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/bathrooms/bath1.webp' | resize({ width: 600 }) | webp %}" alt="Luxury Bathroom Design" width="600" height="450" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="cs-card-info">
+                            <h3 class="cs-card-title">Spa Sanctuary</h3>
+                            <p class="cs-card-text">Luxurious bathroom retreat with refined details</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cs-card cs-card-featured sl-fade-in-up">
+                        <picture class="cs-picture">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/silva/silva-17.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/silva/silva-17.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/silva/silva-17.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/silva/silva-17.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/silva/silva-17.webp' | resize({ width: 1200 }) | webp %}" alt="Walnut Kitchen Cabinetry" width="1200" height="900" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="cs-card-info">
+                            <h3 class="cs-card-title">Timeless Elegance</h3>
+                            <p class="cs-card-text">Rich walnut cabinetry with German precision</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cs-card sl-fade-in-left">
+                        <picture class="cs-picture">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 400 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 400 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 600 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 600 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite3.webp' | resize({ width: 600 }) | webp %}" alt="White Kitchen Design" width="600" height="450" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="cs-card-info">
+                            <h3 class="cs-card-title">Pure Serenity</h3>
+                            <p class="cs-card-text">Crisp white design with Alpine-inspired aesthetics</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cs-card sl-fade-in-right">
+                        <picture class="cs-picture">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 400 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 400 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 600 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 600 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/bathrooms/bath2.webp' | resize({ width: 600 }) | webp %}" alt="Designer Bathroom" width="600" height="450" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="cs-card-info">
+                            <h3 class="cs-card-title">Contemporary Comfort</h3>
+                            <p class="cs-card-text">Modern bathroom design with organic elements</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cs-button-wrapper">
+                    <a href="/clients" class="cs-button-nodeco-white sl-fade-in-right">
+                    <span class="cs-hover-underline-white">Explore Our Portfolio</span>
+                    <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--           Process & Benefits                 -->
+    <!-- ============================================ -->
+
+    <section id="our-process">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper sl-fade-in-down">Your Journey</span>
+                <h2 class="cs-title sl-fade-in-down">from vision to reality</h2>
+                <span class="cs-divider"></span>
+                <p class="cs-text sl-fade-in-up">
+                    Bringing your dream kitchen to life is a collaborative journey. Here's what to expect when you partner with noblessa.
+                </p>
+            </div>
+            <ul class="cs-timeline">
+                <li class="cs-step sl-fade-in-up">
+                    <div class="cs-step-number">01</div>
+                    <h3 class="cs-h3">Free Consultation</h3>
+                    <p class="cs-step-text">
+                        Meet with a noblessa designer to discuss your vision, lifestyle needs, and space requirements. We'll explore collections and design possibilities together.
+                    </p>
+                </li>
+                <li class="cs-step sl-fade-in-up">
+                    <div class="cs-step-number">02</div>
+                    <h3 class="cs-h3">Custom Design</h3>
+                    <p class="cs-step-text">
+                        Our team creates detailed 3D renderings and specifications tailored to your space. We refine every detail until the design perfectly matches your vision.
+                    </p>
+                </li>
+                <li class="cs-step sl-fade-in-up">
+                    <div class="cs-step-number">03</div>
+                    <h3 class="cs-h3">German Craftsmanship</h3>
+                    <p class="cs-step-text">
+                        Your cabinetry is meticulously manufactured in Germany using premium materials and rigorous quality control at every stage.
+                    </p>
+                </li>
+                <li class="cs-step sl-fade-in-up">
+                    <div class="cs-step-number">04</div>
+                    <h3 class="cs-h3">Expert Installation</h3>
+                    <p class="cs-step-text">
+                        Professional installation ensures flawless execution. We coordinate every detail to bring your beautiful new kitchen to life.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--           Consultation Form CTA              -->
+    <!-- ============================================ -->
+
+    <section id="consultation-form">
+        <!-- Background Image -->
+        <picture class="cs-background">
+            <!--Mobile Image-->
+            <source media="(max-width: 600px)" srcset="/assets/images/collections/riva/riva1.webp">
+            <!--Tablet and above Image-->
+            <source media="(min-width: 601px)" srcset="/assets/images/collections/riva/riva1.webp">
+            <img decoding="async" src="/assets/images/collections/riva/riva1.webp" alt="Elegant Noblessa Kitchen" width="1920" height="1080" aria-hidden="true">
+        </picture>
+
+        <div class="cs-container">
+            <div class="cs-left-section">
+                <div class="cs-content">
+                    <h2 class="cs-topper sl-fade-in-down">Start Your Journey</h2>
+                    <h3 class="cs-title sl-fade-in-down">explore your vision with noblessa</h3>
+                    <span class="cs-divider"></span>
+                    <p class="cs-text sl-fade-in-up">
+                        Ready to transform your space? Our expert designers are here to help you explore the possibilities and create a kitchen that perfectly reflects your style.
+                    </p>
+                    <ul class="cs-benefits sl-fade-in-up">
+                        <li>
+                            <img src="/assets/svgs/horizontal-arrow.svg" alt="checkmark" width="20" height="20">
+                            <span>Complimentary design consultation</span>
+                        </li>
+                        <li>
+                            <img src="/assets/svgs/horizontal-arrow.svg" alt="checkmark" width="20" height="20">
+                            <span>Expert guidance on collections & finishes</span>
+                        </li>
+                        <li>
+                            <img src="/assets/svgs/horizontal-arrow.svg" alt="checkmark" width="20" height="20">
+                            <span>Personalized design recommendations</span>
+                        </li>
+                        <li>
+                            <img src="/assets/svgs/horizontal-arrow.svg" alt="checkmark" width="20" height="20">
+                            <span>No obligation - just possibilities</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cs-right-section">
+                <form id="cs-form-265" name="Main Contact Form" method="POST" data-netlify="true" netlify-honeypot="select" data-netlify-recaptcha="true">
+                    <div class="cs-form-row">
+                        <label class="sl-fade-in-up">
+                            Full Name*
+                            <input required type="text" id="name-265" name="name" placeholder="Name">
+                        </label>
+                        <label class="sl-fade-in-up">
+                            Email*
+                            <input required type="text" id="email-265" name="email" placeholder="Email">
+                        </label>
+                    </div>
+                    <div class="cs-form-row">
+                        <label class="sl-fade-in-up">
+                            Phone*
+                            <input required type="text" id="phone-265" name="phone" placeholder="Phone">
+                        </label>
+                        <label class="sl-fade-in-up">
+                            Zip/Postal Code* (US Only)
+                            <input required type="text" id="zip-265" name="zip" placeholder="Zip/Postal Code">
+                            <input class="cs-select" name="select" type="text" placeholder="Select">
+                        </label>
+                    </div>
+                    <label class="cs-label-message sl-fade-in-up">
+                        Message
+                        <textarea required name="message" id="message-265" placeholder="Tell us about your project or questions..."></textarea>
+                    </label>
+                    <div data-netlify-recaptcha="true"></div>
+                    <button class="cs-button-nodeco cs-submit sl-fade-in-up" type="submit">
+                        <span class="cs-hover-underline">Submit Message</span>
+                        <img src="../../assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
