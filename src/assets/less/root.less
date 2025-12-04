@@ -2531,15 +2531,10 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.newsletter-modal-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+.newsletter-modal[hidden] {
+    display: none;
 }
 
 .newsletter-modal-overlay {
