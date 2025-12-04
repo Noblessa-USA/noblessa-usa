@@ -23,19 +23,9 @@
   bundle = false
 
 [[headers]]
-  for = "/assets/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=300, must-revalidate"
-
-[[headers]]
-  for = "/assets/js/*"
-  [headers.values]
-    Cache-Control = "public, max-age=300, must-revalidate"
-
-[[headers]]
   for = "/assets/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=300, must-revalidate"
+    Cache-Control = "public, max-age=604800, immutable"
 
 [[headers]]
   for = "/assets/videos/*"
