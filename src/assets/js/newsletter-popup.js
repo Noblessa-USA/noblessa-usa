@@ -53,22 +53,18 @@
             // Inject form on first open to defer reCAPTCHA loading
             injectForm();
             
-            newsletterPopup.style.display = 'flex';
-            // Slight delay to allow display change to take effect before adding active class
-            setTimeout(() => {
-                newsletterPopup.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            }, 10);
+            // Force a reflow to ensure visibility takes effect
+            newsletterPopup.offsetHeight;
+            
+            // Add active class to trigger opacity and visibility transition
+            newsletterPopup.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }
 
         // Close popup
         function closePopup() {
             newsletterPopup.classList.remove('active');
             document.body.style.overflow = ''; // Restore scrolling
-            // Wait for transition to complete before hiding
-            setTimeout(() => {
-                newsletterPopup.style.display = 'none';
-            }, 300);
         }
 
         // Event Listeners
