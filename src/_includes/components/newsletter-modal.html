@@ -1,0 +1,41 @@
+<!-- ============================================ -->
+<!--               Newsletter Modal               -->
+<!-- ============================================ -->
+
+<div class="cs-newsletter-modal" id="newsletter-modal">
+    <div class="cs-newsletter-overlay" id="newsletter-overlay"></div>
+    <div class="cs-newsletter-form-container">
+        <div class="cs-newsletter-header">
+            <h2>Stay Inspired</h2>
+            <p>Subscribe to our newsletter to receive exclusive updates on luxury furniture collections, design inspiration, and special offers.</p>
+            <button class="cs-newsletter-close" id="newsletter-close" aria-label="Close newsletter modal">&times;</button>
+        </div>
+        <form id="newsletter-form" class="cs-newsletter-form" name="Subscribe To Newsletter" method="POST" data-netlify="true" netlify-honeypot="select">
+    <div class="cs-newsletter-form-row">
+        <div class="cs-newsletter-form-group">
+            <label for="cs-newsletter-first-name">First Name <span class="cs-required">*</span></label>
+            <input type="text" id="cs-newsletter-first-name" name="firstName" required placeholder="First Name">
+        </div>
+        <div class="cs-newsletter-form-group">
+            <label for="cs-newsletter-last-name">Last Name <span class="cs-required">*</span></label>
+            <input type="text" id="cs-newsletter-last-name" name="lastName" required placeholder="Last Name">
+        </div>
+    </div>
+    <div class="cs-newsletter-form-group">
+        <label for="cs-newsletter-email">Email Address <span class="cs-required">*</span></label>
+        <input type="email" id="cs-newsletter-email" name="email" required placeholder="email@example.com">
+    </div>
+    <div class="cs-newsletter-form-group">
+        <label for="cs-newsletter-phone">Phone Number <span class="cs-required">*</span></label>
+        <input type="tel" id="cs-newsletter-phone" name="phone" required placeholder="(123) 456-7890">
+        <input class="cs-select" name="select" type="text" placeholder="Select">
+    </div>
+    <div class="cs-newsletter-form-footer">
+        <button type="submit" class="cs-newsletter-submit-btn">
+            <span class="cs-hover-underline">Subscribe</span>
+            <img src="../../assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
+        </button>
+    </div>
+        </form>
+    </div>
+</div>

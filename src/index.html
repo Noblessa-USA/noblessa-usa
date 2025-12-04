@@ -19,6 +19,7 @@ eleventyNavigation:
     <script defer src="assets/js/transformgallery.js"></script>
     <script defer src="assets/js/collections-gallery.js"></script>
     <script defer src="assets/js/responsive-video.js"></script>
+    <script defer src="assets/js/newsletter-popup.js"></script>
 
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
     {% if client.isProduction %}
@@ -313,82 +314,15 @@ eleventyNavigation:
                 <p class="cs-text sl-fade-in-left">
                     Environmental and energy responsibility is integral to everything we do. We are proud to hold the Blauer Engel Award, the GS Quality Seal, the Golden M, and PEFC Certification - each a testament to our commitment to sustainable materials, responsible forestry, and safe production. Beyond our manufacturing, we partner exclusively with shipping providers on track to reach NetZero emissions by 2030, ensuring our dedication to sustainability extends from creation to delivery.
                 </p>
-                <a href="/about/" class="cs-button-nodeco sl-fade-in-left">
+                <button class="cs-button-nodeco sl-fade-in-left">
                     <span class="cs-hover-underline"> Explore Noblessa </span>
                     <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!--                Newsletter CTA                -->
-    <!-- ============================================ -->
-
-    <section id="cta-51">
-        <div class="cs-container">
-            <div class="cs-content">
-                <h2 class="cs-title">Stay Inspired With Us</h2>
-                <p class="cs-text">
-                    Subscribe to our newsletter and receive exclusive updates on the latest luxury furniture collections, design inspiration, industry insights, and special offers delivered directly to your inbox.
-                </p>
-                <button id="newsletter-cta-btn" class="cs-button-nodeco-white">
-                    <span class="cs-hover-underline-white">Subscribe Now</span>
-                    <img src="../../assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
                 </button>
             </div>
         </div>
-        <!-- Background Image -->
-        <picture class="cs-picture">
-            <img src="../../assets/images/collections/spirit/spirit1.webp" alt="cabinets" width="1920" height="426" loading="lazy" decoding="async">
-        </picture>
     </section>
 
-    <!-- ============================================ -->
-    <!--            Newsletter Popup Modal            -->
-    <!-- ============================================ -->
-
-    <div id="newsletter-modal" class="newsletter-modal" hidden>
-        <div class="newsletter-modal-overlay"></div>
-        <div class="newsletter-modal-dialog">
-            <div class="newsletter-modal-header">
-                <h2>Join Our Newsletter</h2>
-                <button type="button" class="newsletter-modal-close" aria-label="Close">&times;</button>
-            </div>
-            <div class="newsletter-modal-body">
-                <p>Subscribe to receive exclusive updates on the latest luxury furniture collections, design inspiration, and special offers.</p>
-                <form id="newsletter-form" class="newsletter-form" name="Subscribe To Newsletter" method="POST" data-netlify="true" netlify-honeypot="select" data-netlify-recaptcha="true">
-                    <div class="newsletter-form-row">
-                        <div class="newsletter-form-group">
-                            <label for="newsletter-first-name">First Name <span class="required">*</span></label>
-                            <input type="text" id="newsletter-first-name" name="firstName" required placeholder="First Name">
-                        </div>
-                        <div class="newsletter-form-group">
-                            <label for="newsletter-last-name">Last Name <span class="required">*</span></label>
-                            <input type="text" id="newsletter-last-name" name="lastName" required placeholder="Last Name">
-                        </div>
-                    </div>
-                    <div class="newsletter-form-group">
-                        <label for="newsletter-email">Email Address <span class="required">*</span></label>
-                        <input type="email" id="newsletter-email" name="email" required placeholder="email@example.com">
-                    </div>
-                    <div class="newsletter-form-group">
-                        <label for="newsletter-phone">Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="newsletter-phone" name="phone" required placeholder="(123) 456-7890">
-                        <input class="cs-select" name="select" type="text" placeholder="Select">
-                    </div>
-                    <div class="newsletter-form-footer">
-                        <div data-netlify-recaptcha="true"></div>
-                        <button type="submit" class="newsletter-submit-btn">
-                            <span class="cs-hover-underline">Subscribe</span>
-                            <img src="../../assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script defer src="/assets/js/newsletter-popup.js"></script>
+    {% include "sections/newsletter-cta.html" %}
+    {% include "components/newsletter-modal.html" %}
                                     
 {% endblock %}

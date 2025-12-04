@@ -1,56 +1,114 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// NEWSLETTER POPUP FUNCTIONALITY
-// Simple modal for newsletter subscription
+// NEWSLETTER POPUP/MODAL FUNCTIONALITY
+// Handles opening and closing the newsletter subscription modal
 // ─────────────────────────────────────────────────────────────────────────────
 
 (function() {
     'use strict';
 
-    const modal = document.getElementById('newsletter-modal');
-    const openBtn = document.getElementById('newsletter-cta-btn');
-    const closeBtn = modal?.querySelector('.newsletter-modal-close');
-    const overlay = modal?.querySelector('.newsletter-modal-overlay');
-    const form = document.getElementById('newsletter-form');
-
-    if (!modal || !openBtn) return;
-
-    function openModal() {
-        modal.hidden = false;
-        document.body.style.overflow = 'hidden';
-        // Focus on first input for accessibility
-        setTimeout(() => {
-            const firstInput = modal.querySelector('input[type="text"]');
-            firstInput?.focus();
-        }, 100);
-    }
-
-    function closeModal() {
-        modal.hidden = true;
-        document.body.style.overflow = '';
-    }
-
-    // Event listeners
-    openBtn.addEventListener('click', openModal);
-    closeBtn?.addEventListener('click', closeModal);
-    overlay?.addEventListener('click', closeModal);
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.hidden) {
-            closeModal();
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Get all elements
+        const modal = document.getElementById('newsletter-modal');
+        const ctaButton = document.getElementById('newsletter-cta-btn');
+        const closeButton = document.getElementById('newsletter-close');
+        const overlay = document.getElementById('newsletter-overlay');
+        const form = document.getElementById('newsletter-form');
+        
+        // Exit if modal doesn't exist on this page
+        if (!modal) {
+            return;
         }
-    });
 
-    // Form submission
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            // Netlify handles the form submission
-            // Show success message after a delay
-            setTimeout(() => {
-                alert('Thank you for subscribing!');
-                closeModal();
-                form.reset();
+        /**
+         * Open the newsletter modal
+         */
+        function openModal() {
+            modal.style.display = 'flex';
+            // Force reflow for animation
+            modal.offsetHeight;
+            modal.classList.add('cs-newsletter-modal-visible');
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+            
+            // Set focus to the first input field for accessibility
+            setTimeout(function() {
+                const firstInput = modal.querySelector('input[type="text"]');
+                if (firstInput) {
+                    firstInput.focus();
+                }
             }, 100);
+        }
+
+        /**
+         * Close the newsletter modal
+         */
+        function closeModal() {
+            modal.classList.remove('cs-newsletter-modal-visible');
+            // Wait for animation to complete before hiding
+            setTimeout(function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        /**
+         * Handle form submission
+         */
+        function handleFormSubmit(event) {
+            // The form will be handled by Netlify
+            // You can add additional tracking or validation here if needed
+            console.log('Newsletter form submitted');
+        }
+
+        // Event Listeners
+        
+        // Open modal when CTA button is clicked
+        if (ctaButton) {
+            ctaButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        // Close modal when close button is clicked
+        if (closeButton) {
+            closeButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeModal();
+            });
+        }
+
+        // Close modal when clicking on overlay
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                closeModal();
+            });
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('cs-newsletter-modal-visible')) {
+                closeModal();
+            }
         });
-    }
+
+        // Handle form submission
+        if (form) {
+            form.addEventListener('submit', handleFormSubmit);
+        }
+
+        // Optional: Show modal after a delay (auto-popup)
+        // Uncomment the following code if you want the modal to appear automatically
+        /*
+        setTimeout(function() {
+            // Check if user hasn't already dismissed it in this session
+            if (!sessionStorage.getItem('newsletterModalShown')) {
+                openModal();
+                sessionStorage.setItem('newsletterModalShown', 'true');
+            }
+        }, 5000); // Show after 5 seconds
+        */
+    });
 })();

@@ -2516,86 +2516,104 @@ html {
     }
 }
 
-
 /*-- -------------------------- -->
-<---    Newsletter Modal        -->
+<---      Newsletter Modal      -->
 <--- -------------------------- -*/
 
-.newsletter-modal {
+/* ─────────────────────────────────────────────────────────────────────────────
+   NEWSLETTER MODAL/POPUP STYLES
+   Responsive newsletter subscription form with modal overlay
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Newsletter Modal Overlay */
+.cs-newsletter-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10000;
-    display: flex;
+    z-index: 10001;
+    display: none;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    
+    &.cs-newsletter-modal-visible {
+        opacity: 1;
+    }
 }
 
-.newsletter-modal[hidden] {
-    display: none;
-}
-
-.newsletter-modal-overlay {
+.cs-newsletter-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
 }
 
-.newsletter-modal-dialog {
+/* Newsletter Form Container */
+.cs-newsletter-form-container {
     position: relative;
     background: #fff;
-    border-top: 4px solid var(--secondary);
     border-radius: 8px;
     max-width: 600px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border-top: 4px solid var(--secondary);
     z-index: 1;
-    animation: modalSlideIn 0.3s ease-out;
+    animation: slideInUp 0.4s ease;
 }
 
-@keyframes modalSlideIn {
+@keyframes slideInUp {
     from {
+        transform: translateY(30px);
         opacity: 0;
-        transform: translateY(-20px);
     }
     to {
-        opacity: 1;
         transform: translateY(0);
+        opacity: 1;
     }
 }
 
-.newsletter-modal-header {
-    padding: 32px 32px 20px;
-    border-bottom: 2px solid #f0f0f0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Newsletter Form Header */
+.cs-newsletter-header {
+    padding: 32px 32px 24px 32px;
+    text-align: center;
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #eee;
+    
+    h2 {
+        margin: 0 0 8px 0;
+        font-size: clamp(24px, 4vw, 32px);
+        color: var(--headerColor);
+        font-family: var(--headerFont);
+        font-weight: 900;
+    }
+    
+    p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--bodyTextColor);
+        max-width: 450px;
+        margin: 0 auto;
+    }
 }
 
-.newsletter-modal-header h2 {
-    margin: 0;
-    font-size: clamp(24px, 4vw, 32px);
-    color: var(--headerColor);
-    font-family: var(--headerFont);
-    font-weight: 900;
-}
-
-.cs-select {
-    display: none;
-}
-
-.newsletter-modal-close {
+.cs-newsletter-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
     background: none;
     border: none;
-    font-size: 40px;
+    font-size: 32px;
     color: #666;
     cursor: pointer;
     padding: 0;
@@ -2606,133 +2624,347 @@ html {
     justify-content: center;
     border-radius: 50%;
     transition: all 0.3s ease;
-    line-height: 1;
+    z-index: 2;
+    
+    &:hover {
+        background-color: #f0f0f0;
+        color: #333;
+        transform: rotate(90deg);
+    }
+    
+    &:focus {
+        outline: 2px solid var(--secondary);
+        outline-offset: 2px;
+    }
 }
 
-.newsletter-modal-close:hover {
-    background-color: #f0f0f0;
-    color: var(--secondary);
-    transform: rotate(90deg);
-}
-
-.newsletter-modal-body {
+/* Newsletter Form */
+.cs-newsletter-form {
     padding: 32px;
-}
-
-.newsletter-modal-body > p {
-    margin: 0 0 24px;
-    color: var(--bodyTextColor);
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-#newsletter-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.newsletter-form-row {
+.cs-newsletter-form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
 
-.newsletter-form-group {
+.cs-newsletter-form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    
+    label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--headerColor);
+        font-family: var(--bodyFont);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .cs-required {
+        color: var(--secondary);
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+        padding: 14px 16px;
+        border: 2px solid #e0e0e0;
+        border-radius: 4px;
+        font-size: 16px;
+        font-family: var(--bodyFont);
+        color: var(--bodyTextColor);
+        transition: all 0.3s ease;
+        background-color: #fafafa;
+        
+        &:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(197, 152, 82, 0.1);
+        }
+        
+        &::placeholder {
+            color: #999;
+            opacity: 1;
+        }
+        
+        &:hover {
+            border-color: #ccc;
+        }
+    }
+    
+    // Honeypot field (hidden)
+    input.cs-select {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+    }
 }
 
-.newsletter-form-group label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--headerColor);
-    font-family: var(--bodyFont);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+/* Newsletter Form Footer */
+.cs-newsletter-form-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 8px;
+    
+    // reCAPTCHA container
+    div[data-netlify-recaptcha="true"] {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 }
 
-.newsletter-form-group label span {
-    color: var(--secondary);
-}
-
-.newsletter-form-group input {
-    padding: 14px 16px;
-    border: 2px solid #e0e0e0;
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: var(--bodyFont);
-    color: var(--bodyTextColor);
-    transition: border-color 0.3s ease;
-}
-
-.newsletter-form-group input:focus {
-    outline: none;
-    border-color: var(--secondary);
-    box-shadow: 0 0 0 3px rgba(197, 152, 82, 0.1);
-}
-
-.newsletter-submit-btn {
-    margin-top: 12px;
-    background: var(--blackShineGradient);
+/* Newsletter Submit Button */
+.cs-newsletter-submit-btn {
     border: none;
-    color: #fff;
-    padding: 16px 32px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    background: var(--blackShineGradient);
+    background-size: 200% 100%;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    padding: 16px 40px;
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    width: fit-content;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--bodyFont);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    
+    .cs-hover-underline {
+        position: relative;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.4s ease;
+        }
+    }
+    
+    img {
+        transition: transform 0.3s ease;
+        filter: brightness(0) invert(1);
+    }
+    
+    &:hover {
+        background-position: 100% 0;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        
+        .cs-hover-underline::after {
+            width: 100%;
+        }
+        
+        img {
+            transform: translateX(5px);
+        }
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+    
+    &:focus {
+        outline: 2px solid var(--secondary);
+        outline-offset: 2px;
+    }
+    
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+        
+        &:hover {
+            background-position: 0 0;
+            box-shadow: none;
+        }
+    }
 }
 
-.newsletter-submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+/* Success/Error Messages */
+.cs-newsletter-message {
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 16px;
+    animation: fadeIn 0.3s ease;
+    
+    &.cs-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    
+    &.cs-error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
 }
 
-.newsletter-submit-btn img {
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s ease;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.newsletter-submit-btn:hover img {
-    transform: translateX(4px);
-}
-
+/* Mobile Responsive Styles */
 @media only screen and (max-width: 768px) {
-    .newsletter-modal-dialog {
+    .cs-newsletter-form-container {
         width: 95%;
+        max-height: 95vh;
     }
-    .newsletter-modal-header {
-        padding: 24px 20px 16px;
+    
+    .cs-newsletter-header {
+        padding: 24px 20px 20px 20px;
+        
+        h2 {
+            font-size: 24px;
+        }
+        
+        p {
+            font-size: 13px;
+        }
     }
-    .newsletter-modal-body {
+    
+    .cs-newsletter-close {
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        font-size: 28px;
+    }
+    
+    .cs-newsletter-form {
         padding: 24px 20px;
+        gap: 16px;
     }
-    .newsletter-form-row {
+    
+    .cs-newsletter-form-row {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
-    .newsletter-submit-btn {
+    
+    .cs-newsletter-submit-btn {
         width: 100%;
         justify-content: center;
+        padding: 14px 32px;
+        font-size: 14px;
     }
 }
 
 @media only screen and (max-width: 480px) {
-    .newsletter-modal-header {
-        padding: 20px 16px 12px;
+    .cs-newsletter-form-container {
+        width: 95%;
+        max-height: 100vh;
     }
-    .newsletter-modal-close {
-        font-size: 36px;
+    
+    .cs-newsletter-header {
+        padding: 20px 16px 16px 16px;
+        border-radius: 0;
+        
+        h2 {
+            font-size: 20px;
+        }
+        
+        p {
+            font-size: 12px;
+        }
     }
-    .newsletter-modal-body {
+    
+    .cs-newsletter-close {
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 24px;
+    }
+    
+    .cs-newsletter-form {
         padding: 20px 16px;
+        gap: 14px;
+    }
+    
+    .cs-newsletter-form-group {
+        label {
+            font-size: 12px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            padding: 12px 14px;
+            font-size: 15px;
+        }
+    }
+    
+    .cs-newsletter-submit-btn {
+        padding: 12px 24px;
+        font-size: 13px;
+        gap: 8px;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .cs-newsletter-form-container {
+        animation: none;
+    }
+    
+    .cs-newsletter-modal,
+    .cs-newsletter-submit-btn,
+    .cs-newsletter-close,
+    .cs-newsletter-form-group input {
+        transition: none;
+    }
+    
+    .cs-newsletter-message {
+        animation: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .cs-newsletter-form-container {
+        border: 2px solid #1a1a1a;
+        border-top: 4px solid var(--secondary);
+    }
+    
+    .cs-newsletter-form-group input[type="text"],
+    .cs-newsletter-form-group input[type="email"],
+    .cs-newsletter-form-group input[type="tel"] {
+        border-width: 3px;
+    }
+    
+    .cs-newsletter-submit-btn {
+        border: 2px solid #fff;
     }
 }
