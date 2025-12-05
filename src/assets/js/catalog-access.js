@@ -9,10 +9,10 @@
     // Configuration
     const STORAGE_KEY = 'noblessa_catalog_access';
     const CATALOG_URLS = {
-        'new-features': '/assets/pdf/catalogs2026/new-features-catalog.pdf',
-        'bathrooms': '/assets/pdf/catalogs2026/bathrooms-catalog.pdf',
-        'living-rooms': '/assets/pdf/catalogs2026/living-rooms-catalog.pdf',
-        'kitchen-ranges': '/assets/pdf/catalogs2026/kitchen-ranges-catalog.pdf'
+        'new-features': '/assets/pdf/catalogs2026/New Features 2026.pdf',
+        'bathrooms': '/assets/pdf/catalogs2026/Noblessa Bathroom 2026.pdf',
+        'living-rooms': '/assets/pdf/catalogs2026/Noblessa Living 2026.pdf',
+        'kitchen-ranges': '/assets/pdf/catalogs2026/Noblessa Kitchens 2026.pdf'
     };
 
     // DOM Elements
