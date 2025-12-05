@@ -256,13 +256,8 @@
             return;
         }
 
-        // Create a temporary link and trigger download
-        const link = document.createElement('a');
-        link.href = catalogUrl;
-        link.download = catalogUrl.split('/').pop();
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // Open PDF in new tab
+        window.open(catalogUrl, '_blank');
 
         // Track download (optional - could send to analytics)
         trackCatalogDownload(catalogType);
