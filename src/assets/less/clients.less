@@ -230,9 +230,9 @@
 <---      Catalog Section        -->
 <--- -------------------------- -*/
 
-#catalog-section-2287 {
+#catalog-section {
     padding: var(--sectionPadding);
-    background-color: #fff;
+    background-color: #f7f7f7;
 
     .cs-container {
         width: 100%;
@@ -292,105 +292,174 @@
     }
 
     .cs-catalog-card {
+        position: relative;
         background: #fff;
-        border: 1px solid #e8e8e8;
         border-radius: (12/16rem);
-        padding: (32/16rem) (24/16rem);
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        cursor: pointer;
+        height: (420/16rem);
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        transition: transform 0.3s, box-shadow 0.3s;
 
         &:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 
-            .cs-catalog-icon {
+            .cs-catalog-picture img {
                 transform: scale(1.1);
-                color: var(--primary);
+            }
+
+            .cs-catalog-overlay {
+                opacity: 0.7;
             }
         }
     }
 
-    .cs-catalog-icon {
-        width: (64/16rem);
-        height: (64/16rem);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--secondary);
-        margin-bottom: (20/16rem);
-        transition: all 0.3s ease;
+    .cs-catalog-picture {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        display: block;
 
-        svg {
-            width: 100%;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
             height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
         }
     }
 
+    .cs-catalog-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+        opacity: 0.6;
+        transition: opacity 0.4s ease;
+        z-index: 1;
+    }
+
+    .cs-catalog-content {
+        position: relative;
+        z-index: 2;
+        padding: (32/16rem) (24/16rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        color: #fff;
+        transition: transform 0.4s ease;
+    }
+
     .cs-catalog-title {
-        font-size: (24/16rem);
+        font-size: (28/16rem);
         font-weight: 700;
-        color: var(--headerColor);
+        color: #fff;
         margin: 0 0 (12/16rem) 0;
         line-height: 1.2em;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .cs-catalog-description {
         font-size: (14/16rem);
-        line-height: 1.5em;
-        color: var(--bodyTextColor);
-        margin: 0 0 (24/16rem) 0;
-        flex-grow: 1;
+        line-height: 1.6em;
+        color: rgba(255, 255, 255, 0.95);
+        margin: 0 0 auto 0;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     }
 
     .cs-catalog-btn {
-        padding: (12/16rem) (28/16rem);
-        border: none;
+        padding: (14/16rem) (28/16rem);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: (4/16rem);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
         font-size: (14/16rem);
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 1px;
         cursor: pointer;
         transition: all 0.3s ease;
         font-family: var(--bodyFont);
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: (8/16rem);
         text-decoration: none;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .cs-catalog-btn-locked {
-        background-color: var(--primary);
         color: #fff;
+        align-self: flex-start;
+        margin-top: (20/16rem);
 
         &:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateX(4px);
         }
     }
+}
 
-    .cs-catalog-btn-unlocked {
-        background-color: #28a745;
-        color: #fff;
-
-        &:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #catalog-section {
+        .cs-catalog-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
 
-        .cs-lock-icon {
-            display: none;
+        .cs-catalog-card {
+            height: (450/16rem);
+        }
+
+        .cs-catalog-title {
+            font-size: (32/16rem);
+        }
+
+        .cs-catalog-description {
+            font-size: (15/16rem);
+        }
+
+        .cs-catalog-content {
+            padding: (40/16rem) (32/16rem);
         }
     }
+}
 
-    .cs-lock-icon {
-        width: (16/16rem);
-        height: (16/16rem);
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #catalog-section {
+        .cs-catalog-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .cs-catalog-card {
+            height: (480/16rem);
+        }
+    }
+}
+
+/* Large Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #catalog-section {
+        .cs-catalog-card {
+            height: (520/16rem);
+        }
+
+        .cs-catalog-title {
+            font-size: (36/16rem);
+        }
+
+        .cs-catalog-description {
+            font-size: (16/16rem);
+        }
     }
 }
 
@@ -458,14 +527,14 @@
     
     h2 {
         margin: 0 0 (8/16rem) 0;
-        font-size: (28/16rem);
+        font-size: (36/16rem);
         color: var(--headerColor);
         font-family: var(--headerFont);
     }
     
     p {
         margin: 0;
-        font-size: (14/16rem);
+        font-size: (16/16rem);
         line-height: 1.5em;
         color: var(--bodyTextColor);
         max-width: (400/16rem);
@@ -523,7 +592,7 @@
     gap: (8/16rem);
     
     label {
-        font-size: (14/16rem);
+        font-size: (16/16rem);
         font-weight: 600;
         color: var(--headerColor);
         font-family: var(--bodyFont);
@@ -539,7 +608,7 @@
         padding: (12/16rem) (16/16rem);
         border: 1px solid #ddd;
         border-radius: (4/16rem);
-        font-size: (14/16rem);
+        font-size: (16/16rem);
         font-family: var(--bodyFont);
         transition: all 0.3s ease;
         
@@ -549,7 +618,7 @@
             box-shadow: 0 0 0 3px rgba(197, 152, 82, 0.1);
         }
         
-        &:invalid:not(:placeholder-shown) {
+        &:invalid:not(:focus):not(:placeholder-shown) {
             border-color: #dc3545;
         }
     }
@@ -580,11 +649,6 @@
     display: inline-flex;
     align-items: center;
     gap: (12/16rem);
-    font-size: (16/16rem);
-    font-weight: 700;
-    font-family: var(--bodyFont);
-    text-transform: uppercase;
-    letter-spacing: 1px;
     border-radius: (4/16rem);
     transition: all 0.4s ease;
     position: relative;
@@ -593,6 +657,12 @@
     .cs-hover-underline {
         position: relative;
         display: inline-block;
+        letter-spacing: 4px;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: var(--bodyFont);
+        font-weight: 400;
         
         &::after {
             content: '';
@@ -644,36 +714,6 @@
     }
 }
 
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #catalog-section-2287 {
-        .cs-catalog-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .cs-catalog-title {
-            font-size: (26/16rem);
-        }
-
-        .cs-catalog-description {
-            font-size: (15/16rem);
-        }
-    }
-}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #catalog-section-2287 {
-        .cs-catalog-grid {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .cs-catalog-card {
-            padding: (40/16rem) (28/16rem);
-        }
-    }
-}
-
 /* Mobile Responsive for Modal */
 @media only screen and (max-width: 48rem) {
     .cs-catalog-modal-content {
@@ -685,7 +725,7 @@
         padding: (24/16rem) (20/16rem) (16/16rem) (20/16rem);
         
         h2 {
-            font-size: (24/16rem);
+            font-size: (28/16rem);
         }
         
         p {

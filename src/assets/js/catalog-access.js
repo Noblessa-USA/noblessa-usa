@@ -197,7 +197,7 @@
                 closeModal();
 
                 // Show success message
-                showNotification('Success! You now have access to all catalogs.', 'success');
+                showNotification('Success! You now have instant viewing of all catalogs.', 'success');
 
                 // Reset form
                 form.reset();
@@ -212,7 +212,7 @@
             submitButton.disabled = false;
             submitButton.innerHTML = `
                 <span class="cs-hover-underline">Get Access Now</span>
-                <img src="/assets/svgs/arrow.svg" alt="arrow" width="20" height="20" loading="lazy" decoding="async">
+                <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10" loading="lazy" decoding="async">
             `;
         }
     }
@@ -225,22 +225,8 @@
             button.classList.remove('cs-catalog-btn-locked');
             button.classList.add('cs-catalog-btn-unlocked');
             
-            // Update button text and icon
-            const lockIcon = button.querySelector('.cs-lock-icon');
-            if (lockIcon) {
-                lockIcon.outerHTML = `
-                    <svg class="cs-download-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                `;
-            }
-            
-            const buttonText = button.childNodes[button.childNodes.length - 1];
-            if (buttonText && buttonText.nodeType === Node.TEXT_NODE) {
-                buttonText.textContent = 'Download Catalog';
-            }
+            // Button text remains the same
+            button.textContent = 'View Catalog';
         });
     }
 
