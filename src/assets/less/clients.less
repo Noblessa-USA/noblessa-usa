@@ -226,3 +226,545 @@
     }
 }
 
+/*-- -------------------------- -->
+<---      Catalog Section        -->
+<--- -------------------------- -*/
+
+#catalog-section {
+    padding: var(--sectionPadding);
+    background-color: #ffffff;
+
+    .cs-container {
+        width: 100%;
+        max-width: (1280/16rem);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: (60/16rem);
+    }
+
+    .cs-text-content {
+        text-align: center;
+        width: 100%;
+        max-width: (640/16rem);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+
+        .cs-topper {
+            text-align: center;
+            margin: auto;
+        }
+        
+        .cs-title {
+            text-align: center;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-divider {
+            width: 100%;
+            height: 1px;
+            background: #D2D8DF;
+            margin: 20px 0px;
+            opacity: 1;
+            display: block;
+        }
+        
+        .cs-text {
+            max-width: (954/16rem);
+            text-align: center;
+            padding: 0 10px;
+            order: 0;
+        }
+    }
+
+    .cs-catalog-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax((280/16rem), 1fr));
+        gap: (30/16rem);
+        margin-top: (20/16rem);
+    }
+
+    .cs-catalog-card {
+        position: relative;
+        background: #fff;
+        border-radius: (12/16rem);
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        cursor: pointer;
+        height: (420/16rem);
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+
+            .cs-catalog-picture img {
+                transform: scale(1.1);
+            }
+
+            .cs-catalog-overlay {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .cs-catalog-picture {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        display: block;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+    }
+
+    .cs-catalog-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+        opacity: 0.6;
+        transition: opacity 0.4s ease;
+        z-index: 1;
+    }
+
+    .cs-catalog-content {
+        position: relative;
+        z-index: 2;
+        padding: (32/16rem) (24/16rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        color: #fff;
+        transition: transform 0.4s ease;
+    }
+
+    .cs-catalog-title {
+        font-size: (28/16rem);
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 (12/16rem) 0;
+        line-height: 1.2em;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .cs-catalog-description {
+        font-size: (14/16rem);
+        line-height: 1.6em;
+        color: rgba(255, 255, 255, 0.95);
+        margin: 0 0 auto 0;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .cs-catalog-btn {
+        padding: (14/16rem) (28/16rem);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: (4/16rem);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        font-size: (14/16rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: var(--bodyFont);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: (8/16rem);
+        text-decoration: none;
+        color: #fff;
+        align-self: flex-start;
+        margin-top: (20/16rem);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateX(4px);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #catalog-section {
+        .cs-catalog-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .cs-catalog-card {
+            height: (450/16rem);
+        }
+
+        .cs-catalog-title {
+            font-size: (32/16rem);
+        }
+
+        .cs-catalog-description {
+            font-size: (15/16rem);
+        }
+
+        .cs-catalog-content {
+            padding: (40/16rem) (32/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #catalog-section {
+        .cs-catalog-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .cs-catalog-card {
+            height: (480/16rem);
+        }
+    }
+}
+
+/* Large Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #catalog-section {
+        .cs-catalog-card {
+            height: (520/16rem);
+        }
+
+        .cs-catalog-title {
+            font-size: (36/16rem);
+        }
+
+        .cs-catalog-description {
+            font-size: (16/16rem);
+        }
+    }
+}
+
+/* Catalog Modal */
+.cs-catalog-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    
+    &.cs-catalog-modal-visible {
+        opacity: 1;
+    }
+}
+
+.cs-catalog-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+}
+
+.cs-catalog-modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: (8/16rem);
+    max-width: (600/16rem);
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border-top: 4px solid var(--secondary);
+    z-index: 1;
+    animation: slideInUp 0.4s ease;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cs-catalog-modal-header {
+    padding: (32/16rem) (32/16rem) (24/16rem) (32/16rem);
+    text-align: center;
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    border-radius: (8/16rem) (8/16rem) 0 0;
+    border-bottom: 1px solid #eee;
+    
+    h2 {
+        margin: 0 0 (8/16rem) 0;
+        font-size: (36/16rem);
+        color: var(--headerColor);
+        font-family: var(--headerFont);
+    }
+    
+    p {
+        margin: 0;
+        font-size: (16/16rem);
+        line-height: 1.5em;
+        color: var(--bodyTextColor);
+        max-width: (400/16rem);
+        margin: 0 auto;
+    }
+}
+
+.cs-catalog-modal-close {
+    position: absolute;
+    top: (16/16rem);
+    right: (16/16rem);
+    background: none;
+    border: none;
+    font-size: (32/16rem);
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: (40/16rem);
+    height: (40/16rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 2;
+    
+    &:hover {
+        background-color: #f0f0f0;
+        color: #333;
+        transform: rotate(90deg);
+    }
+    
+    &:focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+}
+
+.cs-catalog-form {
+    padding: (32/16rem);
+    display: flex;
+    flex-direction: column;
+    gap: (20/16rem);
+}
+
+.cs-catalog-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: (16/16rem);
+}
+
+.cs-catalog-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: (8/16rem);
+    
+    label {
+        font-size: (16/16rem);
+        font-weight: 600;
+        color: var(--headerColor);
+        font-family: var(--bodyFont);
+    }
+    
+    .cs-required {
+        color: #dc3545;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+        padding: (12/16rem) (16/16rem);
+        border: 1px solid #ddd;
+        border-radius: (4/16rem);
+        font-size: (16/16rem);
+        font-family: var(--bodyFont);
+        transition: all 0.3s ease;
+        
+        &:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(197, 152, 82, 0.1);
+        }
+        
+        &:invalid:not(:focus):not(:placeholder-shown) {
+            border-color: #dc3545;
+        }
+    }
+}
+
+.cs-catalog-form-footer {
+    display: flex;
+    flex-direction: column;
+    gap: (20/16rem);
+    align-items: center;
+    margin-top: (8/16rem);
+    
+    div[data-netlify-recaptcha="true"] {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+.cs-catalog-submit-btn {
+    border: none;
+    background: var(--blackShineGradient);
+    background-size: 200% 100%;
+    cursor: pointer;
+    color: #fff;
+    padding: (16/16rem) (40/16rem);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: (12/16rem);
+    border-radius: (4/16rem);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    
+    .cs-hover-underline {
+        position: relative;
+        display: inline-block;
+        letter-spacing: 4px;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: var(--bodyFont);
+        font-weight: 400;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: currentColor;
+            transition: width 0.4s ease;
+        }
+    }
+    
+    img {
+        transition: transform 0.3s ease;
+    }
+    
+    &:hover {
+        background-position: 100% 0;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        
+        .cs-hover-underline::after {
+            width: 100%;
+        }
+        
+        img {
+            transform: translateX(4px);
+        }
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+    
+    &:focus {
+        outline: 2px solid rgba(197, 152, 82, 0.5);
+        outline-offset: 2px;
+    }
+    
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        
+        &:hover {
+            transform: none;
+            box-shadow: none;
+        }
+    }
+}
+
+/* Mobile Responsive for Modal */
+@media only screen and (max-width: 48rem) {
+    .cs-catalog-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .cs-catalog-modal-header {
+        padding: (24/16rem) (20/16rem) (16/16rem) (20/16rem);
+        
+        h2 {
+            font-size: (28/16rem);
+        }
+        
+        p {
+            font-size: (13/16rem);
+        }
+    }
+
+    .cs-catalog-form {
+        padding: (24/16rem) (20/16rem);
+    }
+
+    .cs-catalog-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-catalog-form-group {
+        label {
+            font-size: (14/16rem);
+        }
+    }
+
+    .cs-catalog-submit-btn {
+        width: 100%;
+        justify-content: center;
+        padding: (14/16rem) (32/16rem);
+        font-size: (14/16rem);
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .cs-catalog-card,
+    .cs-catalog-icon,
+    .cs-catalog-btn,
+    .cs-catalog-modal,
+    .cs-catalog-modal-content,
+    .cs-catalog-submit-btn {
+        transition: none;
+        animation: none;
+    }
+}
+
