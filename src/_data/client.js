@@ -17,6 +17,7 @@ module.exports = {
         instagram: "https://www.instagram.com/noblessa.usa/",
         linkedin: "https://www.linkedin.com/company/noblessa-usa/",
         pinterest: "https://www.pinterest.com/noblessausa/",
+        houzz: "https://www.houzz.com/pro/noblessausa/__public",
     },
     //! Make sure you include the file protocol (e.g. https://) and that NO TRAILING SLASH is included
     domain: "https://noblessa-usa.com",
