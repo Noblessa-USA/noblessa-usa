@@ -10,7 +10,6 @@ tags:
     - Kitchens
     - News
     - Trends
-    - featured
 image: /assets/images/blog/december2024/maximize-space-kitchen-cabinet-layout-tips-thumbnail.webp
 imageAlt: a noblessa modular kitchen
 ---

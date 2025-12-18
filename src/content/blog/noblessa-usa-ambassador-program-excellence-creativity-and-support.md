@@ -7,7 +7,7 @@ date: 2024-10-15T15:00:00.000Z
 tags:
     - post
     - News
-    - Ambassadors
+    - Partners
 image: /assets/images/blog/october2024/noblessa-usa-ambassador-program-excellence-creativity-and-support-1.jpg
 imageAlt: a noblessa modular kitchen
 ---

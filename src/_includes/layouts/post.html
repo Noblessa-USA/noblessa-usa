@@ -65,7 +65,15 @@
         <div class="cs-container">
             <article class="cs-article-post">
                 <div class="cs-article-meta">
-                    <span class="cs-date">{{ date | postDate }}</span>
+                    <div class="cs-article-date">
+                        <svg class="cs-calendar-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 6H14" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M5 1V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M11 1V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span class="cs-date">{{ date | postDate }}</span>
+                    </div>
                     {% if tags %}
                         {% set displayTags = tags | reject("equalto", "post") | reject("equalto", "posts") | reject("equalto", "sitemap") | reject("equalto", "featured") | list %}
                         {% if displayTags.length > 0 %}

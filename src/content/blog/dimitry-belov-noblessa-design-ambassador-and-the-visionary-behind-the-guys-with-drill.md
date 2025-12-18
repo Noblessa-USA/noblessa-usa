@@ -6,9 +6,8 @@ author: Zade Dohan
 date: 2024-09-24T15:00:00.000Z
 tags:
     - post
-    - Ambassadors
+    - Partners
     - News
-    - Info
 image: /assets/images/blog/september2024/dimitry-belov-noblessa-design-ambassador-and-the-visionary-behind-the-guys-with-drill-1.jpg
 imageAlt: Dimitry Belov noblessa design ambassador
 ---
