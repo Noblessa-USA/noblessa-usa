@@ -18,6 +18,8 @@ You’re out of luck if you don’t have counter or cupboard space. A modern kit
 
 Efficient kitchen planning starts with your cabinetry. Keep reading, and you’ll have kitchen design tips that will help you create more space all over your kitchen.
 
+![a noblessa modular kitchen](/assets/images/blog/december2024/maximize-space-kitchen-cabinet-layout-tips-1.webp)
+
 ## Use Pull-Out Cabinets to Boost Accessibility
 
 Your cabinets should bring an element of practicality to your kitchen. Whether your kitchen is a vast open space or a bit cramped, you can add pull-out cabinets to maximize whatever you’ve got. Doing so will give you easy access to everything you’ll need.
