@@ -16,33 +16,25 @@ eleventyNavigation:
 
 {% block body %}
     <!-- ============================================ -->
-    <!--                   Banner                     -->
+    <!--            Banner Static Photo               -->
     <!-- ============================================ -->
 
-    <div id="banner-310">
+    <div id="banner-photo">
         <div class="cs-container">
-            <h1 class="cs-int-title">Blog</h1>
+            <div class="cs-text-wrapper">
+                <h1 class="cs-int-title sl-fade-in-right">Our Blog</h1>
+                <p class="cs-text sl-fade-in-right">Read our blog to learn about the latest trends in kitchen and bathroom design, cabinetry, and home improvement.</p>
+            </div>
             <div class="cs-breadcrumbs">
-                <a href="/" class="cs-link">Home</a>
-                <a href="/blog/" class="cs-link cs-active">Blog</a>
+                <a href="/" class="cs-link"><span class="cs-link-text">home</span></a>
+                <a href="/blog" class="cs-link cs-active"><span class="cs-link-text">blog</span></a>
             </div>
         </div>
-        <!--Background Image-->
-        <picture class="cs-background">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
-            <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
-            <!--Desktop Image-->
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="library" width="1920" height="482" loading="eager" decoding="async">
-        </picture>
+        <div class="cs-banner-bg">
+            <div class="cs-bg">
+                <img src="/assets/images/livingrooms/livingroomstaircase.webp" alt="Living room with staircase" loading="eager">
+            </div>
+        </div>
     </div>
 
     <!-- ============================================ -->
@@ -93,6 +85,6 @@ eleventyNavigation:
             {% endif %}
         </div>
 
-        {% include 'components/featured-posts.html' %}
+        {% include 'components/recent-posts.html' %}
     </div>
 {% endblock %}

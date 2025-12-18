@@ -3,12 +3,59 @@
 {% block head %}
     <link rel="stylesheet" href="/assets/css/blog.css">
 
-    <!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
-    <!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
-    <!-- {% include "components/post-schema.html" %} -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            {% if title %}"headline": "{{ title }} | Noblessa USA",{% endif %}
+            {% if description %}"description": "{{ description | escape }}",{% endif %}
+            {% if image %}
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "{{ client.domain }}{{ image }}",
+                    "width": 1200,
+                    "height": 630
+                },
+            {% endif %}
+            {% if date %}"datePublished": "{{ date | isoDate }}",{% endif %}
+            {% if date %}"dateModified": "{{ date | isoDate }}",{% endif %}
+            {% if client.name %}
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "{{ client.name }}"
+                },
+            {% endif %}
+            {% if description %}"articleBody": "{{ description | safe }}",{% endif %}
+            {% if client.domain and page.url %}"url": "{{ client.domain }}{{ page.url }}",{% endif %}
+            {% if tags %}"articleSection": "{{ tags }}"{% endif %}
+        }
+    </script>
 {% endblock %}
 
 {% block body %}
+
+    <!-- ============================================ -->
+    <!--            Banner Static Photo               -->
+    <!-- ============================================ -->
+
+    <div id="blog-banner-photo">
+        <div class="cs-container">
+            <div class="cs-text-wrapper">
+                <h1 class="cs-int-title sl-fade-in-right">{{ title }}</h1>
+                <p class="cs-text sl-fade-in-right">{{ description }}</p>
+            </div>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link"><span class="cs-link-text">home</span></a>
+                <a href="/blog/" class="cs-link"><span class="cs-link-text">blog</span></a>
+                <a href="{{ page.url }}" class="cs-link cs-active"><span class="cs-link-text">{{ title }}</span></a>
+            </div>
+        </div>
+        <div class="cs-banner-bg">
+            <div class="cs-bg">
+                <img src="{{ image }}" alt="{{ imageAlt }}" loading="eager">
+            </div>
+        </div>
+    </div>
 
     <!-- ============================================ -->
     <!--                Post Content                  -->
@@ -17,31 +64,19 @@
     <div id="single-article">
         <div class="cs-container">
             <article class="cs-article-post">
-                <picture class="cs-article-image">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl image | resize({ width: 576, height: 400 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl image | resize({ width: 576, height: 400 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl image | resize({ width: 576, height: 400 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl image | resize({ width: 1600, height: 614 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl image | resize({ width: 1600, height: 614 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl image | resize({ width: 1600, height: 614 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl image | resize({ width: 1600, height: 800 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl image | resize({ width: 1600, height: 800 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl image | resize({ width: 1600, height: 800 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl image | resize({ width: 1600, height: 800 }) | jpeg %}" alt="{{ alt }}" width="800" height="400" loading="lazy" decoding="async" aria-hidden="true">
-                </picture>
-                <div class="cs-article-group">
-                    <h1 class="cs-article-title">{{ title }}</h1>
-                    <div class="cs-author-group">
-                        <picture class="cs-author-img">
-                            <img src="/assets/svgs/profile.svg" alt="Profile icon" width="32" height="32" decoding="async" loading="lazy" aria-hidden="true"/>
-                        </picture>
-                        <span class="cs-author-name">{{ author }}</span>
-                        <span aria-hidden="true" class="cs-dot"></span>
-                        <span class="cs-date">{{ date | postDate }}</span>
-                    </div>
+                <div class="cs-article-meta">
+                    <span class="cs-date">{{ date | postDate }}</span>
+                    {% if tags %}
+                        {% set displayTags = tags | reject("equalto", "post") | reject("equalto", "posts") | reject("equalto", "sitemap") | reject("equalto", "featured") | list %}
+                        {% if displayTags.length > 0 %}
+                            <span class="cs-dot"></span>
+                            <div class="cs-tags">
+                                {% for tag in displayTags %}
+                                    <span class="cs-tag">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
                 </div>
                 <section class="cs-article-content">
                     {{ content | safe }}
@@ -49,6 +84,8 @@
             </article>
         </div>
 
-        {% include 'components/featured-posts.html' %}
+        {% include 'components/recent-posts.html' %}
     </div>
+
+    {% include 'sections/cta.html' %}
 {% endblock %}
