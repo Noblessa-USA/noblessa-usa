@@ -19,7 +19,7 @@ backend:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 # Add site links in Decap CMS (optional)
-site_url: https://noblessa-usa.com
+site_url: https://staging--noblessa-usa.netlify.app/
 
 # Keep this to allow you to edit the cms locally
 local_backend: true
