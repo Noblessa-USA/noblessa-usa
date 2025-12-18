@@ -1,12 +1,12 @@
-# Use DecapBridge auth (required)
+# Use DecapBridge classic auth (required)
 backend:
   name: git-gateway
   repo: Noblessa-USA/noblessa-usa
   branch: production
-  identity_url: https://auth.decapbridge.com/sites/a734e1c1-7c11-4ada-8e23-dc6df86e6bfb
+  identity_url: https://auth.decapbridge.com/sites/8b07dcda-d902-4e31-af24-ea17e7ce2de2
   gateway_url: https://gateway.decapbridge.com
 
-  # Quickly see who did what (optional)
+  # See who did what (optional)
   commit_messages:
     create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
     update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
@@ -18,7 +18,7 @@ backend:
 # Better Decap + Bridge logo (optional)
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
-# Add site links in DecapCMS (optional)
+# Add site links in Decap CMS (optional)
 site_url: https://noblessa-usa.com
 
 # Keep this to allow you to edit the cms locally
