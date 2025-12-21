@@ -2,47 +2,40 @@
 title: "Blog | Noblessa USA"
 description: "Read our blog to learn about the latest trends in kitchen and bathroom design, cabinetry, and home improvement."
 permalink: "/blog/"
-eleventyExcludeFromCollections: true
+eleventyNavigation:
+    key: Blog
+    order: 700
 ---
-
-{# Remember to remove eleventyExcludeFromCollections: true from the blog and the blog posts templates for sitemap generation. #}
 
 {% extends "layouts/base.html" %}
 
 {% block head %}
     <link rel="preload" as="image" href="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 640, height: 600 }) | avif %}"/>
     <link rel="stylesheet" href="/assets/css/blog.css">
+    <script src="/assets/js/blog.js" defer></script>
 {% endblock %}
 
 {% block body %}
     <!-- ============================================ -->
-    <!--                   Banner                     -->
+    <!--            Banner Static Photo               -->
     <!-- ============================================ -->
 
-    <div id="banner-310">
+    <div id="banner-photo">
         <div class="cs-container">
-            <h1 class="cs-int-title">Blog</h1>
+            <div class="cs-text-wrapper">
+                <h1 class="cs-int-title sl-fade-in-right">Our Blog</h1>
+                <p class="cs-text sl-fade-in-right">Read our blog to learn about the latest trends in kitchen and bathroom design, cabinetry, and home improvement.</p>
+            </div>
             <div class="cs-breadcrumbs">
-                <a href="/" class="cs-link">Home</a>
-                <a href="/blog/" class="cs-link cs-active">Blog</a>
+                <a href="/" class="cs-link"><span class="cs-link-text">home</span></a>
+                <a href="/blog" class="cs-link cs-active"><span class="cs-link-text">blog</span></a>
             </div>
         </div>
-        <!--Background Image-->
-        <picture class="cs-background">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
-            <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
-            <!--Desktop Image-->
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/livingrooms/livingroomstaircase.webp" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="library" width="1920" height="482" loading="eager" decoding="async">
-        </picture>
+        <div class="cs-banner-bg">
+            <div class="cs-bg">
+                <img src="/assets/images/livingrooms/livingroomstaircase.webp" alt="Living room with staircase" loading="eager">
+            </div>
+        </div>
     </div>
 
     <!-- ============================================ -->
@@ -51,48 +44,123 @@ eleventyExcludeFromCollections: true
 
     <div id="blog-listing">
         <div class="cs-container">
-            {% if collections.post | length == 0 %}
-                <h1 class="cs-title">No Recent Posts</h1>
-            {% else %}
-                {%- for post in collections.post | reverse -%}
-                    <article class="cs-article">
-                        <picture class="cs-article-image">
-                            <!--Mobile Image-->
-                            <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | avif %}" type="image/avif">
-                            <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | webp %}" type="image/webp">
-                            <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | jpeg %}" type="image/jpeg">
-                            <!--Tablet Image-->
-                            <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | avif %}" type="image/avif">
-                            <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | webp %}" type="image/webp">
-                            <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | jpeg %}" type="image/jpeg">
-                            <!--Desktop Image-->
-                            <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | avif %}" type="image/avif">
-                            <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | webp %}" type="image/webp">
-                            <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | jpeg %}" type="image/jpeg">
-                            <img src="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | jpeg %}" alt="{{ post.data.alt }}" width="824" height="400" decoding="async">
-                        </picture>
-                        <div class="cs-article-group">
-                            <div class="cs-author-group">
-                                <picture class="cs-author-img">
-                                    <img src="/assets/svgs/profile.svg" alt="Profile icon" width="32" height="32" decoding="async" loading="lazy" aria-hidden="true"/>
-                                </picture>
-                                <span class="cs-author-name">{{ post.data.author }}</span>
-                                <span aria-hidden="true" class="cs-dot"></span>
-                                <span class="cs-date">{{ post.date | postDate }}</span>
-                            </div>
-                            <h2 class="cs-article-title">
-                                {{ post.data.title }}
-                            </h2>
-                            <p class="cs-article-desc">
-                                {{ post.data.description }}
-                            </p>
-                            <a href="{{ post.url }}" class="cs-button-solid">Continue Reading</a>
-                        </div>
-                    </article>
-                {%- endfor -%}
-            {% endif %}
-        </div>
+            <!-- Search and Filter Controls -->
+            <div class="cs-controls">
+                <div class="cs-search-wrapper">
+                    <input type="text" id="blog-search" class="cs-search-input" placeholder="Search articles..." aria-label="Search blog posts">
+                    <svg class="cs-search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="cs-filter-wrapper">
+                    <button class="cs-filter-button" id="filter-toggle" aria-expanded="false" aria-controls="filter-tags">
+                        <span>Filter by Tag</span>
+                        <svg class="cs-filter-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="cs-tags-dropdown" id="filter-tags" aria-hidden="true">
+                        <button class="cs-tag-filter" data-tag="all" aria-pressed="true">All Posts</button>
+                        <button class="cs-tag-filter" data-tag="Design Tips" aria-pressed="false">Design Tips</button>
+                        <button class="cs-tag-filter" data-tag="Kitchens" aria-pressed="false">Kitchens</button>
+                        <button class="cs-tag-filter" data-tag="Trends" aria-pressed="false">Trends</button>
+                        <button class="cs-tag-filter" data-tag="News" aria-pressed="false">News</button>
+                        <button class="cs-tag-filter" data-tag="Partners" aria-pressed="false">Partners</button>
+                        <button class="cs-tag-filter" data-tag="Bathrooms" aria-pressed="false">Bathrooms</button>
+                    </div>
+                </div>
+            </div>
 
-        {% include 'components/featured-posts.html' %}
+            <!-- Active Filters Display -->
+            <div class="cs-active-filters" id="active-filters" style="display: none;">
+                <span class="cs-active-label">Active filters:</span>
+                <div class="cs-active-tags" id="active-tags"></div>
+                <button class="cs-clear-filters" id="clear-filters">Clear All</button>
+            </div>
+
+            <!-- Blog Articles Grid -->
+            <div class="cs-articles-grid" id="articles-grid">
+                {% if collections.post | length == 0 %}
+                    <div class="cs-no-results">
+                        <h2 class="cs-title">No Recent Posts</h2>
+                    </div>
+                {% else %}
+                    {%- for post in collections.post | reverse -%}
+                    <article class="cs-article" 
+                             data-title="{{ post.data.title | lower }}" 
+                             data-description="{{ post.data.description | lower }}"
+                             data-tags="{% for tag in post.data.tags %}{% if tag != 'post' %}{{ tag | lower }}{% if not loop.last %},{% endif %}{% endif %}{% endfor %}"
+                             data-date="{{ post.date | postDate }}">
+                        <a href="{{ post.url }}" class="cs-article-link">
+                            <picture class="cs-article-image">
+                                <!--Mobile Image-->
+                                <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | avif %}" type="image/avif">
+                                <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | webp %}" type="image/webp">
+                                <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | jpeg %}" type="image/jpeg">
+                                <!--Tablet Image-->
+                                <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | avif %}" type="image/avif">
+                                <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | webp %}" type="image/webp">
+                                <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | jpeg %}" type="image/jpeg">
+                                <!--Desktop Image-->
+                                <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | avif %}" type="image/avif">
+                                <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | webp %}" type="image/webp">
+                                <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | jpeg %}" type="image/jpeg">
+                                <img src="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | jpeg %}" alt="{{ post.data.alt }}" width="571" height="307" decoding="async" loading="lazy">
+                            </picture>
+                            <div class="cs-article-content">
+                                <h2 class="cs-article-title">{{ post.data.title }}</h2>
+                                <div class="cs-article-date">
+                                    <svg class="cs-calendar-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M2 6H14" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M5 1V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M11 1V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                    <span class="cs-date">{{ post.date | postDate }}</span>
+                                </div>
+                                <p class="cs-article-desc">{{ post.data.description }}</p>
+                                <div class="cs-article-tags">
+                                    {%- for tag in post.data.tags -%}
+                                        {%- if tag != 'post' and tag != 'sitemap' -%}
+                                            <span class="cs-tag">{{ tag }}</span>
+                                        {%- endif -%}
+                                    {%- endfor -%}
+                                </div>
+                                <span class="cs-read-more">
+                                    Read Article
+                                    <svg class="cs-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </article>
+                    {%- endfor -%}
+                {% endif %}
+            </div>
+
+            <!-- No Results Message -->
+            <div class="cs-no-results" id="no-results" style="display: none;">
+                <svg class="cs-no-results-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M8 11H14M11 8V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h2 class="cs-no-results-title">No articles found</h2>
+                <p class="cs-no-results-text">Try adjusting your search or filters to find what you're looking for.</p>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="cs-load-more-wrapper" id="load-more-wrapper" style="display: none;">
+                <button class="cs-load-more-button" id="load-more-button">
+                    <span>Load More Articles</span>
+                    <svg class="cs-load-more-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 4V16M10 16L16 10M10 16L4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
 {% endblock %}

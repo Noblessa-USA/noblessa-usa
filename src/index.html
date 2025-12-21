@@ -20,6 +20,7 @@ eleventyNavigation:
     <script defer src="assets/js/collections-gallery.js"></script>
     <script defer src="assets/js/responsive-video.js"></script>
     <script defer src="assets/js/newsletter-popup.js"></script>
+    <script defer src="assets/js/video-carousel.js"></script>
 
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
     {% if client.isProduction %}
@@ -318,6 +319,81 @@ eleventyNavigation:
                     <span class="cs-hover-underline"> Explore Noblessa </span>
                     <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--              Video Showcase                  -->
+    <!-- ============================================ -->
+
+    <section id="video-showcase">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper sl-fade-in-down">Video Gallery</span>
+                <h2 class="cs-title sl-fade-in-down">experience noblessa in motion</h2>
+                <span class="cs-divider"></span>
+                <p class="cs-text sl-fade-in-up">
+                    Discover how noblessa transforms living spaces through our curated video collection. From design inspiration to installation insights, see the artistry and precision that defines every project.
+                </p>
+            </div>
+            <div class="cs-carousel-wrapper sl-fade-in-up">
+                <div class="cs-video-carousel">
+                    <div class="cs-video-slide active" data-video-id="X6XhAaVzUlI">
+                        <h3 class="cs-video-title">Part 1: Modern Woodland Home</h3>
+                        <div class="cs-video-container">
+                            <div class="cs-video-placeholder">
+                                <img src="https://img.youtube.com/vi/X6XhAaVzUlI/maxresdefault.jpg" alt="Video thumbnail" loading="lazy">
+                                <button class="cs-play-button" aria-label="Play video">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" fill="none">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cs-video-slide" data-video-id="NSxvDYY1Eu4">
+                        <h3 class="cs-video-title">Part 2: Modern Mountain Home</h3>
+                        <div class="cs-video-container">
+                            <div class="cs-video-placeholder">
+                                <img src="https://img.youtube.com/vi/NSxvDYY1Eu4/maxresdefault.jpg" alt="Video thumbnail" loading="lazy">
+                                <button class="cs-play-button" aria-label="Play video">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" fill="none">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cs-video-slide" data-video-id="biGJjncs2To">
+                        <h3 class="cs-video-title">Part 3: Blossom Modern Home</h3>
+                        <div class="cs-video-container">
+                            <div class="cs-video-placeholder">
+                                <img src="https://img.youtube.com/vi/biGJjncs2To/maxresdefault.jpg" alt="Video thumbnail" loading="lazy">
+                                <button class="cs-play-button" aria-label="Play video">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" fill="none">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cs-carousel-controls">
+                    <button class="cs-carousel-prev" aria-label="Previous video">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="cs-carousel-next" aria-label="Next video">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
