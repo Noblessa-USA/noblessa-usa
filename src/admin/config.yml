@@ -2,7 +2,7 @@
 backend:
   name: git-gateway
   repo: Noblessa-USA/noblessa-usa
-  branch: staging
+  branch: production
   identity_url: https://auth.decapbridge.com/sites/8b07dcda-d902-4e31-af24-ea17e7ce2de2
   gateway_url: https://gateway.decapbridge.com
 
@@ -19,7 +19,7 @@ backend:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 # Add site links in Decap CMS (optional)
-site_url: https://staging--noblessa-usa.netlify.app/
+site_url: https://noblessa-usa.com
 
 # Keep this to allow you to edit the cms locally
 local_backend: true
