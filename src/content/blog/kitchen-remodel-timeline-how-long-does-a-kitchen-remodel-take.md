@@ -2,7 +2,7 @@
 title: Kitchen Remodel Timeline; How Long Does a Kitchen Remodel Take?
 url: kitchen-remodel-timeline-how-long-does-a-kitchen-remodel-take
 description: How long does a kitchen remodel take? Explore our guide and plan your renovation with confidence. Start your kitchen project today!
-author: Zade Dohan
+author: Noblessa USA
 date: 2024-12-20T15:00:00.000Z
 tags:
     - post

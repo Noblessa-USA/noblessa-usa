@@ -50,7 +50,7 @@ collections:
             }
           - { label: "Description", name: "description", widget: "string", hint: 'Provide a brief summary of the blog post for SEO and preview purposes. This will be used as the Meta Description for SEO.' }
           - { label: "Author", name: "author", widget: "string", hint: 'This is only viewable internally. End users cannot see blog post authors.' }
-          - { label: "Date", name: "date", widget: "datetime", hint: 'The date this article is published. Make sure this is set to a time in the past to have it appear on the main blog page.' }
+          - { label: "Date", name: "date", widget: "datetime", hint: 'The date this article is published. If the date is set sometime in the future, the blog post will not appear on the site until that time and date. Make sure this is set to a time in the past to have it appear on the main blog page.' }
           - { label: "Tags", name: "tags", widget: "list", default: ["post"], hint: 'Add the "post" tag to have this article appear on the main blog page. Tags can be, "Design Tips", "Kitchens", "Bathrooms", "Living Rooms", "Trends", "News", "Partners", "Info", and "Remodel"' }
           - { label: "Featured Image", name: "image", widget: "image", hint: 'This image will be used as the cover image for the blog post. Recommended Minimum dimensions: 1200x630 pixels.' }
           - { label: "Image Caption", name: "imageAlt", widget: "string", hint: 'Provide a descriptive caption for the featured image for SEO & accessibility purposes.' }
