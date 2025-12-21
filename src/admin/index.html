@@ -23,7 +23,7 @@
             render: function () {
                 // Get all the props from the collection
                 const data = this.props.entry.get("data").toJS();
-                const { title, author, date: rawDate, image } = data;
+                const { title, date: rawDate, image, tags } = data;
                 const date = typeof rawDate === "string" ? new Date(rawDate) : rawDate;
                 let formattedDate = "";
                 if (date) {
@@ -36,31 +36,45 @@
 
                 const cover = this.props.getAsset(image);
 
-                // Create elements for the preview pane in JSX, to be processed by Babel
-                return (
-                    <div className="blog">
-                        <h1 className="title">{title}</h1>
+                // Filter tags to match production logic
+                const displayTags = tags?.filter(tag => 
+                    tag !== "post" && tag !== "posts" && tag !== "sitemap" && tag !== "featured"
+                ) || [];
 
-                        <div className="metadata">
-                            <span className="author">{author}</span>
-                            <span className="dot"></span>
-                            <span className="date">{formattedDate}</span>
-                        </div>
-
-                        <img src={cover?.toString()} className="cover" alt="Cover" />
-
-                        <hr className="divider" />
-
-                        <div className="markdown">
-                            {this.props.widgetFor("body")}
-                        </div>
-                    </div>
+                // Create elements matching the production blog post template using h() function
+                return h('div', {id: 'single-article'},
+                    h('div', {className: 'cs-container'},
+                        h('article', {className: 'cs-article-post'},
+                            h('div', {className: 'cs-article-meta'},
+                                h('div', {className: 'cs-article-date'},
+                                    h('svg', {className: 'cs-calendar-icon', width: '16', height: '16', viewBox: '0 0 16 16', fill: 'none', xmlns: 'http://www.w3.org/2000/svg'},
+                                        h('rect', {x: '2', y: '3', width: '12', height: '11', rx: '2', stroke: 'currentColor', strokeWidth: '1.5'}),
+                                        h('path', {d: 'M2 6H14', stroke: 'currentColor', strokeWidth: '1.5'}),
+                                        h('path', {d: 'M5 1V4', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round'}),
+                                        h('path', {d: 'M11 1V4', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round'})
+                                    ),
+                                    h('span', {className: 'cs-date'}, formattedDate)
+                                ),
+                                displayTags.length > 0 ? h('span', {className: 'cs-dot'}) : null,
+                                displayTags.length > 0 ? h('div', {className: 'cs-tags'},
+                                    displayTags.map(function(tag, index) {
+                                        return h('span', {key: index, className: 'cs-tag'}, tag);
+                                    })
+                                ) : null
+                            ),
+                            h('section', {className: 'cs-article-content'},
+                                this.props.widgetFor('body')
+                            )
+                        )
+                    )
                 );
             }
         });
 
         // Register the elements and styles for the "blog" collection
         CMS.registerPreviewTemplate("blog", BlogPreview);
+        
+        // Register the preview stylesheet that includes all necessary blog styles
         CMS.registerPreviewStyle("/admin/decap-preview-styles.css");
     </script>
 </body>
