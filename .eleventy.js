@@ -24,6 +24,7 @@ const javascript = require("./src/config/processors/javascript");
 // 🛠️ Utilities
 const filterPostDate = require("./src/config/filters/postDate");
 const filterIsoDate = require("./src/config/filters/isoDate");
+const filterGetCurrentDate = require("./src/config/filters/getCurrentDate");
 const isProduction = process.env.ELEVENTY_ENV === "PROD";
 
 module.exports = function (eleventyConfig) {
@@ -119,6 +120,14 @@ module.exports = function (eleventyConfig) {
      * Powered by Luxon: https://moment.github.io/luxon/api-docs/
      */
     eleventyConfig.addFilter("isoDate", filterIsoDate);
+
+    /*
+     * 📅 Get Current Date Filter
+     * Returns the current date/time for filtering past posts
+     * Usage: {% set now = "" | getCurrentDate %}
+     * Used to filter out future-dated posts from collections
+     */
+    eleventyConfig.addFilter("getCurrentDate", filterGetCurrentDate);
 
     // ═════════════════════════════════════════════════════════════════════════
     // SHORTCODES

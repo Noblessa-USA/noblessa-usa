@@ -10,7 +10,11 @@
         </div>
         
         <div class="cs-posts-wrapper">
-            {%- for post in (collections.post | reverse).slice(0, 3) -%}
+            {%- set now = "" | getCurrentDate -%}
+            {%- set postCount = 0 -%}
+            {%- for post in collections.post | reverse -%}
+                {%- if post.date <= now and postCount < 3 -%}
+                    {%- set postCount = postCount + 1 -%}
                 <article class="cs-recent-post">
                     <a href="{{ post.url }}" class="cs-post-link">
                         <div class="cs-image-wrapper">
@@ -46,6 +50,7 @@
                         </div>
                     </a>
                 </article>
+                {%- endif -%}
             {%- endfor -%}
         </div>
         
