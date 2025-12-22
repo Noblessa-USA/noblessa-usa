@@ -263,12 +263,18 @@
 
         localStorage.setItem(STORAGE_KEY + '_downloads', JSON.stringify(downloadHistory));
 
-        // Optional: Send to Google Analytics or other tracking service
+        // Send to Google Analytics and Google Ads conversion tracking
         if (typeof gtag !== 'undefined') {
+            // Google Analytics event
             gtag('event', 'catalog_download', {
                 'catalog_type': catalogType,
                 'event_category': 'engagement',
                 'event_label': catalogType
+            });
+            
+            // Google Ads conversion event for catalogue download
+            gtag('event', 'conversion', {
+                'send_to': 'AW-431163172/KQLKCNSNlsYCEKSOzM0B'
             });
         }
     }
