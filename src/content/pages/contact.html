@@ -108,4 +108,19 @@ eleventyNavigation:
         </div>
     </section>
 
+    <!-- Event snippet for Submit Form conversion page -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('cs-form-265');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // Track the conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {'send_to': 'AW-431163172/45wjCKrzjNIDEKSOzM0B'});
+                }
+            });
+        }
+    });
+    </script>
+
 {% endblock %}

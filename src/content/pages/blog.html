@@ -82,12 +82,11 @@ eleventyNavigation:
 
             <!-- Blog Articles Grid -->
             <div class="cs-articles-grid" id="articles-grid">
-                {% if collections.post | length == 0 %}
-                    <div class="cs-no-results">
-                        <h2 class="cs-title">No Recent Posts</h2>
-                    </div>
-                {% else %}
-                    {%- for post in collections.post | reverse -%}
+                {%- set now = "" | getCurrentDate -%}
+                {%- set hasVisiblePosts = false -%}
+                {%- for post in collections.post | reverse -%}
+                    {%- if post.date <= now -%}
+                        {%- set hasVisiblePosts = true -%}
                     <article class="cs-article" 
                              data-title="{{ post.data.title | lower }}" 
                              data-description="{{ post.data.description | lower }}"
@@ -137,7 +136,13 @@ eleventyNavigation:
                             </div>
                         </a>
                     </article>
-                    {%- endfor -%}
+                    {%- endif -%}
+                {%- endfor -%}
+                
+                {% if not hasVisiblePosts %}
+                    <div class="cs-no-results">
+                        <h2 class="cs-title">No Recent Posts</h2>
+                    </div>
                 {% endif %}
             </div>
 

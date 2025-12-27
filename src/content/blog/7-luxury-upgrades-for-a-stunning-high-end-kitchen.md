@@ -1,14 +1,16 @@
 ---
 title: 7 Luxury Upgrades for a Stunning High-End Kitchen
 url: 7-luxury-upgrades-for-a-stunning-high-end-kitchen
-description: Discover 7 luxury upgrades that will transform your kitchen into a stunning high-end space. Explore premium cabinets, appliances, and design elements.
-author: Zade Dohan
-date: 2024-09-17T15:00:00.000Z
+description: Discover 7 luxury upgrades that will transform your kitchen into a
+  stunning high-end space. Explore premium cabinets, appliances, and design
+  elements.
+author: Noblessa USA
+date: 2024-09-17T11:02:00.000-04:00
 tags:
-    - post
-    - Design Tips
-    - Kitchens
-    - Trends
+  - post
+  - Design Tips
+  - Kitchens
+  - Trends
 image: /assets/images/blog/september2024/7-luxury-upgrades-for-a-stunning-high-end-kitchen-1.jpg
 imageAlt: Luxury high-end kitchen with premium cabinets
 ---

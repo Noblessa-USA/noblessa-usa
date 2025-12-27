@@ -2,7 +2,7 @@
 title: Maximize Space; Kitchen Cabinet Layout Tips
 url: maximize-space-kitchen-cabinet-layout-tips
 description: Discover practical kitchen cabinet layout tips to maximize and organize your space efficiently. Explore our guide and transform your kitchen today.
-author: Zade Dohan
+author: Noblessa USA
 date: 2024-12-09T15:00:00.000Z
 tags:
     - post

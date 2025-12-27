@@ -2,7 +2,7 @@
 title: A Guide to the Most Popular 2024 Kitchen Cabinet Colors
 url: the-most-popular-2024-kitchen-cabinet-colors
 description: There are many decisions to make when remodeling your kitchen. Read here for a guide to the most popular 2024 kitchen cabinet colors to discover your options.
-author: Zade Dohan
+author: Noblessa USA
 date: 2024-06-06T15:00:00.000Z
 tags:
     - post

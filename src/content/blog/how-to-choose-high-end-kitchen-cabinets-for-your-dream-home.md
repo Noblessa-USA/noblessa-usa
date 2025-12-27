@@ -2,7 +2,7 @@
 title: How to Choose High-End Kitchen Cabinets for Your Dream Home
 url: how-to-choose-high-end-kitchen-cabinets-for-your-dream-home
 description: Learn how to choose high-end kitchen cabinets that combine quality, style, and functionality. Discover expert tips for selecting premium cabinetry.
-author: Zade Dohan
+author: Noblessa USA
 date: 2024-07-25T15:00:00.000Z
 tags:
     - post

@@ -2,7 +2,7 @@
 title: 7 Must-Have Features in Modern Kitchen and Bathroom Cabinets
 url: 7-must-have-features-in-modern-kitchen-and-bathroom-cabinets
 description: Upgrade your space with these must-have features in modern kitchen and bathroom cabinets. Click to learn more about your cabinet options.
-author: Zade Dohan
+author: Noblessa USA
 date: 2024-11-17T15:00:00.000Z
 tags:
     - post
