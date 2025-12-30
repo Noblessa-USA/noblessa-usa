@@ -18,8 +18,8 @@ except ImportError:
     from PIL import Image
 
 # Configuration
-PDF_PATH = "public/assets/pdf/catalogs2026/Noblessa A Beautiful Life_2026.pdf"
-OUTPUT_DIR = "public/assets/images/catalog"
+PDF_PATH = "src/assets/pdf/Noblessa A Beautiful Life_2026.pdf"
+OUTPUT_DIR = "src/assets/images/catalog"
 DPI = 150
 QUALITY = 85
 

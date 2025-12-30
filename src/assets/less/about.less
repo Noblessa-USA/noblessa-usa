@@ -844,12 +844,12 @@
             width: 100%;
             background: #f8f9fa;
             border-radius: (12/16rem);
-            padding: (20/16rem);
+            padding: (12/16rem);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: (20/16rem);
+            gap: (16/16rem);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -866,8 +866,7 @@
             flex: 1;
             width: 100%;
             order: 1;
-            min-height: (400/16rem);
-            max-height: (600/16rem);
+            height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -901,9 +900,9 @@
         }
 
         .cs-flipbook-page {
-            width: 100%;
-            height: auto;
-            max-height: (600/16rem);
+            width: auto;
+            height: 100%;
+            max-width: 100%;
             object-fit: contain;
             display: block;
         }
@@ -1058,8 +1057,8 @@
 @media only screen and (min-width: 48rem) {
     #about-flipbook {
         .cs-flipbook-container {
-            padding: (40/16rem);
-            gap: (30/16rem);
+            padding: (20/16rem);
+            gap: (20/16rem);
         }
 
         .cs-flipbook-nav-wrapper {
@@ -1067,12 +1066,11 @@
         }
 
         .cs-flipbook-viewer {
-            min-height: (500/16rem);
-            max-height: (700/16rem);
+            height: 90vh;
         }
 
         .cs-flipbook-page {
-            max-height: (700/16rem);
+            height: 100%;
         }
 
         .cs-flipbook-nav {
@@ -1098,9 +1096,9 @@
 @media only screen and (min-width: 64rem) {
     #about-flipbook {
         .cs-flipbook-container {
-            padding: (50/16rem);
+            padding: (30/16rem);
             flex-direction: row;
-            gap: (50/16rem);
+            gap: (30/16rem);
         }
 
         .cs-flipbook-nav-wrapper {
@@ -1122,12 +1120,11 @@
             width: auto;
             flex: 1;
             order: 0;
-            min-height: (600/16rem);
-            max-height: (800/16rem);
+            height: 90vh;
         }
 
         .cs-flipbook-page {
-            max-height: (800/16rem);
+            height: 100%;
         }
 
         .cs-flipbook-nav {
