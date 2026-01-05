@@ -12,6 +12,7 @@ eleventyNavigation:
 {% block head %}
     <link rel="stylesheet" href="/assets/css/about.css">
     <script src="/assets/js/about.js" defer></script>
+    <script src="/assets/js/flipbook.js" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -283,6 +284,52 @@ eleventyNavigation:
                 <div class="cs-stat">
                     <span class="cs-number">1<span class="cs-accent">st</span></span>
                     <span class="cs-desc">Blue Angel Certified</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--            Catalog Flipbook                  -->
+    <!-- ============================================ -->
+
+    <section id="about-flipbook">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Explore Our Collection</span>
+                <h2 class="cs-title">A Beautiful Life 2026 Catalog</h2>
+                <p class="cs-text">
+                    Discover the art of living beautifully with our comprehensive 2026 lifestyle catalog showcasing our complete range of luxury solutions.
+                </p>
+            </div>
+            <div class="cs-flipbook-wrapper">
+                <div class="cs-flipbook-container">
+                    <div class="cs-flipbook-viewer">
+                        <img class="cs-flipbook-page" src="" alt="Catalog page" loading="lazy">
+                    </div>
+                    <div class="cs-flipbook-nav-wrapper">
+                        <button class="cs-flipbook-nav cs-flipbook-prev" aria-label="Previous page">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="cs-flipbook-nav cs-flipbook-next" aria-label="Next page">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="cs-flipbook-controls">
+                    <span class="cs-page-counter">
+                        <span class="cs-current-page">1</span> / <span class="cs-total-pages">0</span>
+                    </span>
+                    <a href="/assets/pdf/Noblessa A Beautiful Life_2026.pdf" class="cs-download-link" target="_blank" rel="noopener">
+                        Download Full Catalog
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 1V11M8 11L11 8M8 11L5 8M1 15H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
