@@ -1,18 +1,18 @@
 ---
 title: Kitchen Remodel Timeline; How Long Does a Kitchen Remodel Take?
 url: kitchen-remodel-timeline-how-long-does-a-kitchen-remodel-take
-description: How long does a kitchen remodel take? Explore our guide and plan your renovation with confidence. Start your kitchen project today!
+description: How long does a kitchen remodel take? Explore our guide and plan
+  your renovation with confidence. Start your kitchen project today!
 author: Noblessa USA
 date: 2024-12-20T15:00:00.000Z
 tags:
-    - post
-    - Kitchens
-    - Info
-    - Remodel
+  - post
+  - Kitchens
+  - Info
+  - Remodel
 image: /assets/images/blog/december2024/kitchen-remodel-timeline-how-long-does-a-kitchen-remodel-take-1.jpg
 imageAlt: a noblessa modular kitchen
 ---
-
 If you're looking to renovate or remodel your kitchen, you may be wondering, how long does a kitchen remodel take?
 
 No two kitchen remodels are exactly the same. Your kitchen renovation timeline depends on how much you're tearing the room apart to build it up again. If you're adding a few new components, it might only take a week or two, but a complete remodel can take months.
@@ -21,7 +21,7 @@ So, to get a real sense of your home improvement schedule, you need to give it a
 
 We've worked on countless kitchens in our nearly 30 years as one of the world's leading luxury kitchen designers. Keep reading and let us help you understand what to expect from your remodel.
 
-![a noblessa modular kitchen](/assets/images/blog/december2024/kitchen-remodel-timeline-how-long-does-a-kitchen-remodel-take-1.jpg)
+![a noblessa modular kitchen with custom cabinetry](/assets/images/blog/december2024/kitchen-remodel-timeline-how-long-does-a-kitchen-remodel-take-1.jpg)
 
 ## How Long Does a Kitchen Remodel Take?
 
