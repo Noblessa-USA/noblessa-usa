@@ -1,188 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>New Noblessa-USA Form Submission</title>
-  <style>
-    .email-body {
-      margin: 0;
-      padding: 0;
-      background-image: linear-gradient(135deg, #000000 20%, #2c2c2c 100%)!important;
-    }
-    
+    <meta charset="UTF-8">
+    <title>New Noblessa-USA Explore Form Submission</title>
+    <style>
+        .email-body {
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(135deg, #000000 20%, #2c2c2c 100%) !important;
+        }
 
-    .email-wrapper {
-        background-image:  radial-gradient(#C59852 1px, transparent 1px), 
-        radial-gradient(#C59852 1px, transparent 1px);
-        background-size: 30px 30px;
-        background-position: 0 0,15px 15px;
-        min-height: 100vh;
-        position: relative;
-        font-family: Arial, sans-serif;
-        color: #222;
-        margin: 0;
-        padding: 20px;
-    }
+        .email-wrapper {
+            background-image: radial-gradient(#C59852 1px, transparent 1px),
+                radial-gradient(#C59852 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            min-height: 100vh;
+            position: relative;
+            font-family: Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 20px;
+        }
 
-    .email-container {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 0;
-      background: #000000aa;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 2px solid #000000;
-      z-index: 10;
-    }
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0;
+            background: #000000aa;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #000000;
+            z-index: 10;
+        }
 
-    .email-header {
-      width: auto;
-      color: #fff;
-      background-image: linear-gradient(135deg, #C59852 10%, #C59852 50%, #C59852 90%);
-      padding: 30px 20px;
-      text-align: center;
-    }
+        .email-header {
+            width: auto;
+            color: #fff;
+            background-image: linear-gradient(135deg, #C59852 10%, #C59852 50%, #C59852 90%);
+            padding: 30px 20px;
+            text-align: center;
+        }
 
-    .email-header h1 {
-      margin: 0;
-      font-size: 1.6em;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+        .email-header h1 {
+            margin: 0;
+            font-size: 1.6em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
 
-    .email-content {
-      padding: 40px 20px;
-    }
+        .email-content {
+            padding: 40px 20px;
+        }
 
-    .email-content h2 {
-      color: #fff;
-      opacity: 1;
-      font-size: 20px;
-      font-weight: 400;
-      margin: 0;
-    }
+        .email-content h2 {
+            color: #fff;
+            opacity: 1;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0;
+        }
 
-    .email-content .email-link {
-      color: #fff;
-      text-decoration: underline;
-      transition: color 0.3s ease;
-    }
+        .email-content .email-link {
+            color: #fff;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
 
-    .email-content .email-link:hover {
-      color: #9933FF;
-    }
+        .email-content .email-link:hover {
+            color: #9933FF;
+        }
 
-    .spacer {
-      height: 40px;
-    }
+        .spacer {
+            height: 40px;
+        }
 
-    .form-details {
-      margin: 40px 0px 10px 0;
-      background: #f0f4fc;
-      text-align: left;
-      padding: 20px;
-      border: 1px solid #e3eafc;
-    }
+        .form-details {
+            margin: 40px 0px 10px 0;
+            background: #f0f4fc;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #e3eafc;
+        }
 
-    .form-details p {
-      margin: 8px 0;
-      font-size: 1em;
-    }
+        .form-details p {
+            margin: 8px 0;
+            font-size: 1em;
+        }
 
-    .email-footer {
-      background-image: linear-gradient(135deg, #000000 10%, #000000 50%, #000000 90%);
-      color: #bbbbbb;
-      text-align: center;
-      font-size: 0.95em;
-      padding: 16px 32px;
-    }
+        .email-footer {
+            background-image: linear-gradient(135deg, #000000 10%, #000000 50%, #000000 90%);
+            color: #bbbbbb;
+            text-align: center;
+            font-size: 0.95em;
+            padding: 16px 32px;
+        }
 
-    .email-footer .footer-link{
-      text-decoration: underline;
-      color: #bbbbbb;
-      transition: color 0.3s ease;
-    }
+        .email-footer .footer-link {
+            text-decoration: underline;
+            color: #bbbbbb;
+            transition: color 0.3s ease;
+        }
 
-    .email-footer .footer-link:hover {
-      color: #E87A2F;
-    }
+        .email-footer .footer-link:hover {
+            color: #E87A2F;
+        }
 
-    .cs-button-primary {
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 16px;
-      text-decoration: none;
-      text-align: center;
-      color: #fff !important;
-      padding: 18px 32px;
-      background-image: linear-gradient(135deg, #0c0c0c 0%, #141414 100%) !important;
-      box-shadow: 0 0px 32px rgba(0, 0, 0, 0.3);
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.75rem;
-      position: relative;
-      z-index: 1;
-      transition: all 0.3s ease;
-      overflow: hidden;
-    }
+        .cs-button-primary {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 16px;
+            text-decoration: none;
+            text-align: center;
+            color: #fff !important;
+            padding: 18px 32px;
+            background-image: linear-gradient(135deg, #0c0c0c 0%, #141414 100%) !important;
+            box-shadow: 0 0px 32px rgba(0, 0, 0, 0.3);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
 
-    .cs-button-primary:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(135deg, #C59852 0%, #C59852 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
+        .cs-button-primary:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(135deg, #C59852 0%, #C59852 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
 
-    .cs-button-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
-    }
-    .cs-button-primary:hover:before {
-      opacity: 1;
-    }
+        .cs-button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
+        }
 
-    @media only screen and (min-width: 48rem) {
-      .email-content {
-        padding: 40px 40px;
-      }
-    }
+        .cs-button-primary:hover:before {
+            opacity: 1;
+        }
 
-  </style>
+        @media only screen and (min-width: 48rem) {
+            .email-content {
+                padding: 40px 40px;
+            }
+        }
+    </style>
 </head>
+
 <body class="email-body">
-  <div class="email-wrapper">
-    <div class="email-container">
-      <div class="email-header">
-        <h1>New Lead Submission</h1>
-      </div>
-      <div class="email-content">
-        <h2>You've received a new submission from <br><a href="https://noblessa-usa.com" class="email-link">noblessa-usa.com</a></h2>
-        <div class="form-details">
-          <p><strong>Name:</strong> {{name}}</p>
-          <p><strong>Email:</strong> {{email}}</p>
-          <p><strong>Phone:</strong> {{phone}}</p>
-          <p><strong>Zipcode:</strong> {{zip}}</p>
-          <p><strong>Source:</strong> {{source}}</p>
-          <p><strong>Message:</strong><br> {{message}}</p>
+    <div class="email-wrapper">
+        <div class="email-container">
+            <div class="email-header">
+                <h1>New Explore Page Lead Submission</h1>
+            </div>
+            <div class="email-content">
+                <h2>You&apos;ve received a new submission from<br><a href="https://noblessa-usa.com/explore" class="email-link">noblessa-usa.com/explore</a></h2>
+                <div class="form-details">
+                    <p><strong>Name:</strong> {{341179747__data__name}}</p>
+                    <p><strong>Email:</strong> {{341179747__data__email}}</p>
+                    <p><strong>Phone:</strong> {{341179747__data__phone}}</p>
+                    <p><strong>Zipcode:</strong> {{341179747__data__zip}}</p>
+                    <p><strong>Source:</strong> {{341179747__form_name}}</p>
+                    <p><strong>Message:</strong><br>{{341179747__data__message}}</p>
+                </div>
+                <div class="spacer"><br></div><a href="mailto:{{341179747__data__email}}" class="cs-button-primary">&nbsp;Email Lead&nbsp;</a>
+            </div>
+            <div class="email-footer">Powered By: <a href="https://callowhillwebdesigns.com" target="_blank" rel="noopener" class="footer-link">Callowhill Web Designs LLC</a></div>
         </div>
-        <div class="spacer"></div>
-        <a href="mailto:{{email}}" class="cs-button-primary">
-            Email Lead
-        </a>
-      </div>
-      <div class="email-footer">
-        Powered By: <a href="https://callowhillwebdesigns.com" target="_blank" rel="noopener" class="footer-link">Callowhill Web Designs LLC</a>
-      </div>
     </div>
-  </div>
 </body>
+
 </html>

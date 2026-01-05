@@ -164,6 +164,11 @@
         const submitButton = form.querySelector('.cs-catalog-submit-btn');
         const formData = new FormData(form);
 
+        // Ensure form-name is included for Netlify
+        if (!formData.has('form-name')) {
+            formData.append('form-name', 'catalog-access');
+        }
+
         // Disable submit button
         submitButton.disabled = true;
         submitButton.innerHTML = '<span>Processing...</span>';
