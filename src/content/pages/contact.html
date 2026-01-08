@@ -118,6 +118,10 @@ eleventyNavigation:
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'conversion', {'send_to': 'AW-431163172/45wjCKrzjNIDEKSOzM0B'});
                 }
+                // Track Meta/Facebook conversion
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Contact');
+                }
             });
         }
     });
