@@ -10,9 +10,8 @@ tags:
   - post
   - info
   - design
-  - interior
-  - design
-  - europeankitchen
+  - interior design
+  - european kitchen
   - cabinets
 image: /assets/images/blog/02_03_31734_25_riva_839_d.jpeg
 imageAlt: Close-up of European-style cabinetry featuring handleless detailing, a
