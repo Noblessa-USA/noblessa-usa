@@ -50,7 +50,7 @@ Finally, both styles ultimately want to achieve a sense of openness with a no-fu
 
 ## Start Your Redesign Journey Today
 
-Here at noblessa, we encourage embracing these minimalistic design trends when redoing your space. Our state-of-the-art German manufacturing and advanced technology allows us to be the pioneers in producing modern and contemporary designs worthy of any home  - have a look at any of our collections, and you’ll agree.
+Here at noblessa, we encourage embracing these minimalistic design trends when redoing your space. Our state-of-the-art German manufacturing and advanced technology allows us to be the pioneers in producing modern and contemporary designs worthy of any home  - [have a look at any of our collections](https://noblessa-usa.com/clients/), and you’ll agree.
 
 Feeling inspired? [Speak with a noblessa Kitchen Designer](https://noblessa-usa.com/contact/)
 
