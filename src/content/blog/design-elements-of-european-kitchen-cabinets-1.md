@@ -8,10 +8,9 @@ author: Noblessa USA
 date: 2026-01-09T21:43:00.000+08:00
 tags:
   - post
-  - info
-  - ""
-  - interior design
-  - european kitchens
+  - Info
+  - Design Tips
+  - Kitchens
 image: /assets/images/blog/02_03_31734_25_riva_839_d.jpeg
 imageAlt: Close-up of European-style cabinetry featuring handleless detailing, a
   warm wood-look countertop, and a stone-look finish for a sleek, minimalist
