@@ -8,9 +8,9 @@ author: Noblessa USA
 date: 2026-01-07T21:41:00.000+08:00
 tags:
   - post
-  - info
-  - colors
-  - interior design
+  - Info
+  - Design Tips
+  - Remodel
 image: /assets/images/blog/31210_25_senso_483_m.jpeg
 imageAlt: A sleek modern kitchen showing how thoughtful color pairing,
   undertones, and lighting create a cohesive, elevated look.
