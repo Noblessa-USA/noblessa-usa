@@ -5,7 +5,7 @@ description: Explore kitchen lighting ideas for your dream design - from
   statement fixtures to under-cabinet and shelf lighting - plus tips from
   noblessa designers.
 author: noblessa USA
-date: 2026-01-30T18:02:00.000+08:00
+date: 2026-01-21T18:02:00.000+08:00
 tags:
   - post
   - info
