@@ -8,14 +8,9 @@ author: noblessa USA
 date: 2026-01-14T22:12:00.000+08:00
 tags:
   - post
-  - info
-  - colors
-  - interior design
-  - german kitchens
-  - custom kitchen
-  - modular
-  - cabinet
-  - storage
+  - Info
+  - Design Tips
+  - Kitchens
 image: /assets/images/blog/31145_25_novalux_513_d.jpeg
 imageAlt: A sleek noblessa kitchen vignette showcasing refined European
   cabinetry, an illuminated backsplash niche, and integrated lighting for a more
