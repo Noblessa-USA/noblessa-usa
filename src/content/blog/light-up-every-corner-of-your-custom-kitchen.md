@@ -9,7 +9,6 @@ date: 2026-01-21T18:02:00.000+08:00
 tags:
   - post
   - info
-  - ""
   - interior design
   - german kitchens
   - custom kitchen
