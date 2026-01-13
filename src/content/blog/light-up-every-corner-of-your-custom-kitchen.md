@@ -8,11 +8,10 @@ author: noblessa USA
 date: 2026-01-21T18:02:00.000+08:00
 tags:
   - post
-  - info
-  - interior design
-  - german kitchens
-  - custom kitchen
-  - lighting
+  - Info
+  - Design Tips
+  - Kitchens
+  - Trends
 image: /assets/images/blog/03_35_31762_25_evolution_of_senses_m.jpeg
 imageAlt: A futuristic noblessa kitchen featuring a sculptural island,
   integrated task lighting, and a dramatic wave-inspired ceiling.
