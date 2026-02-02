@@ -9,10 +9,10 @@ author: noblessa USA
 date: 2026-01-14T22:49:00.000+08:00
 tags:
   - post
-  - info
-  - interior design
-  - modern
-  - contemporary
+  - Info
+  - Design Tips
+  - Trends
+  - ""
 image: /assets/images/blog/01_02_31934_25_senso_483_d.jpeg
 imageAlt: A clean, modern kitchen-dining setup featuring warm taupe cabinetry, a
   minimalist island, and a natural wood table that balances function with

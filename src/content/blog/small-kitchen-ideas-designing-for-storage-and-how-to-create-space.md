@@ -8,10 +8,9 @@ author: noblessa USA
 date: 2026-01-16T23:08:00.000+08:00
 tags:
   - post
-  - info
-  - small kitchen
-  - interior design
-  - tips
+  - Design Tips
+  - Info
+  - Kitchens
 image: /assets/images/blog/30790_25_neuheiten_mona_kollektion_2026_r1.jpeg
 imageAlt: A bright, space-saving kitchen design with a streamlined island and
   floor-to-ceiling storage - proof that small kitchens can feel open,

@@ -8,9 +8,9 @@ author: Noblessa USA
 date: 2026-01-12T21:28:00.000+08:00
 tags:
   - post
-  - info
-  - custom kitchen
-  - interior design
+  - Info
+  - Kitchens
+  - Design Tips
 image: /assets/images/blog/03_18_31756_25_novalux_519_m.jpeg
 imageAlt: Bright, minimalist L-shaped kitchen with sleek white cabinetry, glass
   display uppers, and a dramatic stone-look backsplash for a refined custom
