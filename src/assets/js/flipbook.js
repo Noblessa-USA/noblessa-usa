@@ -38,9 +38,15 @@ class Flipbook {
      * Initialize the flipbook
      */
     init() {
+        // Load first page immediately for instant display
+        this.totalPages = 1; // Temporary value to allow first page load
+        this.loadPage(1);
+        this.bindEvents();
+        this.updateControls();
+        
+        // Detect total pages in the background without blocking
         this.detectTotalPages().then(() => {
-            this.loadPage(1);
-            this.bindEvents();
+            // Update controls once we know the actual total
             this.updateControls();
         });
     }
@@ -120,7 +126,8 @@ class Flipbook {
      * Load and display a specific page
      */
     loadPage(pageNum, direction = 'none') {
-        if (pageNum < 1 || pageNum > this.totalPages) {
+        // Allow loading if totalPages is still being detected (only check lower bound)
+        if (pageNum < 1 || (this.totalPages > 1 && pageNum > this.totalPages)) {
             return;
         }
         
