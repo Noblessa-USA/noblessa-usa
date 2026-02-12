@@ -1,0 +1,618 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// CATALOGS PAGE STYLES
+// Styles for the catalog collection showcase page
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Banner slideshow styles are in root.less (#banner-slideshow-2285)
+
+/*-- -------------------------- -->
+<---     Transform Gallery      -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #transform-gallery {
+        padding: 60px 0 0 0;
+        /* clips anything overflowing, but allow for scroll animations */
+        overflow-x: hidden;
+        overflow-y: visible;
+        position: relative;
+        z-index: 1;
+
+        .cs-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cs-section-header {
+            width: 100%;
+            display: flex;
+            padding-bottom: 60px;
+            flex-direction: column;
+            align-items: center;
+            max-width: (694/16rem);
+        }
+
+        .cs-left-column {
+            width: 400px;
+            max-width: (400/16rem);
+        }
+
+        .cs-right-column {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .cs-topper {
+            text-align: center;
+            margin: auto;
+        }
+
+        .cs-title {
+            text-align: center;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-text {
+            margin-bottom: 30px;
+            padding: 0px 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .cs-button-nodeco {
+            align-self: center;
+            justify-self: center;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #transform-gallery {
+        padding: 60px 0 0 0;
+        /* Ensure animations work properly on tablet */
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+}
+
+/* Large Desktop - 1200px */
+@media only screen and (min-width: 75rem) {
+    #transform-gallery {
+        .cs-section-header {
+            flex-direction: row;
+            max-width: (1215/16rem);
+            gap: 60px;
+            overflow: visible;
+            margin: auto;
+        }
+
+        .cs-left-column {
+            width: 400px;
+        }
+
+        .cs-right-column {
+            width: 100%;
+            text-align: left;
+            justify-items: start;
+            align-items: start;
+        }
+
+        .cs-button-nodeco {
+            align-self: flex-start;
+        }
+
+        .cs-divider {
+            width: 1px;
+            height: 246px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
+        }
+
+        .cs-topper {
+            text-align: left;
+        }
+
+        .cs-title {
+            text-align: left;
+            /* 48px - 64px */
+            padding-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-text {
+            text-align: left;
+            width: 100%;
+            max-width: none;
+            padding: 0px;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---     Catalogs Gallery       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #catalogs-gallery {
+        padding: 60px 1rem;
+        position: relative;
+        overflow: hidden;
+
+        .cs-background {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -2;
+
+            &:before {
+                /* Dark overlay for readability */
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.85) 0%,
+                    rgba(0, 0, 0, 0.75) 50%,
+                    rgba(0, 0, 0, 0.85) 100%
+                );
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        .cs-container {
+            max-width: (1280/16rem);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .cs-catalog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Featured Catalog Card (A Beautiful Life) */
+        .cs-catalog-featured {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+
+            &:hover {
+                transform: translateY(-12px);
+                background: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+                .cs-catalog-picture img {
+                    transform: scale(1.1);
+                }
+
+                .cs-catalog-btn {
+                    background: var(--secondary);
+                    color: #000;
+                    border-color: var(--secondary);
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(197, 152, 82, 0.3);
+                }
+            }
+
+            .cs-catalog-picture {
+                width: 100%;
+                height: (400/16rem);
+                overflow: hidden;
+                position: relative;
+                display: block;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.6s ease;
+                }
+            }
+
+            .cs-catalog-info {
+                padding: 2.5rem;
+                background: rgba(0, 0, 0, 0.3);
+                text-align: center;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .cs-catalog-label {
+                display: inline-block;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                color: var(--secondary);
+                font-weight: 700;
+                margin-bottom: 1rem;
+                padding: 0.375rem 1rem;
+                background: rgba(197, 152, 82, 0.2);
+                border-radius: 2rem;
+            }
+
+            .cs-catalog-title {
+                font-family: var(--headerFont);
+                font-size: clamp(1.75rem, 3vw, 2.5rem);
+                line-height: 1.2;
+                font-weight: 700;
+                margin: 0 0 1rem 0;
+                color: #fff;
+            }
+
+            .cs-catalog-description {
+                font-size: 1.125rem;
+                line-height: 1.6;
+                margin: 0 0 2rem 0;
+                color: rgba(255, 255, 255, 0.9);
+                max-width: (560/16rem);
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cs-catalog-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.75rem 1.5rem;
+                background: transparent;
+                color: #fff;
+                text-decoration: none;
+                font-family: var(--headerFont);
+                font-size: 0.875rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 0.25rem;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+        }
+
+        /* Regular Catalog Cards */
+        .cs-catalog-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+
+            &:hover {
+                transform: translateY(-8px);
+                background: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+
+                .cs-catalog-picture img {
+                    transform: scale(1.1);
+                }
+
+                .cs-catalog-btn {
+                    background: var(--secondary);
+                    color: #000;
+                    border-color: var(--secondary);
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(197, 152, 82, 0.3);
+                }
+            }
+
+            .cs-catalog-picture {
+                width: 100%;
+                height: (250/16rem);
+                overflow: hidden;
+                position: relative;
+                display: block;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.6s ease;
+                }
+            }
+
+            .cs-catalog-info {
+                padding: 1.75rem;
+                background: rgba(0, 0, 0, 0.3);
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .cs-catalog-title {
+                font-family: var(--headerFont);
+                font-size: 1.35rem;
+                line-height: 1.2;
+                font-weight: 700;
+                margin: 0 0 0.75rem 0;
+                color: #fff;
+            }
+
+            .cs-catalog-description {
+                font-size: 0.9375rem;
+                line-height: 1.5;
+                margin: 0 0 1.5rem 0;
+                color: rgba(255, 255, 255, 0.8);
+                flex: 1;
+            }
+
+            .cs-catalog-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.75rem 1.5rem;
+                background: transparent;
+                color: #fff;
+                text-decoration: none;
+                font-family: var(--headerFont);
+                font-size: 0.875rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 0.25rem;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                align-self: flex-start;
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #catalogs-gallery {
+        .cs-catalog-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .cs-catalog-featured {
+            grid-column: 1 / -1;
+
+            .cs-catalog-picture {
+                height: (448/16rem);
+            }
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #catalogs-gallery {
+        padding: 60px 1rem;
+
+        .cs-background {
+            /* Parallax effect */
+            background-attachment: fixed;
+            will-change: transform;
+
+            img {
+                /* Enhance parallax with CSS transform */
+                transform: translateZ(0);
+                will-change: transform;
+            }
+        }
+
+        .cs-catalog-grid {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 2rem;
+        }
+
+        .cs-catalog-featured {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+            display: flex;
+            flex-direction: column;
+
+            .cs-catalog-picture {
+                flex: 1;
+                height: auto;
+                min-height: (550/16rem);
+            }
+        }
+
+        .cs-catalog-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cs-catalog-card:nth-child(2) {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .cs-catalog-card:nth-child(3) {
+            grid-column: 4 / 5;
+            grid-row: 1 / 2;
+        }
+
+        .cs-catalog-card:nth-child(4) {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+
+        .cs-catalog-card:nth-child(5) {
+            grid-column: 4 / 5;
+            grid-row: 2 / 3;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---       Our Process           -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0rem) {
+    #our-process {
+        padding: var(--sectionPadding);
+        background-color: #ffffff;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1100/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cs-title {
+            margin: 0;
+        }
+
+        .cs-timeline {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            position: relative;
+
+            &:before {
+                content: "";
+                width: 2px;
+                height: calc(100% - 160px);
+                background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondaryLight) 100%);
+                position: absolute;
+                left: 30px;
+                top: 40px;
+                z-index: 0;
+            }
+        }
+
+        .cs-step {
+            list-style: none;
+            width: 100%;
+            margin: 0;
+            padding: 0 0 0 5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--blackShineGradient);
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .cs-h3 {
+            width: 200px;
+            font-size: 1.75rem;
+            line-height: 1.2em;
+            font-weight: 700;
+            padding: 0 0 1rem 0;
+            border-bottom: 1px solid rgb(210, 216, 223);
+            margin: 0 0 1rem 0;
+            color: var(--headerColor);
+        }
+
+        .cs-step-text {
+            font-size: 1rem;
+            line-height: 1.5em;
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #our-process {
+        .cs-timeline {
+            &:before {
+                left: 50%;
+                transform: translateX(-50%);
+                height: calc(100% - 160px);
+            }
+        }
+
+        .cs-step {
+            padding: 0;
+            padding-left: calc(50% + 5rem);
+
+            &:nth-child(even) {
+                padding-left: 0;
+                padding-right: calc(50% + 5rem);
+                text-align: right;
+                align-items: flex-end;
+
+                .cs-step-number {
+                    left: auto;
+                    right: calc(50% - 30px);
+                }
+            }
+
+            &:nth-child(odd) {
+                .cs-step-number {
+                    left: calc(50% - 30px);
+                }
+            }
+        }
+    }
+}
