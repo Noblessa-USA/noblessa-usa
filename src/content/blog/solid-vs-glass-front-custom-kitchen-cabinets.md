@@ -20,7 +20,7 @@ Solid-front and glass-front kitchen cabinets both work beautifully in a modern k
 
 Today’s kitchen is more than a place to cook. It is where mornings start, conversations happen, and guests naturally gather. That is why cabinet door style matters more than people think. The “front” is the most visible part of your cabinetry, and it sets the tone for the entire room.
 
-At [noblessa USA](https://noblessa-usa.com/about/?utm_source=chatgpt.com), we design German and European kitchen cabinets that feel intentional, refined, and tailored to how you actually use your home. If you are deciding between solid fronts and glass fronts, here is a clear way to choose - without overcomplicating the decision.
+At [noblessa USA](https://noblessa-usa.com/about/), we design German and European kitchen cabinets that feel intentional, refined, and tailored to how you actually use your home. If you are deciding between solid fronts and glass fronts, here is a clear way to choose - without overcomplicating the decision.
 
 ![Minimalist white kitchen with solid-front cabinets and light wood accents for a clean, streamlined look](/assets/images/blog/30825_25_senso_488_m_b705491.jpeg "Minimalist solid-front kitchen cabinet design")
 
@@ -80,7 +80,7 @@ You do not have to commit to only one.
 
 A balanced approach is often the most timeless: use solid-front cabinets for the majority of storage, then add a smaller section of glass-front cabinets to create a focal point. This can work especially well near a beverage area, a dining zone, or anywhere you want a subtle design feature without turning the whole kitchen into display storage.
 
-If you want inspiration, it helps to see how different homeowners bring their kitchens to life in real spaces. You can explore a range of completed projects [here](https://noblessa-usa.com/clients/?utm_source=chatgpt.com).
+If you want inspiration, it helps to see how different homeowners bring their kitchens to life in real spaces. You can explore a range of completed projects [here](https://noblessa-usa.com/clients/).
 
 ## How our kitchen cabinets fit into the bigger design
 
@@ -88,7 +88,7 @@ Cabinet fronts are only one piece of the puzzle. The most successful kitchens th
 
 That is where our kitchen collections come in. Instead of forcing you into a one-size-fits-all template, our approach is to help you create a cohesive design that supports how you cook, host, and move through the space - whether your style is warm and organic, crisp and modern, or somewhere in between.
 
-If you would like to see door styles, finishes, and layout options in person, visiting a showroom can make the decision much easier. You can find locations and plan a visit [here](https://noblessa-usa.com/showrooms/?utm_source=chatgpt.com).
+If you would like to see door styles, finishes, and layout options in person, visiting a showroom can make the decision much easier. You can find locations and plan a visit [here](https://noblessa-usa.com/showrooms/).
 
 ![Modern kitchen with dark cabinetry, glass-front display sections, and a light island showing how solid and glass cabinet fronts can work together](/assets/images/blog/409301_25_structura_403_m.jpeg "Solid and glass-front cabinet mix in a modern kitchen")
 
@@ -108,4 +108,4 @@ Yes - it is one of the most popular approaches because it balances storage and s
 
 ## Ready to choose the right cabinet fronts?
 
-If you are deciding between solid and glass fronts, we can help you map the choice to your layout, your storage needs, and your personal style. Schedule a free consultation or reach out with questions anytime here: [https://noblessa-usa.com/contact/](https://noblessa-usa.com/contact/?utm_source=chatgpt.com)
+If you are deciding between solid and glass fronts, we can help you map the choice to your layout, your storage needs, and your personal style. Schedule a free consultation or reach out with questions anytime here: <https://noblessa-usa.com/contact/>
