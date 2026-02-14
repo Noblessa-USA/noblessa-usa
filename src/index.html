@@ -21,6 +21,7 @@ eleventyNavigation:
     <script defer src="assets/js/responsive-video.js"></script>
     <script defer src="assets/js/newsletter-popup.js"></script>
     <script defer src="assets/js/video-carousel.js"></script>
+    <script defer src="/assets/js/catalog-access.js"></script>
 
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
     {% if client.isProduction %}
@@ -291,6 +292,138 @@ eleventyNavigation:
             </div>
         </div>
     </section>
+
+    <!-- ============================================ -->
+    <!--              View Our Catalogues               -->
+    <!-- ============================================ -->
+
+    <section id="catalog-section">
+        <div class="cs-container">
+            <div class="cs-text-content">
+                <span class="cs-topper sl-fade-in-down">Our Catalog</span>
+                <h2 class="cs-title sl-fade-in-down">Explore Our Designs</h2>
+                <span class="cs-divider"></span>
+                <p class="cs-text sl-fade-in-up">
+                    Explore our comprehensive collection of design catalogues featuring the latest innovations in European cabinetry and refined living spaces.
+                </p>
+            </div>
+            <div class="cs-catalog-grid">
+                <div class="cs-catalog-card" data-catalog="new-features">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="/assets/images/people/glassdoor.webp">
+                        <source media="(min-width: 601px)" srcset="/assets/images/people/glassdoor.webp">
+                        <img loading="lazy" decoding="async" src="/assets/images/people/glassdoor.webp" alt="New Features" width="400" height="300">
+                    </picture>
+                    <div class="cs-catalog-overlay"></div>
+                    <div class="cs-catalog-content">
+                        <h3 class="cs-catalog-title">New Features</h3>
+                        <p class="cs-catalog-description">Discover the latest innovations and design trends in European cabinetry.</p>
+                        <button class="cs-catalog-btn cs-catalog-btn-locked">
+                            View Catalog
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cs-catalog-card" data-catalog="bathrooms">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="/assets/images/bathrooms/bath5.webp">
+                        <source media="(min-width: 601px)" srcset="/assets/images/bathrooms/bath5.webp">
+                        <img loading="lazy" decoding="async" src="/assets/images/bathrooms/bath5.webp" alt="Bathrooms" width="400" height="300">
+                    </picture>
+                    <div class="cs-catalog-overlay"></div>
+                    <div class="cs-catalog-content">
+                        <h3 class="cs-catalog-title">Bathrooms</h3>
+                        <p class="cs-catalog-description">Elegant bathroom designs that combine luxury with functionality.</p>
+                        <button class="cs-catalog-btn cs-catalog-btn-locked">
+                            View Catalog
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cs-catalog-card" data-catalog="living-rooms">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="/assets/images/livingrooms/livingroomstaircase.webp">
+                        <source media="(min-width: 601px)" srcset="/assets/images/livingrooms/livingroomstaircase.webp">
+                        <img loading="lazy" decoding="async" src="/assets/images/livingrooms/livingroomstaircase.webp" alt="Living Rooms" width="400" height="300">
+                    </picture>
+                    <div class="cs-catalog-overlay"></div>
+                    <div class="cs-catalog-content">
+                        <h3 class="cs-catalog-title">Living Rooms</h3>
+                        <p class="cs-catalog-description">Sophisticated living space solutions for modern homes.</p>
+                        <button class="cs-catalog-btn cs-catalog-btn-locked">
+                            View Catalog
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cs-catalog-card" data-catalog="kitchen-ranges">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="/assets/images/whitekitchen.webp">
+                        <source media="(min-width: 601px)" srcset="/assets/images/whitekitchen.webp">
+                        <img loading="lazy" decoding="async" src="/assets/images/whitekitchen.webp" alt="Kitchen Ranges" width="400" height="300">
+                    </picture>
+                    <div class="cs-catalog-overlay"></div>
+                    <div class="cs-catalog-content">
+                        <h3 class="cs-catalog-title">Kitchen Ranges</h3>
+                        <p class="cs-catalog-description">Comprehensive kitchen collections featuring premium cabinetry and finishes.</p>
+                        <button class="cs-catalog-btn cs-catalog-btn-locked">
+                            View Catalog
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Access Modal -->
+    <div id="catalog-modal" class="cs-catalog-modal">
+        <div class="cs-catalog-modal-overlay"></div>
+        <div class="cs-catalog-modal-content">
+            <button class="cs-catalog-modal-close" aria-label="Close modal">&times;</button>
+            <div class="cs-catalog-modal-header">
+                <h2>View Our Catalogues</h2>
+                <p>Fill out the form below and explore noblessa's latest designs and spaces.</p>
+            </div>
+            <form id="catalog-access-form" class="cs-catalog-form" name="catalog-access" method="POST" data-netlify="true" netlify-honeypot="select" onsubmit="if(typeof gtag !== 'undefined') { gtag('event', 'conversion', {'send_to': 'AW-431163172/KQLKCNSNlsYCEKSOzM0B'}); }">
+                <input type="hidden" name="form-name" value="catalog-access">
+                
+                <!-- Honeypot field -->
+                <div class="cs-catalog-form-group" style="display: none;">
+                    <label for="select">Don't fill this out if you're human:</label>
+                    <input type="text" name="select" id="select" class="cs-select">
+                </div>
+
+                <div class="cs-catalog-form-row">
+                    <div class="cs-catalog-form-group">
+                        <label for="catalog-first-name">First Name <span class="cs-required">*</span></label>
+                        <input type="text" id="catalog-first-name" name="first-name" required placeholder="First Name">
+                    </div>
+                    <div class="cs-catalog-form-group">
+                        <label for="catalog-last-name">Last Name <span class="cs-required">*</span></label>
+                        <input type="text" id="catalog-last-name" name="last-name" required placeholder="Last Name">
+                    </div>
+                </div>
+
+                <div class="cs-catalog-form-group">
+                    <label for="catalog-email">Email Address <span class="cs-required">*</span></label>
+                    <input type="email" id="catalog-email" name="email" required placeholder="Email">
+                </div>
+
+                <div class="cs-catalog-form-group">
+                    <label for="catalog-phone">Phone Number</label>
+                    <input type="tel" id="catalog-phone" name="phone" placeholder="Phone">
+                </div>
+
+                <div class="cs-catalog-form-footer">
+                    <div data-netlify-recaptcha="true"></div>
+                    <button type="submit" class="cs-catalog-submit-btn">
+                        <span class="cs-hover-underline">View Catalogues</span>
+                        <img src="/assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10" loading="lazy" decoding="async">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
                                   
     <!-- ============================================ -->
     <!--                 Our Legacy                   -->

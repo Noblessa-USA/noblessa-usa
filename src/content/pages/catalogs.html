@@ -1,0 +1,270 @@
+---
+title: "Catalogs | Noblessa USA"
+description: "Explore noblessa's comprehensive catalog collection featuring luxury kitchen, bathroom, and living space designs crafted with German excellence."
+permalink: "/catalogs/"
+eleventyExcludeFromCollections: true
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/catalogs.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--              Banner Slideshow                -->
+    <!-- ============================================ -->
+
+    <div id="banner-slideshow-2285">
+        <div class="cs-container">
+            <div class="cs-text-wrapper">
+                <h1 class="cs-int-title sl-fade-in-right">Catalog Collection</h1>
+                <p class="cs-text sl-fade-in-right">
+                    Explore our comprehensive collection of catalogs showcasing the pinnacle of German craftsmanship and luxury design.
+                </p>
+            </div>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">home</a>
+                <a href="/catalogs/" class="cs-link cs-active">catalogs</a>
+            </div>
+        </div>
+        <!--Background Image Slideshow-->
+        <div class="cs-banner-slideshow">
+            <div class="cs-slide">
+                <img src="/assets/images/collections/grace/grace1.webp" alt="Noblessa Grace Collection" loading="eager">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/collections/tempo/tempo1.webp" alt="Noblessa Tempo Collection" loading="lazy">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/collections/divine/divine1.webp" alt="Noblessa Divine Collection" loading="lazy">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/collections/serenity/serenityalpinewhite.webp" alt="Noblessa Serenity Collection" loading="lazy">
+            </div>
+        </div>
+    </div>
+    <script>
+        // Banner Slideshow Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.cs-slide');
+            let currentSlide = 0;
+            const slideInterval = 5000; // 5 seconds
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                });
+                
+                // Use requestAnimationFrame to ensure the class removal is processed
+                requestAnimationFrame(() => {
+                    slides[index].classList.add('active');
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Auto-advance slides
+            setInterval(nextSlide, slideInterval);
+            
+            // Initialize with a slight delay to ensure Ken Burns effect triggers on first image
+            setTimeout(() => {
+                showSlide(currentSlide);
+            }, 100);
+        });
+    </script>
+
+
+    <!-- ============================================ -->
+    <!--           Catalog Philosophy                 -->
+    <!-- ============================================ -->
+
+    <section id="transform-gallery">
+        <div class="cs-container">
+            <div class="cs-section-header">
+                <div class="cs-left-column">
+                    <span class="cs-topper sl-fade-in-down">our catalogs</span>
+                    <h2 class="cs-title sl-fade-in-up">inspiration in<br>every detail</h2>
+                </div>
+                <span class="cs-divider"></span>
+                <div class="cs-right-column sl-fade-in-left">
+                    <p class="cs-text">
+                        Our catalogs are more than simple product guides—they're comprehensive journals of design inspiration, showcasing the marriage of form and function that defines German engineering. Each collection within represents years of innovation, embodying our commitment to excellence and our vision for sophisticated living. From groundbreaking features to timeless aesthetics, these catalogs invite you to explore the possibilities and discover how noblessa can transform your space into a masterpiece of modern luxury.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--              Catalogs Gallery                -->
+    <!-- ============================================ -->
+
+    <section id="catalogs-gallery">
+        <!-- Background Image -->
+        <picture class="cs-background">
+            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+            <img src="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 1920 }) | webp %}" alt="Luxury Kitchen Background" width="1920" height="1080" loading="lazy" decoding="async">
+        </picture>
+        
+        <div class="cs-container">
+            <div class="cs-catalog-grid">
+                <!-- Featured Catalog: A Beautiful Life -->
+                <div class="cs-catalog-featured sl-fade-in-up">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/livingrooms/livingroomstaircase.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/livingrooms/livingroomstaircase.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/livingrooms/livingroomstaircase.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/livingrooms/livingroomstaircase.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/livingrooms/livingroomstaircase.webp' | resize({ width: 1200 }) | webp %}" alt="A Beautiful Life Catalog" width="800" height="600" loading="eager">
+                    </picture>
+                    <div class="cs-catalog-info">
+                        <span class="cs-catalog-label">Featured Catalog</span>
+                        <h3 class="cs-catalog-title">A Beautiful Life</h3>
+                        <p class="cs-catalog-description">
+                            Experience the complete noblessa lifestyle. This comprehensive catalog showcases how our kitchen, bathroom, and living solutions come together to create harmonious, elegant living spaces that embody the beautiful life philosophy.
+                        </p>
+                        <a href="/assets/pdf/Noblessa A Beautiful Life_2026.pdf" target="_blank" class="cs-catalog-btn">
+                            View Catalog
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Regular Catalog Cards -->
+                <div class="cs-catalog-card sl-fade-in-left">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/whitekitchen.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/whitekitchen.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/whitekitchen.webp' | resize({ width: 800 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/whitekitchen.webp' | resize({ width: 800 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/whitekitchen.webp' | resize({ width: 800 }) | webp %}" alt="Kitchens Catalog" width="600" height="450" loading="lazy">
+                    </picture>
+                    <div class="cs-catalog-info">
+                        <h3 class="cs-catalog-title">Kitchens 2026</h3>
+                        <p class="cs-catalog-description">
+                            Explore our complete range of kitchen collections featuring innovative German design and precision craftsmanship.
+                        </p>
+                        <a href="/assets/pdf/catalogs2026/Noblessa Kitchens 2026.pdf" target="_blank" class="cs-catalog-btn">
+                            View Catalog
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cs-catalog-card sl-fade-in-right">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath5.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/bathrooms/bath5.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/bathrooms/bath5.webp' | resize({ width: 800 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/bathrooms/bath5.webp' | resize({ width: 800 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/bathrooms/bath5.webp' | resize({ width: 800 }) | webp %}" alt="Bathrooms Catalog" width="600" height="450" loading="lazy">
+                    </picture>
+                    <div class="cs-catalog-info">
+                        <h3 class="cs-catalog-title">Bathrooms 2026</h3>
+                        <p class="cs-catalog-description">
+                            Discover elegant bathroom designs that transform everyday spaces into luxurious personal retreats.
+                        </p>
+                        <a href="/assets/pdf/catalogs2026/Noblessa Bathroom 2026.pdf" target="_blank" class="cs-catalog-btn">
+                            View Catalog
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cs-catalog-card sl-fade-in-left">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 800 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 800 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/livingrooms/whitelivingroom.webp' | resize({ width: 800 }) | webp %}" alt="Living Spaces Catalog" width="600" height="450" loading="lazy">
+                    </picture>
+                    <div class="cs-catalog-info">
+                        <h3 class="cs-catalog-title">Living Spaces 2026</h3>
+                        <p class="cs-catalog-description">
+                            Sophisticated solutions for modern living rooms featuring premium materials and timeless design.
+                        </p>
+                        <a href="/assets/pdf/catalogs2026/Noblessa Living 2026.pdf" target="_blank" class="cs-catalog-btn">
+                            View Catalog
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cs-catalog-card sl-fade-in-right">
+                    <picture class="cs-catalog-picture">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/people/glassdoor.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/people/glassdoor.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/people/glassdoor.webp' | resize({ width: 800 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/people/glassdoor.webp' | resize({ width: 800 }) | webp %}" type="image/webp">
+                        <img src="{% getUrl '/assets/images/people/glassdoor.webp' | resize({ width: 800 }) | webp %}" alt="New Features Catalog" width="600" height="450" loading="lazy">
+                    </picture>
+                    <div class="cs-catalog-info">
+                        <h3 class="cs-catalog-title">New Features 2026</h3>
+                        <p class="cs-catalog-description">
+                            The latest innovations and design trends in European cabinetry and architectural solutions.
+                        </p>
+                        <a href="/assets/pdf/catalogs2026/New Features 2026.pdf" target="_blank" class="cs-catalog-btn">
+                            View Catalog
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--           Process & Benefits                 -->
+    <!-- ============================================ -->
+
+    <section id="our-process">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper sl-fade-in-down">Your Journey</span>
+                <h2 class="cs-title sl-fade-in-down">from vision to reality</h2>
+                <span class="cs-divider"></span>
+                <p class="cs-text sl-fade-in-up">
+                    Bringing your dream kitchen to life is a collaborative journey. Here's what to expect when you partner with noblessa.
+                </p>
+            </div>
+            <ul class="cs-timeline">
+                <li class="cs-step sl-fade-in-up">
+                    <div class="cs-step-number">01</div>
+                    <h3 class="cs-h3">Free Consultation</h3>
+                    <p class="cs-step-text">
+                        Meet with a noblessa designer to discuss your vision, lifestyle needs, and space requirements. We'll explore collections and design possibilities together.
+                    </p>
+                </li>
+                <li class="cs-step sl-fade-in-up">
+                    <div class="cs-step-number">02</div>
+                    <h3 class="cs-h3">Custom Design</h3>
+                    <p class="cs-step-text">
+                        Our team creates detailed 3D renderings and specifications tailored to your space. We refine every detail until the design perfectly matches your vision.
+                    </p>
+                </li>
+                <li class="cs-step sl-fade-in-up">
+                    <div class="cs-step-number">03</div>
+                    <h3 class="cs-h3">German Craftsmanship</h3>
+                    <p class="cs-step-text">
+                        Your cabinetry is meticulously manufactured in Germany using premium materials and rigorous quality control at every stage.
+                    </p>
+                </li>
+                <li class="cs-step sl-fade-in-up">
+                    <div class="cs-step-number">04</div>
+                    <h3 class="cs-h3">Expert Installation</h3>
+                    <p class="cs-step-text">
+                        Professional installation ensures flawless execution. We coordinate every detail to bring your beautiful new kitchen to life.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    {% include 'sections/cta.html' %}
+
+{% endblock %}
