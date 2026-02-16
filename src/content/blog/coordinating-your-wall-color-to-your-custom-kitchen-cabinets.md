@@ -5,7 +5,7 @@ description: Choosing wall color for your kitchen? Use these practical tips to
   coordinate paint with custom kitchen cabinets for a cohesive, high-end look.
   Free consultation available.
 author: noblessa USA
-date: 2026-02-16T16:38:00.000+08:00
+date: 2026-04-20T16:38:00.000+08:00
 tags:
   - post
   - kitchens
