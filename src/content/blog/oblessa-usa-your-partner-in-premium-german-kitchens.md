@@ -1,5 +1,5 @@
 ---
-title: oblessa USA - Your Partner in Premium German Kitchens
+title: noblessa USA - Your Partner in Premium German Kitchens
 url: noblessa-partner-premium-german-kitchens
 description: Looking for a partner for premium German kitchens and European
   kitchen cabinets? noblessa USA supports designers, builders, and developers in
