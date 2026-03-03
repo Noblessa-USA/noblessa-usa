@@ -152,19 +152,19 @@ document.addEventListener('DOMContentLoaded', function() {
             image: '/assets/images/ambassadors/mendez.webp'
         },
         {
-            name: 'Charles Taylor',
-            orgname: 'Charles Taylor Interior Design',
-            address: '261 N. Highway 101 Suite 1152 Solana Beach, CA 92075',
-            city: 'Solana Beach',
+            name: 'Kelly Rjoub',
+            orgname: 'Kelly Rjoub Interior Design',
+            address: 'Temecula, CA 92591',
+            city: 'Temecula',
             state: 'CA',
-            lat: 32.9911,
-            lng: -117.2712,
-            phone: '(858) 779-4556',
+            lat: 33.4936,
+            lng: -117.1484,
+            phone: '(760) 214-2976',
             hours: 'Contact for hours',
-            mapUrl: 'https://maps.google.com/?q=261+N.+Highway+101+Suite+1152+Solana+Beach,+CA+92075',
-            email: 'info@cthid.com',
-            website: 'https://www.cthid.com',
-            image: '/assets/images/ambassadors/charlestaylor.webp'
+            mapUrl: 'https://maps.app.goo.gl/hE751GmnDHLqYJWt6',
+            email: 'kelly@rjoubdesign.com',
+            website: 'https://rjoubdesign.com/',
+            image: '/assets/images/ambassadors/kellyrjoub.webp'
         },
         {
             name: 'Mindy Mai',
