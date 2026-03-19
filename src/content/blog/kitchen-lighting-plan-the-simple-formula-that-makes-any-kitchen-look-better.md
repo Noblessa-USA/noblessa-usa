@@ -15,7 +15,6 @@ image: /assets/images/blog/30773_24_softline_510_d.jpeg
 imageAlt: Layered lighting makes a kitchen feel brighter, cleaner, and more
   elevated, without changing the layout.
 ---
-
 **Quick answer:** The simplest kitchen lighting formula is three layers - ambient lighting for the whole room, task lighting for work surfaces, and accent lighting for warmth and depth. When all three are planned together, the kitchen looks better and feels easier to use.
 
 If your kitchen feels dark, flat, or dated, lighting is often the reason. Lighting affects everything - how cabinet colors read, whether counters feel cluttered, and how welcoming the space feels at night.
@@ -65,7 +64,7 @@ Accent lighting ideas:
 
 This layer is especially helpful in open concept homes, where the kitchen is visible from the living room and needs to feel calm at night.
 
-To see how lighting transforms finished kitchens, browse real projects here: https://noblessa-usa.com/clients/
+To see how lighting transforms finished kitchens, browse real projects here: <https://noblessa-usa.com/clients>/
 
 ## Placement tips that make lighting look better
 
