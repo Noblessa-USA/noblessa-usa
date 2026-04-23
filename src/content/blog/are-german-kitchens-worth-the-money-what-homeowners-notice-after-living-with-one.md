@@ -59,10 +59,12 @@ Cabinets are one of the longest-lasting elements of a kitchen remodel. Choosing 
 
 The difference is easier to understand when you open the drawers and feel the construction yourself. You can visit a [noblessa](https://noblessa-usa.com/contact/) showroom in:
 
-* [Los Angeles](https://noblessa-usa.com/contact/) / [Pasadena](https://noblessa-usa.com/contact/)
-* [Jupiter serving West Palm Beach and Palm Beach County](https://noblessa-usa.com/contact/)
+* [Pasadena](https://noblessa-usa.com/showrooms/)
+* [San Jose](https://noblessa-usa.com/showrooms/)
+* [Jupiter](https://noblessa-usa.com/showrooms/)
 
-## 
-Get a free consultation
 
-If you are exploring European or German kitchens and want to understand if the investment makes sense for your home, [noblessa](https://noblessa-usa.com/contact/) USA is happy to help. Contact us for a free consultation: <https://noblessa-usa.com/contact/>
+
+## Get a free consultation
+
+If you are exploring European or German kitchens and want to understand if the investment makes sense for your home, noblessa USA is happy to help. [Contact us for a free consultation.](https://noblessa-usa.com/contact/)
