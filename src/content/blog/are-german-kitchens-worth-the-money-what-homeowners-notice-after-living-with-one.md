@@ -53,7 +53,7 @@ German kitchens favor clean lines, neutral finishes, and timeless layouts. Homeo
 
 Cabinets are one of the longest-lasting elements of a kitchen remodel. Choosing a system built for longevity can reduce future costs, maintenance, and frustration.
 
-![Modern European-style kitchen by Noblessa USA featuring sleek matte cabinetry, a large island with integrated seating, built-in appliances, pendant lighting, and floor-to-ceiling windows with a city skyline view.](/assets/images/blog/409270_25_riva_889_m.jpeg "Noblessa USA – Modern European Kitchen")
+![Modern European-style kitchen featuring sleek matte black cabinetry with a tall pull-out pantry system, open shelving with wood accents, integrated sink and appliances, and an exposed brick backsplash for an industrial touch.](/assets/images/blog/409292_25_senso_496_d.jpeg "Noblessa USA – Modern Kitchen with Pull-Out Pantry and Brick Accent Wall")
 
 ## See German kitchens in person
 
@@ -62,8 +62,6 @@ The difference is easier to understand when you open the drawers and feel the co
 * [Pasadena](https://noblessa-usa.com/showrooms/)
 * [San Jose](https://noblessa-usa.com/showrooms/)
 * [Jupiter](https://noblessa-usa.com/showrooms/)
-
-
 
 ## Get a free consultation
 
