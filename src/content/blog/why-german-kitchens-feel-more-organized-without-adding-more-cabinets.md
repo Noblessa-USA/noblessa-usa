@@ -67,4 +67,4 @@ Visit a [noblessa](https://noblessa-usa.com/contact/) showroom to experience how
 
 ## **Get a free consultation**
 
-If you are planning a remodel and want a kitchen that feels more organized without adding bulk, noblessa USA offers free consultations to show how German design approaches storage differently.
+If you are planning a remodel and want a kitchen that feels more organized without adding bulk, [noblessa USA](https://noblessa-usa.com/contact/) offers free consultations to show how German design approaches storage differently.
