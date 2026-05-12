@@ -28,6 +28,8 @@ Tight walkways, crowded countertops, and cabinets that are hard to access can ma
 
 Here’s what homeowners often experience after installing a German kitchen from **[noblessa USA](https://noblessa-usa.com/contact/)** in a smaller space.
 
+![Mirrored wall cabinet opened to reveal glass shelves and organized storage for bathroom essentials, featuring clean lines, soft lighting, and a modern minimalist design.](/assets/images/blog/201220_25_riva_839_d.jpeg "Noblessa USA - Mirrored Cabinet with Integrated Glass Shelving and Hidden Storage")
+
 ## Movement is considered before cabinets are placed
 
 German kitchens are planned around how you move. The distance between sink, cooktop, and refrigerator is intentionally calculated so you’re never taking extra steps or working in awkward positions.
@@ -60,19 +62,15 @@ Internal dividers, tray organizers, and vertical storage make cabinets feel bigg
 
 A small kitchen shouldn’t feel like a compromise. When the layout, storage, and movement are planned together from the beginning, the kitchen becomes noticeably easier and more comfortable to use — without adding square footage.
 
+![Modern minimalist kitchen featuring matte dark cabinetry, a central island with integrated sink, light wood flooring, and a large picture window overlooking lush green trees and garden landscaping.](/assets/images/blog/31940_25_softline_505_m_b705379.jpeg "Noblessa USA - Modern Minimalist Kitchen with Large Picture Window")
+
 ### See German kitchens in person
 
 Visit a [noblessa ](https://noblessa-usa.com/contact/)showroom to experience how German kitchen design improves functionality in small spaces:
 
-*   [Pasadena](https://noblessa-usa.com/showrooms/)
-
-
-*   [San Jose](https://noblessa-usa.com/showrooms/)
-
-
-*   [Jupiter](https://noblessa-usa.com/showrooms/)
-
-
+* [Pasadena](https://noblessa-usa.com/showrooms/)
+* [San Jose](https://noblessa-usa.com/showrooms/)
+* [Jupiter](https://noblessa-usa.com/showrooms/)
 
 ## Get a free consultation
 
