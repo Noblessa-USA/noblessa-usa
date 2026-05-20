@@ -7,7 +7,7 @@ description: Discover why ceramic kitchens are one of the most requested
 author: noblessa USA
 date: 2026-07-27T18:46:00.000-07:00
 tags:
-  - postpost
+  - post
   - kitchens
   - design tips
   - info
