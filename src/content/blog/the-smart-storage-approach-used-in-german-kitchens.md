@@ -29,7 +29,7 @@ Kitchens from **[Noblessa USA](https://noblessa-usa.com/contact/)** are designed
 
 ![Modern German kitchen with matte white cabinetry, integrated oven, wood countertops, and botanical leaf-pattern wallpaper in an open-concept dining space.](/assets/images/blog/31870_24_speed_259_m_r1_b500441.jpeg "Noblessa USA - Modern German Kitchen with Botanical Accent Wall")
 
-### Storage Designed Around Daily Habits
+## Storage Designed Around Daily Habits
 
 Traditional kitchens often rely on large cabinet spaces where items are stacked behind one another. While this creates storage volume, it can also make organization difficult.
 
@@ -46,7 +46,7 @@ This includes:
 
 The result is a kitchen that feels intuitive from the first day of use.
 
-### Deep Drawers Replace Hard-to-Reach Cabinets
+## Deep Drawers Replace Hard-to-Reach Cabinets
 
 One of the most recognizable features of German kitchens is the use of deep drawer systems.
 
@@ -56,7 +56,7 @@ Because the drawers fully extend outward, nothing gets hidden in the back.
 
 This makes organization easier to maintain long term.
 
-### Hidden Organization Creates Cleaner Spaces
+## Hidden Organization Creates Cleaner Spaces
 
 German kitchens also focus heavily on concealed organization.
 
@@ -74,20 +74,14 @@ This approach helps kitchens feel calmer and visually cleaner without sacrificin
 
 ![White pull-out kitchen storage drawer beneath a built-in oven, containing cookware, trays, plates, and utensils in an organized modern cabinet setup.](/assets/images/blog/31872_24_speed_259_d_b500441.jpeg "Noblessa USA - Modern Kitchen Pull-Out Storage Drawer Beneath Built-In Oven")
 
-### See German kitchens in person
+## See German kitchens in person
 
-Visit a [noblessa ](https://noblessa-usa.com/contact/)showroom to experience how German kitchen design improves functionality in small spaces:
+Visit a [noblessa](https://noblessa-usa.com/contact/) showroom to experience how German kitchen design improves functionality in small spaces:
 
-*   [Pasadena](https://noblessa-usa.com/showrooms/)
+* [Pasadena](https://noblessa-usa.com/showrooms/)
+* [San Jose](https://noblessa-usa.com/showrooms/)
+* [Jupiter](https://noblessa-usa.com/showrooms/)
 
-
-*   [San Jose](https://noblessa-usa.com/showrooms/)
-
-
-*   [Jupiter](https://noblessa-usa.com/showrooms/)
-
-
-
-## Get a free consultation
+Get a free consultation
 
 If your current kitchen feels tight and difficult to work in, a free consultation with [noblessa USA](https://noblessa-usa.com/contact/) can show you how thoughtful German design transforms the way small kitchens function.
