@@ -82,21 +82,15 @@ A kitchen should look great not only when it's installed but also years later.
 
 That's why German kitchens emphasize high-quality materials and precision engineering. Durable surfaces, reliable hardware, and carefully crafted cabinetry help ensure that the kitchen continues to perform beautifully through daily use.
 
-At **Noblessa USA**, quality and longevity are essential parts of the design process.
+At **[Noblessa USA](https://noblessa-usa.com/contact/)**, quality and longevity are essential parts of the design process.
 
 ## See German Kitchens in Person
 
 Visit a **[Noblessa USA](https://noblessa-usa.com/contact/)** showroom to experience how German kitchen design combines beauty and functionality:
 
-*   [Pasadena](https://noblessa-usa.com/showrooms/)
-
-
-*   [San Jose](https://noblessa-usa.com/showrooms/)
-
-
-*   [Jupiter](https://noblessa-usa.com/showrooms/)
-
-
+* [Pasadena](https://noblessa-usa.com/showrooms/)
+* [San Jose](https://noblessa-usa.com/showrooms/)
+* [Jupiter](https://noblessa-usa.com/showrooms/)
 
 ## Get a Free Consultation
 
