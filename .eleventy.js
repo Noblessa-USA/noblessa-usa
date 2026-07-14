@@ -129,6 +129,13 @@ module.exports = function (eleventyConfig) {
      */
     eleventyConfig.addFilter("getCurrentDate", filterGetCurrentDate);
 
+    /*
+     * 🔣 JSON Serialization Filter
+     * Converts a value to a JSON string for use in templates
+     * Usage: {{ pages | json | safe }}
+     */
+    eleventyConfig.addFilter("json", (value) => JSON.stringify(value));
+
     // ═════════════════════════════════════════════════════════════════════════
     // SHORTCODES
     // Generate dynamic content with JavaScript

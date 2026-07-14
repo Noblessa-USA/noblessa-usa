@@ -1,0 +1,7 @@
+{
+    "layout": "layouts/flipbook.html",
+    "tags": "flipbook",
+    "eleventyComputed": {
+        "permalink": "/flipbooks/{{ url | slugify }}/index.html"
+    }
+}

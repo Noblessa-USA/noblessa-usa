@@ -1,282 +1,501 @@
 /**
- * Flipbook Carousel
- * Displays PDF pages converted to WebP images with navigation controls
- * 
- * NOTE: PDF pages must be pre-converted to WebP format and placed in:
- * /assets/images/catalog/page-1.webp, page-2.webp, etc.
- * 
- * To convert PDF to WebP images, you can use tools like:
- * - ImageMagick: convert -density 150 input.pdf -quality 85 page-%d.webp
- * - Online converters like CloudConvert
- * - Adobe Acrobat: Export to images
+ * flipbook.js
+ * Dynamic CMS-driven flipbook component for Noblessa USA.
+ *
+ * Reads page data injected by the Eleventy template (via #flipbook-data),
+ * auto-detects single-page vs double-spread images by measuring their
+ * natural pixel dimensions, and renders a page-turn flipbook using
+ * StPageFlip (https://github.com/Nodlik/StPageFlip).
+ *
+ * Single page  = 2550 × 3300 px  → one page
+ * Double spread = 5100 × 3300 px  → two pages (left half + right half)
  */
+
+import { PageFlip } from 'page-flip';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CONSTANTS
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Expected width (px) for a single catalog page. */
+const SINGLE_WIDTH = 2550;
+
+/** Expected width (px) for a double-page spread. */
+const DOUBLE_WIDTH = 5100;
+
+/** Pixel tolerance when classifying image type. */
+const TOLERANCE = 250;
+
+/**
+ * Aspect ratio of a single page: 2550 / 3300 ≈ 0.7727
+ * PageFlip display dimensions (matching this ratio):
+ *   width  = 560 px
+ *   height = 560 / (2550/3300) = 560 × (3300/2550) ≈ 725 px
+ */
+const DISPLAY_WIDTH  = 560;
+const DISPLAY_HEIGHT = Math.round(DISPLAY_WIDTH * (3300 / 2550)); // 725
+
+/** Transparent 1×1 GIF used as placeholder before lazy-loaded images arrive. */
+const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+/** Number of pages loaded immediately on startup (first N pages). */
+const EAGER_COUNT = 6;
+
+/** How many pages ahead/behind the current page to preload when turning. */
+const PRELOAD_RADIUS = 3;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// FLIPBOOK CLASS
+// ─────────────────────────────────────────────────────────────────────────────
 
 class Flipbook {
     constructor() {
-        this.currentPage = 1;
-        this.totalPages = 0;
-        this.imageBasePath = '/assets/images/catalog/';
-        this.imagePrefix = 'page-';
-        this.imageExtension = '.webp';
-        
-        // Cache DOM elements
-        this.pageImage = document.querySelector('.cs-flipbook-page');
-        this.prevButton = document.querySelector('.cs-flipbook-prev');
-        this.nextButton = document.querySelector('.cs-flipbook-next');
-        this.currentPageSpan = document.querySelector('.cs-current-page');
-        this.totalPagesSpan = document.querySelector('.cs-total-pages');
-        
-        if (!this.pageImage || !this.prevButton || !this.nextButton) {
-            console.error('Flipbook: Required elements not found');
+        /** @type {HTMLElement|null} */
+        this.container = document.getElementById('flipbook-container');
+        /** @type {HTMLElement|null} */
+        this.dataEl = document.getElementById('flipbook-data');
+        /** @type {HTMLButtonElement|null} */
+        this.prevBtn = document.getElementById('flipbook-prev');
+        /** @type {HTMLButtonElement|null} */
+        this.nextBtn = document.getElementById('flipbook-next');
+        /** @type {HTMLElement|null} */
+        this.currentPageEl = document.getElementById('flipbook-current-page');
+        /** @type {HTMLElement|null} */
+        this.totalPagesEl  = document.getElementById('flipbook-total-pages');
+
+        /** Raw CMS page entries: Array<{ image: string, alt?: string }> */
+        this.rawPages = [];
+
+        /** Generated DOM page elements fed to PageFlip */
+        this.pageElements = [];
+
+        /** Set of page-element indices already having their src loaded */
+        this.loadedSet = new Set();
+
+        /** @type {PageFlip|null} */
+        this.flipInstance = null;
+
+        // Abort if required DOM elements are missing (not on a flipbook page)
+        if (!this.container || !this.dataEl) return;
+
+        this._parseCmsData();
+        this._init();
+    }
+
+    // ─── Data Parsing ─────────────────────────────────────────────────────────
+
+    _parseCmsData() {
+        try {
+            const raw = JSON.parse(this.dataEl.textContent);
+            this.rawPages = Array.isArray(raw) ? raw : [];
+        } catch (err) {
+            console.error('[Flipbook] Failed to parse CMS data:', err);
+            this._showError('Unable to load flipbook data. Please try refreshing.');
+        }
+    }
+
+    // ─── Initialisation ───────────────────────────────────────────────────────
+
+    async _init() {
+        if (this.rawPages.length === 0) {
+            this._showError('This flipbook has no pages yet. Add pages through the CMS.');
+            this._hideLoader();
             return;
         }
-        
-        this.init();
-    }
-    
-    /**
-     * Initialize the flipbook
-     */
-    init() {
-        // Load first page immediately for instant display
-        this.totalPages = 1; // Temporary value to allow first page load
-        this.loadPage(1);
-        this.bindEvents();
-        this.updateControls();
-        
-        // Detect total pages in the background without blocking
-        this.detectTotalPages().then(() => {
-            // Update controls once we know the actual total
-            this.updateControls();
-        });
-    }
-    
-    /**
-     * Detect total number of pages by checking which images exist
-     * This attempts to load images until one fails
-     */
-    async detectTotalPages() {
-        let pageNum = 1;
-        let found = true;
-        
-        while (found && pageNum <= 200) { // Max 200 pages to prevent infinite loop
-            const imagePath = this.getImagePath(pageNum);
-            found = await this.imageExists(imagePath);
-            
-            if (found) {
-                pageNum++;
-            }
+
+        try {
+            // 1. Measure every image to determine single vs. double spread
+            const classified = await this._classifyAllPages();
+
+            // 2. Build the DOM elements PageFlip will consume
+            this._buildDOM(classified);
+
+            // 3. Boot PageFlip
+            this._initPageFlip();
+
+            // 4. Wire controls
+            this._initNav();
+            this._initKeyboard();
+
+        } catch (err) {
+            console.error('[Flipbook] Initialisation error:', err);
+            this._showError('The flipbook could not be loaded. Please try again.');
+        } finally {
+            this._hideLoader();
         }
-        
-        this.totalPages = pageNum - 1;
-        
-        if (this.totalPages === 0) {
-            console.warn('Flipbook: No pages found. Please add images to ' + this.imageBasePath);
-            this.showPlaceholder();
-        } else {
-            console.log(`Flipbook: Found ${this.totalPages} pages`);
-        }
-        
-        this.totalPagesSpan.textContent = this.totalPages;
     }
-    
+
+    // ─── Image Classification ─────────────────────────────────────────────────
+
     /**
-     * Check if an image exists
+     * Measures the natural width of every CMS page image and classifies it.
+     * @returns {Promise<ClassifiedPage[]>}
      */
-    imageExists(url) {
-        return new Promise((resolve) => {
+    async _classifyAllPages() {
+        const warnings = [];
+        const classified = [];
+
+        for (const entry of this.rawPages) {
+            const { width, height } = await this._measureImage(entry.image);
+            const type = this._detectType(width, height, entry.image, warnings);
+
+            classified.push({
+                image : entry.image,
+                alt   : entry.alt || '',
+                width,
+                height,
+                type,
+            });
+        }
+
+        if (warnings.length) this._showWarnings(warnings);
+        return classified;
+    }
+
+    /**
+     * Loads an image invisibly just to read its naturalWidth / naturalHeight.
+     * Resolves even on error (returns fallback dimensions) to avoid blocking.
+     *
+     * @param {string} src
+     * @returns {Promise<{width:number, height:number}>}
+     */
+    _measureImage(src) {
+        return new Promise(resolve => {
             const img = new Image();
-            img.onload = () => resolve(true);
-            img.onerror = () => resolve(false);
-            img.src = url;
+            img.onload  = () => resolve({ width: img.naturalWidth, height: img.naturalHeight });
+            img.onerror = () => {
+                console.warn(`[Flipbook] Could not measure image: ${src}`);
+                resolve({ width: SINGLE_WIDTH, height: 3300 }); // safe fallback
+            };
+            img.src = src;
         });
     }
-    
+
     /**
-     * Get the full path for a page image
+     * Returns 'single' or 'double' based on measured width.
+     *
+     * @param {number} width
+     * @param {number} height
+     * @param {string} src    – used in warning messages
+     * @param {string[]} warnings – warning strings appended here
+     * @returns {'single'|'double'}
      */
-    getImagePath(pageNum) {
-        return `${this.imageBasePath}${this.imagePrefix}${pageNum}${this.imageExtension}`;
+    _detectType(width, height, src, warnings) {
+        const nearSingle = Math.abs(width - SINGLE_WIDTH) <= TOLERANCE;
+        const nearDouble = Math.abs(width - DOUBLE_WIDTH) <= TOLERANCE;
+
+        if (nearSingle) return 'single';
+        if (nearDouble) return 'double';
+
+        // Out of spec – warn and pick the closest match
+        const closerToSingle = Math.abs(width - SINGLE_WIDTH) < Math.abs(width - DOUBLE_WIDTH);
+        const expected = closerToSingle ? '2550 × 3300 (single)' : '5100 × 3300 (double)';
+        warnings.push(
+            `An image is ${width} × ${height} px. ` +
+            `Expected 2550 × 3300 for a single page or 5100 × 3300 for a double spread. ` +
+            `Treating it as ${expected}. ` +
+            `Please re-upload the correct size.`
+        );
+
+        return closerToSingle ? 'single' : 'double';
     }
-    
+
+    // ─── DOM Building ─────────────────────────────────────────────────────────
+
     /**
-     * Show placeholder when no images are found
+     * Creates all page <div> elements and appends them to the container.
+     *
+     * Single pages → one div
+     * Double spreads → two divs (left half / right half of the same image)
+     *
+     * @param {ClassifiedPage[]} pages
      */
-    showPlaceholder() {
-        this.pageImage.alt = 'No catalog pages available';
-        this.pageImage.style.display = 'none';
-        
-        const wrapper = document.querySelector('.cs-flipbook-viewer');
-        const placeholder = document.createElement('div');
-        placeholder.className = 'cs-flipbook-placeholder';
-        placeholder.innerHTML = `
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9M13 2L20 9M13 2V9H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <p>Catalog pages will appear here</p>
-            <p class="cs-placeholder-hint">Add WebP images to: ${this.imageBasePath}</p>
-        `;
-        wrapper.appendChild(placeholder);
-        
-        this.prevButton.disabled = true;
-        this.nextButton.disabled = true;
-    }
-    
-    /**
-     * Load and display a specific page
-     */
-    loadPage(pageNum, direction = 'none') {
-        // Allow loading if totalPages is still being detected (only check lower bound)
-        if (pageNum < 1 || (this.totalPages > 1 && pageNum > this.totalPages)) {
-            return;
-        }
-        
-        this.currentPage = pageNum;
-        const imagePath = this.getImagePath(pageNum);
-        
-        // Remove any existing flip animations
-        this.pageImage.parentElement.classList.remove('flip-next', 'flip-prev');
-        
-        // Preload the image
-        const img = new Image();
-        img.onload = () => {
-            if (direction === 'next' || direction === 'prev') {
-                // Start flip animation immediately
-                this.pageImage.parentElement.classList.add(direction === 'next' ? 'flip-next' : 'flip-prev');
-                
-                // Change the image at the midpoint of the animation (when it's rotated 90deg and not visible)
-                setTimeout(() => {
-                    this.pageImage.src = imagePath;
-                    this.pageImage.alt = `Catalog page ${pageNum}`;
-                }, 300); // Halfway through 600ms animation
-                
-                // Remove animation class after animation completes
-                setTimeout(() => {
-                    this.pageImage.parentElement.classList.remove('flip-next', 'flip-prev');
-                }, 600);
+    _buildDOM(pages) {
+        const frag = document.createDocumentFragment();
+
+        pages.forEach(page => {
+            if (page.type === 'single') {
+                const el = this._makeSinglePage(page, this.pageElements.length);
+                frag.appendChild(el);
+                this.pageElements.push(el);
             } else {
-                // No animation, just change the image
-                this.pageImage.src = imagePath;
-                this.pageImage.alt = `Catalog page ${pageNum}`;
+                // Double spread → left half then right half
+                const leftIdx  = this.pageElements.length;
+                const rightIdx = leftIdx + 1;
+                const leftEl   = this._makeSpreadHalf(page, 'left',  leftIdx);
+                const rightEl  = this._makeSpreadHalf(page, 'right', rightIdx);
+                frag.appendChild(leftEl);
+                frag.appendChild(rightEl);
+                this.pageElements.push(leftEl, rightEl);
             }
-            
-            this.updateControls();
-        };
-        img.onerror = () => {
-            console.error(`Failed to load page ${pageNum}`);
-        };
-        img.src = imagePath;
+        });
+
+        this.container.appendChild(frag);
     }
-    
+
     /**
-     * Update navigation controls and page counter
+     * Creates a single-page element.
+     *
+     * @param {ClassifiedPage} page
+     * @param {number} index  – position in this.pageElements
+     * @returns {HTMLDivElement}
      */
-    updateControls() {
-        this.currentPageSpan.textContent = this.currentPage;
-        
-        // Disable/enable navigation buttons
-        this.prevButton.disabled = this.currentPage <= 1;
-        this.nextButton.disabled = this.currentPage >= this.totalPages;
-        
-        // Update button states
-        if (this.currentPage <= 1) {
-            this.prevButton.classList.add('disabled');
+    _makeSinglePage(page, index) {
+        const div = document.createElement('div');
+        div.className = 'fp-page fp-page--single';
+        div.setAttribute('role', 'img');
+        div.setAttribute('aria-label', page.alt || `Page ${index + 1}`);
+
+        const img = document.createElement('img');
+        img.className = 'fp-page__img';
+        img.alt = page.alt || '';
+        img.dataset.src   = page.image;
+        img.dataset.index = index;
+
+        if (index < EAGER_COUNT) {
+            img.src = page.image;
+            this.loadedSet.add(index);
         } else {
-            this.prevButton.classList.remove('disabled');
+            img.src = PLACEHOLDER;
         }
-        
-        if (this.currentPage >= this.totalPages) {
-            this.nextButton.classList.add('disabled');
-        } else {
-            this.nextButton.classList.remove('disabled');
-        }
+
+        div.appendChild(img);
+        return div;
     }
-    
+
     /**
-     * Bind event listeners
+     * Creates one half of a double-spread element.
+     *
+     * CSS shows only the correct half by positioning the full-width image
+     * left or right inside an overflow:hidden container.
+     *
+     * @param {ClassifiedPage} page
+     * @param {'left'|'right'} side
+     * @param {number} index
+     * @returns {HTMLDivElement}
      */
-    bindEvents() {
-        this.prevButton.addEventListener('click', () => this.previousPage());
-        this.nextButton.addEventListener('click', () => this.nextPage());
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            const flipbookSection = document.querySelector('#about-flipbook');
-            if (!flipbookSection) return;
-            
-            const rect = flipbookSection.getBoundingClientRect();
-            const inView = rect.top < window.innerHeight && rect.bottom >= 0;
-            
-            if (inView) {
-                if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    this.previousPage();
-                } else if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    this.nextPage();
+    _makeSpreadHalf(page, side, index) {
+        const div = document.createElement('div');
+        div.className = `fp-page fp-page--spread fp-page--spread-${side}`;
+        div.setAttribute('role', 'img');
+
+        if (side === 'left') {
+            div.setAttribute('aria-label', page.alt || `Page ${index + 1}`);
+        } else {
+            div.setAttribute('aria-hidden', 'true');
+        }
+
+        const inner = document.createElement('div');
+        inner.className = 'fp-spread-inner';
+
+        const img = document.createElement('img');
+        img.className = 'fp-spread-img';
+        img.alt = side === 'left' ? page.alt : '';
+        img.dataset.src   = page.image;
+        img.dataset.index = index;
+        img.dataset.side  = side;
+
+        if (index < EAGER_COUNT) {
+            img.src = page.image;
+            this.loadedSet.add(index);
+        } else {
+            img.src = PLACEHOLDER;
+        }
+
+        inner.appendChild(img);
+        div.appendChild(inner);
+        return div;
+    }
+
+    // ─── Lazy Loading ─────────────────────────────────────────────────────────
+
+    /**
+     * Loads images for page elements within PRELOAD_RADIUS of centerIndex.
+     *
+     * @param {number} centerIndex – current page index (0-based)
+     */
+    _loadAround(centerIndex) {
+        const from = Math.max(0, centerIndex - PRELOAD_RADIUS);
+        const to   = Math.min(this.pageElements.length - 1, centerIndex + PRELOAD_RADIUS);
+
+        for (let i = from; i <= to; i++) {
+            if (this.loadedSet.has(i)) continue;
+
+            const el = this.pageElements[i];
+            if (!el) continue;
+
+            el.querySelectorAll('img[data-src]').forEach(img => {
+                const src = img.dataset.src;
+                if (src && img.src !== src) {
+                    img.src = src;
                 }
-            }
-        });
-        
-        // Touch swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        this.pageImage.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        
-        this.pageImage.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            this.handleSwipe();
-        });
-        
-        const handleSwipe = () => {
-            const swipeThreshold = 50;
-            if (touchEndX < touchStartX - swipeThreshold) {
-                this.nextPage();
-            }
-            if (touchEndX > touchStartX + swipeThreshold) {
-                this.previousPage();
-            }
-        };
-        
-        this.handleSwipe = handleSwipe;
-    }
-    
-    /**
-     * Navigate to previous page
-     */
-    previousPage() {
-        if (this.currentPage > 1) {
-            this.loadPage(this.currentPage - 1, 'prev');
+            });
+
+            this.loadedSet.add(i);
         }
     }
-    
+
+    // ─── PageFlip Initialisation ──────────────────────────────────────────────
+
+    _initPageFlip() {
+        this.flipInstance = new PageFlip(this.container, {
+            width        : DISPLAY_WIDTH,
+            height       : DISPLAY_HEIGHT,
+            size         : 'fixed',
+            minWidth     : 260,
+            maxWidth     : 900,
+            minHeight    : 336,
+            maxHeight    : 1164,
+            drawShadow   : true,
+            flippingTime : 800,
+            /**
+             * usePortrait: true → switches to single-page layout when the
+             * viewport is narrower than two page-widths (i.e., mobile).
+             */
+            usePortrait         : true,
+            autoSize            : true,
+            maxShadowOpacity    : 0.5,
+            showCover           : true,
+            mobileScrollSupport : false,
+            swipeDistance       : 30,
+            clickEventForward   : true,
+            useMouseEvents      : true,
+            disableFlipByClick  : false,
+        });
+
+        // Feed all .fp-page elements to PageFlip
+        this.flipInstance.loadFromHTML(
+            this.container.querySelectorAll('.fp-page')
+        );
+
+        // After init: update counter + preload initial pages
+        this.flipInstance.on('init', e => {
+            const total = this.flipInstance.getPageCount();
+            if (this.totalPagesEl) this.totalPagesEl.textContent = total;
+            this._updateCounter(e.data.page);
+            this._loadAround(e.data.page);
+        });
+
+        // On every page turn: update counter + lazy-load nearby pages
+        this.flipInstance.on('flip', e => {
+            this._updateCounter(e.data);
+            this._loadAround(e.data);
+        });
+    }
+
+    // ─── Navigation Controls ──────────────────────────────────────────────────
+
+    _initNav() {
+        this.prevBtn?.addEventListener('click', () => {
+            this.flipInstance?.flipPrev('bottom');
+        });
+        this.nextBtn?.addEventListener('click', () => {
+            this.flipInstance?.flipNext('bottom');
+        });
+    }
+
+    _initKeyboard() {
+        this.container.addEventListener('keydown', e => {
+            if (!this.flipInstance) return;
+
+            switch (e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                case 'PageDown':
+                    e.preventDefault();
+                    this.flipInstance.flipNext('bottom');
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                case 'PageUp':
+                    e.preventDefault();
+                    this.flipInstance.flipPrev('bottom');
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    this.flipInstance.flip(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    this.flipInstance.flip(this.flipInstance.getPageCount() - 1);
+                    break;
+            }
+        });
+    }
+
     /**
-     * Navigate to next page
+     * Updates the current-page counter and disables edge buttons.
+     *
+     * @param {number} pageIndex – 0-based index from PageFlip
      */
-    nextPage() {
-        if (this.currentPage < this.totalPages) {
-            this.loadPage(this.currentPage + 1, 'next');
+    _updateCounter(pageIndex) {
+        if (this.currentPageEl) {
+            this.currentPageEl.textContent = pageIndex + 1;
+        }
+
+        const total = this.flipInstance?.getPageCount() ?? 0;
+
+        if (this.prevBtn) {
+            this.prevBtn.disabled = pageIndex === 0;
+        }
+        if (this.nextBtn) {
+            this.nextBtn.disabled = total > 0 && pageIndex >= total - 1;
         }
     }
-    
-    /**
-     * Jump to a specific page
-     */
-    goToPage(pageNum) {
-        if (pageNum >= 1 && pageNum <= this.totalPages) {
-            this.loadPage(pageNum);
+
+    // ─── UI Utilities ──────────────────────────────────────────────────────────
+
+    _hideLoader() {
+        const el = document.getElementById('flipbook-loader');
+        if (el) el.style.display = 'none';
+    }
+
+    _showError(message) {
+        this._hideLoader();
+        const el = document.getElementById('flipbook-error');
+        if (el) {
+            el.textContent = message;
+            el.style.display = 'block';
         }
+    }
+
+    /**
+     * Appends individual warning strings to the warnings panel.
+     *
+     * @param {string[]} warnings
+     */
+    _showWarnings(warnings) {
+        const panel = document.getElementById('flipbook-warnings');
+        if (!panel) return;
+
+        const ul = document.createElement('ul');
+        ul.className = 'flipbook-warnings__list';
+        warnings.forEach(msg => {
+            const li = document.createElement('li');
+            li.textContent = msg;
+            ul.appendChild(li);
+        });
+
+        panel.appendChild(ul);
+        panel.style.display = 'block';
     }
 }
 
-// Initialize flipbook when DOM is ready
+// ─── Boot ─────────────────────────────────────────────────────────────────────
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        new Flipbook();
-    });
+    document.addEventListener('DOMContentLoaded', () => new Flipbook());
 } else {
     new Flipbook();
 }
+
+// ─── Type Definitions (JSDoc) ─────────────────────────────────────────────────
+
+/**
+ * @typedef {Object} ClassifiedPage
+ * @property {string}          image  – URL of the page image
+ * @property {string}          alt    – Accessible description
+ * @property {number}          width  – Measured natural width in px
+ * @property {number}          height – Measured natural height in px
+ * @property {'single'|'double'} type – Detected page type
+ */

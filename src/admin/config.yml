@@ -55,3 +55,57 @@ collections:
           - { label: "Featured Image", name: "image", widget: "image", hint: 'This image will be used as the cover image for the blog post. Recommended Minimum dimensions: 1200x630 pixels.' }
           - { label: "Image Caption", name: "imageAlt", widget: "string", hint: 'Provide a descriptive caption for the featured image for SEO & accessibility purposes.' }
           - { label: "Body", name: "body", widget: "markdown" }
+
+    - name: "flipbooks"
+      label: "Flipbooks"
+      folder: "src/content/flipbooks"
+      create: true
+      slug: "{{slug}}"
+      media_folder: "/src/assets/images/flipbooks"
+      public_folder: "/assets/images/flipbooks"
+      fields:
+          - {
+                label: "Title",
+                name: "title",
+                widget: "string",
+                hint: "The display title of this flipbook (e.g. \"A Beautiful Life 2026\").",
+            }
+          - {
+                label: "URL Slug",
+                name: "url",
+                widget: "string",
+                hint: 'The URL path for this flipbook. Use lowercase with hyphens only (e.g. "a-beautiful-life-2026"). The flipbook will be accessible at /flipbooks/a-beautiful-life-2026/',
+            }
+          - {
+                label: "Description",
+                name: "description",
+                widget: "text",
+                required: false,
+                hint: "Optional short description shown below the title on the flipbook page.",
+            }
+          - label: "Pages"
+            name: "pages"
+            widget: "list"
+            allow_add: true
+            label_singular: "Page"
+            summary: "{{fields.alt}}"
+            hint: >
+              Upload pages in the order you want them displayed. Drag to reorder.
+              Single pages must be exactly 2550 × 3300 px.
+              Double-page spreads (two pages pre-combined into one image) must be exactly 5100 × 3300 px.
+              The system automatically detects single vs. double spread — no manual configuration needed.
+            fields:
+                - {
+                      label: "Page Image",
+                      name: "image",
+                      widget: "image",
+                      hint: "Upload the page scan. Single page: 2550 × 3300 px. Double spread: 5100 × 3300 px.",
+                  }
+                - {
+                      label: "Alt Text",
+                      name: "alt",
+                      widget: "string",
+                      required: false,
+                      default: "",
+                      hint: "Optional description of this page for screen readers (e.g. \"Cover page showing a modern white kitchen\").",
+                  }

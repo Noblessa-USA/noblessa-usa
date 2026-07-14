@@ -1,0 +1,308 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// FLIPBOOK VIEWER STYLES
+// Styles for individual flipbook pages (/flipbooks/[slug]/)
+// Companion to src/assets/js/flipbook.js and src/_includes/layouts/flipbook.html
+// ─────────────────────────────────────────────────────────────────────────────
+
+/*-- -------------------------- -->
+<---      Flipbook Viewer       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #flipbook-viewer {
+        padding: var(--sectionPadding);
+        padding-top: 80px;
+        background: #111111;
+        min-height: 100vh;
+
+        .cs-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (24/16rem);
+        }
+    }
+
+    // ── Header ────────────────────────────────────────────────────────────────
+
+    .flipbook-header {
+        width: 100%;
+        max-width: (800/16rem);
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .flipbook-breadcrumbs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: (6/16rem);
+        margin-bottom: (16/16rem);
+        font-size: (13/16rem);
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .flipbook-breadcrumb-link {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--secondary);
+        }
+    }
+
+    .flipbook-breadcrumb-sep {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .flipbook-breadcrumb-current {
+        color: var(--secondary);
+        font-weight: 600;
+    }
+
+    .flipbook-title {
+        font-family: var(--headerFont);
+        font-size: clamp((1.5rem), 4vw, (2.25rem));
+        color: #ffffff;
+        margin: 0 0 (12/16rem);
+        font-weight: 400;
+        letter-spacing: 0.04em;
+    }
+
+    .flipbook-description {
+        font-size: (0.9375rem);
+        color: rgba(255, 255, 255, 0.65);
+        margin: 0;
+        max-width: (560/16rem);
+        line-height: 1.6;
+    }
+
+    // ── Loading State ─────────────────────────────────────────────────────────
+
+    .flipbook-loader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: (16/16rem);
+        padding: (48/16rem);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: (0.9375rem);
+    }
+
+    .flipbook-spinner {
+        width: (48/16rem);
+        height: (48/16rem);
+        border: 3px solid rgba(255, 255, 255, 0.15);
+        border-top-color: var(--secondary);
+        border-radius: 50%;
+        animation: fp-spin 0.8s linear infinite;
+    }
+
+    @keyframes fp-spin {
+        to { transform: rotate(360deg); }
+    }
+
+    // ── Error State ───────────────────────────────────────────────────────────
+
+    .flipbook-error {
+        width: 100%;
+        max-width: (640/16rem);
+        padding: (16/16rem) (24/16rem);
+        background: rgba(220, 38, 38, 0.15);
+        border: 1px solid rgba(220, 38, 38, 0.4);
+        border-radius: (6/16rem);
+        color: #fca5a5;
+        font-size: (0.9375rem);
+        text-align: center;
+    }
+
+    // ── Dimension Warnings ────────────────────────────────────────────────────
+
+    .flipbook-warnings {
+        width: 100%;
+        max-width: (760/16rem);
+        padding: (14/16rem) (20/16rem);
+        background: rgba(245, 158, 11, 0.12);
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        border-radius: (6/16rem);
+        color: #fcd34d;
+        font-size: (0.875rem);
+
+        strong {
+            display: block;
+            margin-bottom: (6/16rem);
+            font-size: (0.9375rem);
+        }
+
+        p {
+            margin: 0 0 (8/16rem);
+            opacity: 0.85;
+        }
+
+        .flipbook-warnings__list {
+            margin: (8/16rem) 0 0;
+            padding-left: (20/16rem);
+
+            li {
+                margin-bottom: (4/16rem);
+                line-height: 1.5;
+            }
+        }
+    }
+
+    // ── Flipbook Wrapper ──────────────────────────────────────────────────────
+
+    .flipbook-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // PageFlip renders its stage inside #flipbook-container
+        #flipbook-container {
+            outline: none;
+
+            &:focus-visible {
+                outline: 2px solid var(--secondary);
+                outline-offset: 4px;
+                border-radius: (2/16rem);
+            }
+        }
+    }
+
+    // ── Individual Page Elements (consumed by PageFlip) ───────────────────────
+
+    // Single page
+    .fp-page--single {
+        background: #ffffff;
+        overflow: hidden;
+
+        .fp-page__img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill; // fill exactly — images should be the correct ratio
+            display: block;
+        }
+    }
+
+    // Double-spread pages use overflow:hidden + absolute positioning to show
+    // only the left or right half of a full-width spread image.
+    .fp-page--spread {
+        background: #ffffff;
+        overflow: hidden;
+        position: relative;
+
+        .fp-spread-inner {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .fp-spread-img {
+            // Render at twice the container width so each half fills one page.
+            position: absolute;
+            top: 0;
+            width: 200%;
+            height: 100%;
+            object-fit: fill;
+            display: block;
+        }
+    }
+
+    // Left half → image starts at x=0, right overflow hidden
+    .fp-page--spread-left .fp-spread-img {
+        left: 0;
+    }
+
+    // Right half → image's right edge aligns with container's right edge,
+    // so the image extends leftward beyond the container (left ≈ -100%)
+    .fp-page--spread-right .fp-spread-img {
+        right: 0;
+    }
+
+    // ── Navigation Controls ───────────────────────────────────────────────────
+
+    .flipbook-nav {
+        display: flex;
+        align-items: center;
+        gap: (24/16rem);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .flipbook-nav__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: (6/16rem);
+        padding: (10/16rem) (20/16rem);
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: rgba(255, 255, 255, 0.85);
+        font-family: var(--bodyFont);
+        font-size: (0.875rem);
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        border-radius: (3/16rem);
+
+        svg {
+            flex-shrink: 0;
+        }
+
+        &:hover:not(:disabled) {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: #ffffff;
+        }
+
+        &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 3px;
+        }
+    }
+
+    .flipbook-nav__counter {
+        font-size: (0.875rem);
+        color: rgba(255, 255, 255, 0.55);
+        min-width: (120/16rem);
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+    }
+
+    // ── Keyboard hint ─────────────────────────────────────────────────────────
+
+    .flipbook-hint {
+        font-size: (0.8125rem);
+        color: rgba(255, 255, 255, 0.3);
+        text-align: center;
+        margin: 0;
+        letter-spacing: 0.03em;
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+    #flipbook-viewer {
+        padding-top: 120px;
+
+        .cs-container {
+            gap: (32/16rem);
+        }
+    }
+
+    .flipbook-title {
+        font-size: clamp((2rem), 3vw, (2.75rem));
+    }
+}

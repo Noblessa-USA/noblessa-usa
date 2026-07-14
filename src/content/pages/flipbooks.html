@@ -1,0 +1,111 @@
+---
+title: "Flipbooks | Noblessa USA"
+description: "Browse our interactive digital catalogs and flipbooks showcasing the full range of Noblessa luxury kitchen, bathroom, and living space designs."
+permalink: "/flipbooks/"
+eleventyNavigation:
+    key: Flipbooks
+    order: 350
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/flipbooks.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--              Banner                          -->
+    <!-- ============================================ -->
+
+    <div id="flipbooks-banner">
+        <div class="cs-container">
+            <div class="cs-text-wrapper">
+                <h1 class="cs-int-title sl-fade-in-right">Interactive Flipbooks</h1>
+                <p class="cs-text sl-fade-in-right">
+                    Browse our curated collection of interactive digital catalogs. Flip through pages just like a real book.
+                </p>
+            </div>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">Home</a>
+                <a href="/flipbooks/" class="cs-link cs-active">Flipbooks</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!--            Flipbook Listing                  -->
+    <!-- ============================================ -->
+
+    <section id="flipbooks-listing">
+        <div class="cs-container">
+
+            {% set flipbookCollection = collections.flipbook %}
+
+            {% if flipbookCollection and flipbookCollection.length > 0 %}
+
+                <div class="flipbooks-grid">
+                    {% for book in flipbookCollection %}
+                        <article class="flipbook-card sl-fade-in-up">
+
+                            <!-- Cover preview: first image from the pages array -->
+                            <a href="{{ book.url }}" class="flipbook-card__link" aria-label="Open {{ book.data.title }} flipbook">
+                                <div class="flipbook-card__cover">
+                                    {% if book.data.pages and book.data.pages.length > 0 %}
+                                        <img
+                                            src="{{ book.data.pages[0].image }}"
+                                            alt="{{ book.data.pages[0].alt or book.data.title }}"
+                                            loading="lazy"
+                                            class="flipbook-card__cover-img"
+                                        >
+                                    {% else %}
+                                        <div class="flipbook-card__cover-placeholder" aria-label="No cover image">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                            </svg>
+                                        </div>
+                                    {% endif %}
+                                    <div class="flipbook-card__overlay" aria-hidden="true">
+                                        <span class="flipbook-card__open-label">Open Flipbook</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="flipbook-card__info">
+                                <h2 class="flipbook-card__title">
+                                    <a href="{{ book.url }}">{{ book.data.title }}</a>
+                                </h2>
+                                {% if book.data.description %}
+                                    <p class="flipbook-card__desc">{{ book.data.description }}</p>
+                                {% endif %}
+                                {% if book.data.pages %}
+                                    <span class="flipbook-card__meta">{{ book.data.pages.length }} page{{ 's' if book.data.pages.length != 1 }}</span>
+                                {% endif %}
+                                <a href="{{ book.url }}" class="flipbook-card__btn" aria-label="Open {{ book.data.title }}">
+                                    View Flipbook
+                                </a>
+                            </div>
+
+                        </article>
+                    {% endfor %}
+                </div>
+
+            {% else %}
+
+                <div class="flipbooks-empty">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                    <h2>No Flipbooks Yet</h2>
+                    <p>Flipbooks will appear here once they are added through the CMS.</p>
+                </div>
+
+            {% endif %}
+
+        </div>
+    </section>
+
+{% endblock %}
