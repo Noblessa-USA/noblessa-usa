@@ -338,14 +338,20 @@ class Flipbook {
     // ─── PageFlip Initialisation ──────────────────────────────────────────────
 
     _initPageFlip() {
+        // Compute height/width caps at runtime so the book never
+        // exceeds 80 vh regardless of screen size or section width.
+        // Two-page aspect ratio: (DISPLAY_WIDTH × 2) / DISPLAY_HEIGHT = 1120/725 ≈ 1.545
+        const maxH = Math.round(window.innerHeight * 0.80);
+        const maxW = Math.round(maxH * (DISPLAY_WIDTH * 2 / DISPLAY_HEIGHT));
+
         this.flipInstance = new PageFlip(this.container, {
             width        : DISPLAY_WIDTH,
             height       : DISPLAY_HEIGHT,
-            size         : 'fixed',
+            size         : 'stretch',
             minWidth     : 260,
-            maxWidth     : 900,
+            maxWidth     : maxW,
             minHeight    : 336,
-            maxHeight    : 1164,
+            maxHeight    : maxH,
             drawShadow   : true,
             flippingTime : 800,
             /**
