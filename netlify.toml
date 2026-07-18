@@ -42,4 +42,7 @@ package = "netlify-plugin-cache"
     "public/assets/images", # Processed images - adjust to match your outputDir
     ".cache" # Remote Assets
   ]
-  
+
+[[edge_functions]]
+  function = "ab-test"
+  path = "/ar/"
