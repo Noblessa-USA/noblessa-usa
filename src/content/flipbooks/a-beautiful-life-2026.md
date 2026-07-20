@@ -25,6 +25,4 @@ pages:
     image: /assets/images/flipbooks/409231_25_divine_961_m.jpeg
   - alt: ""
     image: /assets/images/flipbooks/409201_25_serenity_504_m.jpeg
-  - alt: ""
-    image: /assets/images/flipbooks/easy-touch_vue1_hd-version-impression_2m.jpg
 ---
