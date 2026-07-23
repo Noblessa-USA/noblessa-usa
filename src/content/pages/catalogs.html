@@ -11,6 +11,7 @@ eleventyNavigation:
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/catalogs.css">
+    <link rel="stylesheet" href="/assets/css/flipbook.css">
 {% endblock %}
 
 {% block body %}
@@ -81,6 +82,86 @@ eleventyNavigation:
         });
     </script>
 
+ <!-- ============================================ -->
+    <!--            Catalog Flipbook                  -->
+    <!-- ============================================ -->
+
+    <section id="about-flipbook">
+
+        <!-- Find the A Beautiful Life flipbook from the CMS collection -->
+        {% set beautifulLife = null %}
+        {% for book in collections.flipbook %}
+            {% if book.data.url == "a-beautiful-life-2026" %}
+                {% set beautifulLife = book %}
+            {% endif %}
+        {% endfor %}
+
+        <div class="about-flipbook-header">
+            <span class="cs-topper">our catalog</span>
+            <h2 class="cs-title">A Beautiful Life</h2>
+            <p class="cs-text">Experience the complete noblessa lifestyle, flip through our latest creations.</p>
+        </div>
+
+        <div class="about-flipbook-stage">
+
+            <!-- Dimension warnings (shown by JS if uploads are wrong size) -->
+            <div id="flipbook-warnings" class="flipbook-warnings" style="display:none;" role="alert" aria-live="polite">
+                <strong>&#9888; Image Dimension Warnings</strong>
+                <p>Some pages have unexpected dimensions. Single pages should be 2550 &times; 3300 px. Double spreads should be 5100 &times; 3300 px.</p>
+            </div>
+
+            <!-- Error state -->
+            <div id="flipbook-error" class="flipbook-error" style="display:none;" role="alert" aria-live="assertive"></div>
+
+            <!-- Loading state -->
+            <div id="flipbook-loader" class="flipbook-loader" role="status" aria-label="Loading catalog...">
+                <div class="flipbook-spinner" aria-hidden="true"></div>
+                <span>Loading catalog&hellip;</span>
+            </div>
+
+            <!-- Flipbook stage: no max-width so it fills the full viewport -->
+            <div class="about-flipbook-wrapper">
+                <div
+                    id="flipbook-container"
+                    tabindex="0"
+                    aria-label="A Beautiful Life catalog &mdash; use arrow keys or buttons to navigate pages"
+                ></div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flipbook-nav" aria-label="Catalog page navigation">
+                <button id="flipbook-prev" class="flipbook-nav__btn" aria-label="Previous page" disabled>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    <span>Previous</span>
+                </button>
+                <div class="flipbook-nav__counter" aria-live="polite" aria-atomic="true">
+                    Page <span id="flipbook-current-page">1</span> of <span id="flipbook-total-pages">&mdash;</span>
+                </div>
+                <button id="flipbook-next" class="flipbook-nav__btn" aria-label="Next page">
+                    <span>Next</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </nav>
+
+            <p class="flipbook-hint" aria-hidden="true">Use arrow keys &middot; Click page edges &middot; Swipe on touch screens</p>
+
+        </div>
+
+        <!-- Page data injected for the flipbook engine -->
+        {% if beautifulLife and beautifulLife.data.pages %}
+            <script type="application/json" id="flipbook-data">{{ beautifulLife.data.pages | json | safe }}</script>
+        {% else %}
+            <script type="application/json" id="flipbook-data">[]</script>
+        {% endif %}
+
+        <script defer src="/assets/js/flipbook.js"></script>
+
+    </section>
+
 
     <!-- ============================================ -->
     <!--           Catalog Philosophy                 -->
@@ -103,6 +184,7 @@ eleventyNavigation:
         </div>
     </section>
 
+   
     <!-- ============================================ -->
     <!--              Catalogs Gallery                -->
     <!-- ============================================ -->
