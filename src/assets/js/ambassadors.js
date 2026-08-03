@@ -124,14 +124,14 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: 'Lyndsay Roark',
             orgname: 'VC Home and Design',
-            address: '300 E. Santa Clara St. Suite 103 Ventura, CA 93001',
+            address: '175 S Ventura Ave, Suite 103 Ventura, CA 93001',
             city: 'Ventura',
             state: 'CA',
-            lat: 34.2746,
-            lng: -119.2945,
+            lat: 34.278659,
+            lng: -119.301173,
             phone: '(805) 232-8526',
             hours: 'Contact for hours',
-            mapUrl: 'https://maps.google.com/?q=300+E.+Santa+Clara+St.+Suite+103+Ventura,+CA+93001',
+            mapUrl: 'https://maps.google.com/?q=175+S+Ventura+Ave,+Suite+103+Ventura,+CA+93001',
             email: 'iroark@vchomeanddesign.com',
             website: 'https://vchomedesignco.com',
             image: '/assets/images/ambassadors/vc.png'

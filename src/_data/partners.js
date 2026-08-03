@@ -100,7 +100,7 @@ module.exports = [
     {
         name: 'Lyndsay Roark',
         orgname: 'VC Home and Design',
-        address: '300 E. Santa Clara St. Suite 103 Ventura, CA 93001',
+        address: '175 S Ventura Ave, Suite 103 Ventura, CA 93001',
         city: 'Ventura',
         state: 'CA',
         phone: '(805) 232-8526',
