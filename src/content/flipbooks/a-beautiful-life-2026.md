@@ -5,8 +5,6 @@ description: Experience the complete noblessa lifestyle. This comprehensive
   catalog showcases how our kitchen, bathroom, and living solutions come
   together to create harmonious, elegant living spaces.
 pages:
-  - alt: ""
-    image: /assets/images/flipbooks/03.jpg
   - image: /assets/images/flipbooks/01-cover-page.jpg
     alt: A Beautiful Life 2026 — Cover
   - alt: ""
