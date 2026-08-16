@@ -124,9 +124,11 @@ eleventyNavigation:
                 </a>
                 <a href="/clients/ettings/" class="cs-item">
                     <picture class="cs-picture">
-                        <source media="(max-width: 600px)" srcset="/assets/images/ettings/Kitchen_01.webp">
-                        <source media="(min-width: 601px)" srcset="/assets/images/ettings/Kitchen_01.webp">
-                        <img loading="lazy" decoding="async" src="/assets/images/ettings/Kitchen_01.webp" alt="The Ettings open-concept kitchen" width="413" height="374">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 640, height: 578 }) | avif %}" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 640, height: 578 }) | webp %}" type="image/webp">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 826, height: 746 }) | avif %}" type="image/avif">
+                        <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 826, height: 746 }) | webp %}" type="image/webp">
+                        <img loading="lazy" decoding="async" src="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 826, height: 746 }) | webp %}" alt="The Ettings open-concept kitchen" width="413" height="374">
                     </picture>
                     <div class="cs-info">
                         <h3 class="cs-h3">The Ettings</h3>
