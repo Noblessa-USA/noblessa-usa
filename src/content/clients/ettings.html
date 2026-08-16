@@ -1,0 +1,300 @@
+---
+title: "The Ettings | Noblessa USA"
+description: "Discover how noblessa's timeless German craftsmanship fits real family life — the Ettings' lived-in, open-concept kitchen in Sherman Oaks blends everyday warmth with lasting design."
+permalink: "/clients/ettings/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/client.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--              Banner Slideshow                -->
+    <!-- ============================================ -->
+
+    <div id="banner-slideshow-2285">
+        <div class="cs-container">
+            <div class="cs-text-wrapper">
+                <h1 class="cs-int-title sl-fade-in-down">The Ettings</h1>
+                <p class="cs-text sl-fade-in-down">
+                    In a quiet corner of Sherman Oaks, the Ettings' home is a close-knit family's open-concept kitchen, lived-in rather than staged. See how noblessa's craftsmanship fits the life you're already living.
+                </p>
+            </div>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">home</a>
+                <a href="/clients/" class="cs-link">clients</a>
+                <a href="/clients/ettings/" class="cs-link cs-active">ettings</a>
+            </div>
+        </div>
+        <!--Background Image Slideshow-->
+        <div class="cs-banner-slideshow">
+            <div class="cs-slide">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/ettings/Kitchen_01.webp' | resize({ width: 1920 }) | webp %}" alt="The Ettings kitchen design 1" loading="eager">
+                </picture>
+            </div>
+            <div class="cs-slide">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_02.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_02.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_02.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_02.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/ettings/Kitchen_02.webp' | resize({ width: 1920 }) | webp %}" alt="The Ettings kitchen design 2" loading="lazy">
+                </picture>
+            </div>
+            <div class="cs-slide">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 1920 }) | webp %}" alt="The Ettings kitchen design 3" loading="lazy">
+                </picture>
+            </div>
+            <div class="cs-slide">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_01.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_01.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_01.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_01.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/ettings/LivingRoom_01.webp' | resize({ width: 1920 }) | webp %}" alt="The Ettings living room" loading="lazy">
+                </picture>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Banner Slideshow Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.cs-slide');
+            let currentSlide = 0;
+            const slideInterval = 5000; // 5 seconds
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Auto-advance slides
+            setInterval(nextSlide, slideInterval);
+            
+            // Initialize
+            showSlide(currentSlide);
+        });
+    </script>
+
+    <!-- ============================================ -->
+    <!--                 SBS Left                   -->
+    <!-- ============================================ -->
+
+    <section id="sbs-left">
+        <div class="cs-container">
+            <div class="cs-image-group">
+                <!--Main Image-->
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_04.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_04.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_04.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_04.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                    <img class="cs-picture" src="{% getUrl '/assets/images/ettings/Kitchen_04.webp' | resize({ width: 1200 }) | webp %}" alt="The Ettings family kitchen" loading="lazy" decoding="async">
+                </picture>
+            </div>
+            <div class="cs-content">
+                <span class="cs-topper sl-fade-in-down">Meet the Ettings</span>
+                <h2 class="cs-title sl-fade-in-down">A Sherman Oaks Home, Beautifully Lived-In</h2>
+                <span class="cs-divider"></span>
+                <p class="cs-text sl-fade-in-left">
+                    In Sherman Oaks, the Ettings are a classic, good family — kids underfoot, a kitchen that's the true center of the home, and a space built for real life, not a showroom. Their home proves that noblessa isn't just about fine German design; it's about a beautiful life, made for families like yours.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--            Image Carousel                   -->
+    <!-- ============================================ -->
+
+    <section id="image-carousel" class="cs-dark-background">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper sl-fade-in-down">Discover More</span>
+                <h2 class="cs-title sl-fade-in-down">A Kitchen Made for Real Life</h2>
+                <span class="cs-divider"></span>
+                <p class="cs-text sl-fade-in-up">
+                    Explore the complete Ettings home through our gallery. Each image captures the everyday warmth and meticulous craftsmanship that defines our work, showcasing how noblessa's design fits the life you're already living.
+                </p>
+            </div>
+            <div class="cs-carousel-wrapper">
+                <div class="cs-carousel">
+                    <div class="cs-carousel-item">
+                        <picture>
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_05.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_05.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_05.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_05.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/ettings/Kitchen_05.webp' | resize({ width: 1200 }) | webp %}" alt="The Ettings kitchen detail 1" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="cs-carousel-item">
+                        <picture>
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_06.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_06.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_06.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_06.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/ettings/Kitchen_06.webp' | resize({ width: 1200 }) | webp %}" alt="The Ettings kitchen detail 2" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="cs-carousel-item">
+                        <picture>
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/ettings/Kitchen_23.webp' | resize({ width: 1200 }) | webp %}" alt="The Ettings kitchen detail 3" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="cs-carousel-item">
+                        <picture>
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_02.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_02.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_02.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_02.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/ettings/LivingRoom_02.webp' | resize({ width: 1200 }) | webp %}" alt="The Ettings living room detail" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="cs-carousel-item">
+                        <picture>
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Bathroom_01.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Bathroom_01.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Bathroom_01.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Bathroom_01.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/ettings/Bathroom_01.webp' | resize({ width: 1200 }) | webp %}" alt="The Ettings bathroom detail" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="cs-carousel-item">
+                        <picture>
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_08.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                            <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_08.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_08.webp' | resize({ width: 1200 }) | avif %}" type="image/avif">
+                            <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/Kitchen_08.webp' | resize({ width: 1200 }) | webp %}" type="image/webp">
+                            <img src="{% getUrl '/assets/images/ettings/Kitchen_08.webp' | resize({ width: 1200 }) | webp %}" alt="The Ettings kitchen detail 4" loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+                <button class="cs-carousel-btn cs-prev" aria-label="Previous image">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="cs-carousel-btn cs-next" aria-label="Next image">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="cs-carousel-dots">
+                    <button class="cs-dot active" data-slide="0"></button>
+                    <button class="cs-dot" data-slide="1"></button>
+                    <button class="cs-dot" data-slide="2"></button>
+                    <button class="cs-dot" data-slide="3"></button>
+                    <button class="cs-dot" data-slide="4"></button>
+                    <button class="cs-dot" data-slide="5"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Image Carousel Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.cs-carousel');
+            const items = document.querySelectorAll('.cs-carousel-item');
+            const dots = document.querySelectorAll('.cs-dot');
+            const prevBtn = document.querySelector('.cs-prev');
+            const nextBtn = document.querySelector('.cs-next');
+            
+            let currentSlide = 0;
+            const totalSlides = items.length;
+            
+            function updateCarousel() {
+                items.forEach((item, index) => {
+                    item.classList.remove('active');
+                    if (index === currentSlide) {
+                        item.classList.add('active');
+                    }
+                });
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateCarousel();
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // Initialize carousel
+            updateCarousel();
+        });
+    </script>
+
+    <!-- ============================================ -->
+    <!--               LCC Video                      -->
+    <!-- ============================================ -->
+
+    <section id="lcc-video">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper sl-fade-in-down">Family Interview</span>
+                <h2 class="cs-title sl-fade-in-down">Step Inside the Ettings Home</h2>
+                <span class="cs-divider"></span>
+                <p class="cs-text sl-fade-in-up">
+                    The Ettings kitchen is the heart of a home built for real life — kids underfoot, everyday gatherings, and a space that works as hard as the family that lives in it. It's proof that noblessa's German craftsmanship isn't just for showrooms; it's made to fit the beautiful, lived-in life you're already living.
+                </p>
+            </div>
+            <div class="cs-video-wrapper">
+                <div class="cs-video-container sl-fade-in-up">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/WN6XaY5EMGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'sections/cta.html' %}
+
+{% endblock %}
