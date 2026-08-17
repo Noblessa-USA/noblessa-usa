@@ -36,16 +36,49 @@ eleventyNavigation:
         <!--Background Image Slideshow-->
         <div class="cs-banner-slideshow">
             <div class="cs-slide">
-                <img src="/assets/images/collections/grace/grace1.webp" alt="Noblessa Grace Collection" loading="eager">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/collections/grace/grace1.webp' | resize({ width: 1920 }) | webp %}" alt="Noblessa Grace Collection" loading="eager">
+                </picture>
             </div>
             <div class="cs-slide">
-                <img src="/assets/images/collections/tempo/tempo1.webp" alt="Noblessa Tempo Collection" loading="lazy">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_03.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_03.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_03.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/ettings/LivingRoom_03.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/ettings/LivingRoom_03.webp' | resize({ width: 1920 }) | webp %}" alt="Noblessa Ettings Collection" loading="lazy">
+                </picture>
             </div>
             <div class="cs-slide">
-                <img src="/assets/images/collections/divine/divine1.webp" alt="Noblessa Divine Collection" loading="lazy">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/tempo/tempo1.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/tempo/tempo1.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/tempo/tempo1.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/tempo/tempo1.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/collections/tempo/tempo1.webp' | resize({ width: 1920 }) | webp %}" alt="Noblessa Tempo Collection" loading="lazy">
+                </picture>
             </div>
             <div class="cs-slide">
-                <img src="/assets/images/collections/serenity/serenityalpinewhite.webp" alt="Noblessa Serenity Collection" loading="lazy">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/divine/divine1.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/divine/divine1.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/divine/divine1.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/divine/divine1.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/collections/divine/divine1.webp' | resize({ width: 1920 }) | webp %}" alt="Noblessa Divine Collection" loading="lazy">
+                </picture>
+            </div>
+            <div class="cs-slide">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite.webp' | resize({ width: 640 }) | avif %}" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite.webp' | resize({ width: 640 }) | webp %}" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite.webp' | resize({ width: 1920 }) | avif %}" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite.webp' | resize({ width: 1920 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl '/assets/images/collections/serenity/serenityalpinewhite.webp' | resize({ width: 1920 }) | webp %}" alt="Noblessa Serenity Collection" loading="lazy">
+                </picture>
             </div>
         </div>
     </div>
