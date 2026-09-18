@@ -21,4 +21,12 @@ pages:
     image: /assets/images/flipbooks/13-14.jpg
   - alt: ""
     image: /assets/images/flipbooks/15-16.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/17-18.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/19-20.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/21-22.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/23-24.jpg
 ---
