@@ -61,4 +61,12 @@ pages:
     image: /assets/images/flipbooks/53-54.jpg
   - alt: ""
     image: /assets/images/flipbooks/55-56.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/57-58.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/59-60.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/61-62.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/63-64.jpg
 ---
