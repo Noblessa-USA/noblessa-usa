@@ -10,6 +10,8 @@ pages:
   - alt: ""
     image: /assets/images/flipbooks/02.jpg
   - alt: ""
+    image: /assets/images/flipbooks/5-6.jpg
+  - alt: ""
     image: /assets/images/flipbooks/04.jpg
   - alt: ""
     image: /assets/images/flipbooks/496-sentido-black-noir-matt-antifp-72-.jpg
@@ -25,4 +27,6 @@ pages:
     image: /assets/images/flipbooks/409231_25_divine_961_m.jpeg
   - alt: ""
     image: /assets/images/flipbooks/409201_25_serenity_504_m.jpeg
+  - alt: ""
+    image: /assets/images/flipbooks/9-10.jpg
 ---
