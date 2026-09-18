@@ -37,4 +37,12 @@ pages:
     image: /assets/images/flipbooks/29-30.jpg
   - alt: ""
     image: /assets/images/flipbooks/31-32.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/33-34.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/35-36.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/37-38.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/39-40.jpg
 ---
