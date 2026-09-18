@@ -29,4 +29,12 @@ pages:
     image: /assets/images/flipbooks/21-22.jpg
   - alt: ""
     image: /assets/images/flipbooks/23-24.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/25-26.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/27-28.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/29-30.jpg
+  - alt: ""
+    image: /assets/images/flipbooks/31-32.jpg
 ---
