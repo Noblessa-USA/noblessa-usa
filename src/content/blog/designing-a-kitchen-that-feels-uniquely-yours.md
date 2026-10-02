@@ -27,7 +27,7 @@ German kitchen design offers the flexibility to create a space around the indivi
 
 At **[Noblessa USA](https://noblessa-usa.com/contact/)**, thoughtful planning and precision craftsmanship come together to create kitchens designed around the way you live.
 
-![Modern German kitchen featuring sleek blue-gray cabinetry, a large central island with a wood countertop, integrated double ovens, minimalist lighting, and an adjoining dining area with large windows.](/assets/images/blog/30979_24_senso_485_r1_m.jpeg "noblessa USA - Modern Blue-Gray German Kitchen with Open-Concept Dining Area")
+![Modern German kitchen featuring sleek blue-gray cabinetry, a large central island with a wood countertop, integrated double ovens, minimalist lighting, and an adjoining dining area with large windows.](/assets/images/blog/30963_24_senso_485_m.jpeg "noblessa USA - Modern Blue-Gray German Kitchen with Open-Concept Dining Area")
 
 ## Start With How You Live
 
@@ -145,15 +145,9 @@ The result is more than a beautiful kitchen. It is a space that feels like it be
 
 Experience the craftsmanship, materials, and design possibilities of German kitchens at a **[Noblessa USA](https://noblessa-usa.com/contact/)** showroom:
 
-*   [Pasadena](https://noblessa-usa.com/showrooms/)
-
-
-*   [San Jose](https://noblessa-usa.com/showrooms/)
-
-
-*   [Jupiter](https://noblessa-usa.com/showrooms/)
-
-
+* [Pasadena](https://noblessa-usa.com/showrooms/)
+* [San Jose](https://noblessa-usa.com/showrooms/)
+* [Jupiter](https://noblessa-usa.com/showrooms/)
 
 ## Get a Free Consultation
 
